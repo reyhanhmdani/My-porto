@@ -61,14 +61,14 @@ export default function Header({ isDarkMode, toggleDarkMode, activeTheme, onOpen
             className="hover:text-slate-950 dark:hover:text-white transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] hover:after:w-full after:transition-all after:duration-300 after:bg-[var(--accent)]"
             style={{ '--tw-after-bg': activeTheme.accent }}
           >
-            [02] Roles
+            [02] Skills
           </a>
           <a
             href="#projects"
             className="hover:text-slate-950 dark:hover:text-white transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] hover:after:w-full after:transition-all after:duration-300 after:bg-[var(--accent)]"
             style={{ '--tw-after-bg': activeTheme.accent }}
           >
-            [03] Repos
+            [03] Projects
           </a>
           <a
             href="#experience"
@@ -195,7 +195,7 @@ export default function Header({ isDarkMode, toggleDarkMode, activeTheme, onOpen
           <div className="flex flex-col space-y-4 pt-12">
             <div className="flex items-center justify-between border-b border-white/5 pb-4">
               <span className="font-mono text-[10px] text-slate-500 uppercase tracking-wider">
-                [SYS_NAV_MENU]
+                [MENU]
               </span>
               <div className="flex items-center gap-1 font-mono text-[9px] text-green-500">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-ping"></span>
@@ -217,14 +217,14 @@ export default function Header({ isDarkMode, toggleDarkMode, activeTheme, onOpen
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-slate-300 hover:text-white transition-all flex items-center gap-2"
               >
-                <span style={{ color: activeTheme.accent }}>[02]</span> Roles
+                <span style={{ color: activeTheme.accent }}>[02]</span> Skills
               </a>
               <a
                 href="#projects"
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-slate-300 hover:text-white transition-all flex items-center gap-2"
               >
-                <span style={{ color: activeTheme.accent }}>[03]</span> Repos
+                <span style={{ color: activeTheme.accent }}>[03]</span> Projects
               </a>
               <a
                 href="#experience"

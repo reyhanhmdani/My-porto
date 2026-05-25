@@ -14,12 +14,12 @@ export default function Hero({ activeTheme, themes, setTheme, onCommandLog }) {
           <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 px-3 py-1.5 rounded-full w-fit">
             <span className="w-2 h-2 rounded-full animate-ping" style={{ backgroundColor: activeTheme.accent }}></span>
             <span className="font-mono text-[10px] uppercase tracking-widest text-slate-600 dark:text-white/80">
-              Bridging code & intelligent automation
+              Membuat Aplikasi Web & Applikasi
             </span>
           </div>
 
           <div className="space-y-2">
-            <h2 className="text-lg md:text-xl font-mono text-slate-500 dark:text-white/50">Sistem terkompilasi, saya</h2>
+            <h2 className="text-lg md:text-xl font-mono text-slate-500 dark:text-white/50">Halo, saya</h2>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tighter text-slate-900 dark:text-white leading-none">
               Raihan{' '}
               <span
@@ -46,14 +46,13 @@ export default function Hero({ activeTheme, themes, setTheme, onCommandLog }) {
           </div>
 
           <p className="text-slate-600 dark:text-white/60 max-w-xl text-xs sm:text-sm md:text-base leading-relaxed font-medium">
-            Arsitek sistem backend terukur, mesin integrasi berbasis kecerdasan buatan (AI), dan antarmuka web modern
-            berkinerja tinggi. Gunakan modul interaktif di bawah untuk beralih arsitektur!
+            Saya adalah pembuat aplikasi web yang merancang website interaktif, sistem server (backend) yang cepat dan aman, serta memanfaatkan kecerdasan buatan (AI) untuk otomatisasi sistem. Silakan pilih tombol di bawah untuk melihat simulasi kodenya!
           </p>
 
           {/* Core Engine Selector */}
           <div className="space-y-3">
             <span className="font-mono text-xs text-slate-500 dark:text-white/40 block uppercase tracking-wider">
-              Pilih Core Engine Portofolio &lt;Dinamis&gt;:
+              Pilih teknologi untuk melihat simulator kode:
             </span>
             <div className="flex flex-wrap gap-2.5">
               {/* Laravel Engine Button */}
@@ -123,11 +122,11 @@ export default function Hero({ activeTheme, themes, setTheme, onCommandLog }) {
               LIHAT_PROYEK
             </a>
             <a
-              href="#about"
+              href="#roles"
               className="px-5 py-3 rounded-xl text-xs font-bold font-mono glass-card hover:border-slate-300 dark:hover:border-white/20 text-slate-700 dark:text-white hover:scale-105 transition-all duration-300"
             >
               <div className="gloss-effect"></div>
-              BIOGRAFI_LOG()
+              KEAHLIAN_SAYA
             </a>
           </div>
         </div>

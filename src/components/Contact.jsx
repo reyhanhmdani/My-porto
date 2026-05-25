@@ -77,13 +77,13 @@ export default function Contact({ activeTheme, onRedirect }) {
                 Halo! Terima kasih banyak sudah berkunjung. 😊
               </h3>
               <p className="text-sm sm:text-base text-slate-600 dark:text-white/70 leading-relaxed font-medium">
-                Saya sangat senang dan menghargai waktumu untuk menjelajahi portofolio siber ini.
-                Saat ini, saya selalu terbuka untuk kolaborasi baru, peluang kerja (hire), diskusi arsitektur sistem,
-                atau sekadar berbagi pengalaman seputar Laravel dan Go ecosystem.
+                Saya sangat senang dan menghargai waktu Anda untuk menjelajahi portofolio ini.
+                Saat ini, saya selalu terbuka untuk kolaborasi proyek baru, peluang kerja, berdiskusi tentang pembuatan aplikasi,
+                atau sekadar berbagi pengalaman seputar teknologi Laravel dan Go.
               </p>
               <p className="text-sm text-slate-500 dark:text-white/50 leading-relaxed font-medium">
-                Jika kamu tertarik untuk bekerja sama, mendiskusikan suatu proyek, atau ingin mengenal saya lebih lanjut,
-                jangan ragu untuk menghubungi saya langsung! Kamu bisa memilih salah satu tombol komunikasi cepat di bawah ini.
+                Jika Anda tertarik untuk bekerja sama, membuat aplikasi web bersama, atau ingin mengenal saya lebih lanjut,
+                jangan ragu untuk langsung menghubungi saya! Anda bisa memilih salah satu tombol komunikasi cepat di bawah ini.
               </p>
             </div>
 
@@ -97,7 +97,7 @@ export default function Contact({ activeTheme, onRedirect }) {
                 rel="noreferrer"
                 className="flex-1 px-6 py-4 rounded-xl font-bold font-mono text-xs sm:text-sm text-white bg-green-600 hover:bg-green-700 hover:shadow-[0_0_15px_rgba(22,163,74,0.4)] hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 select-none"
               >
-                <i className="fa-brands fa-whatsapp text-lg"></i> HUBUNGI_LEWAT_WHATSAPP()
+                <i className="fa-brands fa-whatsapp text-lg"></i> HUBUNGI LEWAT WHATSAPP
               </a>
 
               {/* Email Call To Action */}
@@ -108,7 +108,7 @@ export default function Contact({ activeTheme, onRedirect }) {
                 className="flex-1 px-6 py-4 rounded-xl font-bold font-mono text-xs sm:text-sm text-black hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 select-none"
                 style={{ backgroundColor: activeTheme.accent }}
               >
-                <i className="fa-solid fa-envelope text-lg"></i> KIRIM_EMAIL_SEKARANG()
+                <i className="fa-solid fa-envelope text-lg"></i> KIRIM EMAIL SEKARANG
               </a>
             </div>
 
@@ -120,12 +120,12 @@ export default function Contact({ activeTheme, onRedirect }) {
             {/* Header info */}
             <div className="space-y-2">
               <h3 className="font-mono text-xs uppercase tracking-widest text-glow" style={{ color: activeTheme.accent }}>
-                [05] Connection Node
+                [05] Contact Information
               </h3>
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight font-sans tracking-tight">
-                Contact Me
+                Hubungi Saya
               </h2>
-              <p className="font-mono text-xs text-slate-500 dark:text-white/45">by Raihan Hamdani</p>
+              <p className="font-mono text-xs text-slate-500 dark:text-white/45">Raihan Hamdani</p>
             </div>
 
             {/* SOCIAL MEDIA LIST */}

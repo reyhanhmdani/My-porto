@@ -31,13 +31,13 @@ export default function Experience({ activeTheme }) {
       <div className="max-w-7xl mx-auto space-y-16">
         <div className="text-center max-w-xl mx-auto">
           <h3 className="font-mono text-xs uppercase tracking-widest text-glow" style={{ color: activeTheme.accent }}>
-            [04] Chronological Logs
+            [04] Experience
           </h3>
           <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight font-sans">
-            Jalur Karir & Rekayasa
+            Pengalaman & Perjalanan Karir
           </h2>
           <p className="text-slate-500 dark:text-white/50 text-xs md:text-sm font-mono mt-1">
-            &lt;Histori operasional sistem aktif&gt;
+            Riwayat pekerjaan dan proyek yang saya jalankan
           </p>
         </div>
 

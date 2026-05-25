@@ -66,10 +66,10 @@ export default function Projects({ activeTheme }) {
               className="font-mono text-xs uppercase tracking-widest text-glow"
               style={{ color: activeTheme.accent }}
             >
-              [03] Realized Deployments
+              [03] Projects
             </h3>
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mt-1 font-sans tracking-tight">
-              Karya Digital Aktif & Repositori
+              Hasil Karya & Proyek Web
             </h2>
           </div>
 

@@ -19,16 +19,16 @@ const THEMES = {
     accentGlow: 'rgba(255, 45, 32, 0.25)',
     accentBg: '#180B0B',
     filename: 'api_controller.php',
-    title: 'Laravel Engine',
+    title: 'Laravel Backend',
     skillsActive: 'stack-laravel',
     keywords: ['<?php', 'Route::get', 'Eloquent', 'Controller', '$request', 'migration', 'artisan', 'namespace', 'middleware'],
     code: `<?php
-
+ 
 namespace App\\Http\\Controllers;
-
+ 
 use App\\Models\\Developer;
 use Illuminate\\Http\\Request;
-
+ 
 class DevCoreController extends Controller 
 {
     public function deploy(Request $request) 
@@ -57,17 +57,17 @@ class DevCoreController extends Controller
     accentGlow: 'rgba(0, 173, 216, 0.25)',
     accentBg: '#05141D',
     filename: 'server.go',
-    title: 'Go Architecture',
+    title: 'Go Backend API',
     skillsActive: 'stack-golang',
     keywords: ['package main', 'err != nil', 'go func()', 'chan string', 'struct', 'defer', 'select', 'gRPC', 'nil'],
     code: `package main
-
+ 
 import (
     "fmt"
     "net/http"
     "time"
 )
-
+ 
 func handleSystem(w http.ResponseWriter, r *http.Request) {
     ch := make(chan string)
     go func() {
@@ -92,12 +92,12 @@ func handleSystem(w http.ResponseWriter, r *http.Request) {
     accentGlow: 'rgba(247, 223, 30, 0.25)',
     accentBg: '#141405',
     filename: 'pipeline.js',
-    title: 'JavaScript Pipeline',
+    title: 'React & Node.js',
     skillsActive: 'stack-javascript',
     keywords: ['async/await', 'const app', 'import', 'Promise.resolve', '=>', 'export default', 'document', 'Node.js', 'React'],
     code: `import express from 'express';
 const app = express();
-
+ 
 app.get('/api/v1/optimize', async (req, res) => {
     try {
         const stream = await initRenderEngine();

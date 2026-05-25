@@ -22,10 +22,10 @@ export default function CoreCompetencies({ activeTheme }) {
             [02] Core Competencies
           </h3>
           <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Keahlian & Spesialisasi Sistem
+            Keahlian & Teknologi Utama
           </h2>
           <p className="text-slate-500 dark:text-white/50 text-xs md:text-sm font-mono mt-1">
-            &lt;Teknologi operasional aktif&gt;
+            Teknologi yang biasa saya gunakan untuk membuat aplikasi
           </p>
         </div>
 
