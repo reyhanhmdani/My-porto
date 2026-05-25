@@ -27,15 +27,16 @@ export default function Header({ isDarkMode, toggleDarkMode, activeTheme, onOpen
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-30 transition-all duration-300 ${
-        scrolled
-          ? 'glass-card py-3 shadow-md'
-          : 'py-4'
-      }`}
-      style={{ position: 'fixed' }}
-      id="main-header"
-    >
+    <>
+      <header
+        className={`fixed top-0 left-0 w-full z-30 transition-all duration-300 ${
+          scrolled
+            ? 'bg-[#030712]/80 backdrop-blur-xl border-b border-white/5 py-3 shadow-md'
+            : 'py-4'
+        }`}
+        style={{ position: 'fixed' }}
+        id="main-header"
+      >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Interactive Logo */}
         <a href="#home" className="flex items-center gap-1.5 font-mono font-bold text-xl tracking-tight group">
@@ -174,8 +175,9 @@ export default function Header({ isDarkMode, toggleDarkMode, activeTheme, onOpen
           </button>
         </div>
       </div>
+    </header>
 
-      {/* Mobile Drawer Navigation Panel */}
+    {/* Mobile Drawer Navigation Panel */}
       <div
         className={`fixed inset-0 z-40 bg-black/75 backdrop-blur-sm lg:hidden transition-opacity duration-300 ${
           mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
@@ -292,6 +294,6 @@ export default function Header({ isDarkMode, toggleDarkMode, activeTheme, onOpen
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }
