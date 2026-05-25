@@ -10,6 +10,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CommandPalette from './components/CommandPalette';
 import ConfirmationModal from './components/ConfirmationModal';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const THEMES = {
   laravel: {
@@ -349,6 +350,9 @@ export default function App() {
         message={modalConfig.message}
         activeTheme={activeTheme}
       />
+
+      {/* Vercel Speed Insights */}
+      <SpeedInsights />
     </div>
   );
 }
