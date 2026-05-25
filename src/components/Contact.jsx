@@ -1,34 +1,12 @@
 import React from 'react';
 import Reveal from './Reveal';
 
-export default function Contact({ activeTheme }) {
+export default function Contact({ activeTheme, onRedirect }) {
   const handleNavigation = (e, url, platform) => {
     e.preventDefault();
-    let message = "";
-    
-    switch (platform) {
-      case 'LinkedIn':
-        message = "Sistem mendeteksi pengalihan eksternal. Apakah Anda bersedia terhubung dan masuk ke profil LinkedIn Raihan Hamdani?";
-        break;
-      case 'GitHub':
-        message = "Inisialisasi koneksi repositori. Apakah Anda bersedia mengunjungi ruang kode GitHub Raihan Hamdani?";
-        break;
-      case 'Instagram':
-        message = "Mengalihkan transmisi visual. Apakah Anda ingin mengunjungi galeri Instagram Raihan Hamdani?";
-        break;
-      case 'Email':
-      case 'EmailDirect':
-        message = "Mengaktifkan protokol surat elektronik. Apakah Anda bersedia membuka client email untuk menghubungi Raihan Hamdani?";
-        break;
-      case 'WhatsApp':
-      case 'WhatsAppDirect':
-        message = "Membuka protokol komunikasi langsung. Lanjutkan untuk menghubungi Raihan Hamdani via WhatsApp?";
-        break;
-      default:
-        message = "Apakah Anda yakin ingin membuka tautan eksternal ini?";
-    }
-    
-    if (window.confirm(message)) {
+    if (onRedirect) {
+      onRedirect(url, platform);
+    } else {
       window.open(url, '_blank', 'noopener,noreferrer');
     }
   };

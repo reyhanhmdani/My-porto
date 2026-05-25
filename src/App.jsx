@@ -9,6 +9,7 @@ import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CommandPalette from './components/CommandPalette';
+import ConfirmationModal from './components/ConfirmationModal';
 
 const THEMES = {
   laravel: {
@@ -125,6 +126,52 @@ export default function App() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
 
+  // Custom Redirect Confirmation Modal Configuration
+  const [modalConfig, setModalConfig] = useState({
+    isOpen: false,
+    url: '',
+    platform: '',
+    message: ''
+  });
+
+  const handleOpenRedirect = (url, platform) => {
+    let message = "";
+    switch (platform) {
+      case 'LinkedIn':
+        message = "Sistem mendeteksi pengalihan koneksi eksternal. Apakah Anda bersedia terhubung dan masuk ke profil LinkedIn Raihan?";
+        break;
+      case 'GitHub':
+        message = "Inisialisasi handshake repositori git. Apakah Anda bersedia mengonfirmasi koneksi untuk melihat kode sumber GitHub Raihan?";
+        break;
+      case 'Instagram':
+        message = "Mengalihkan transmisi grafis. Lanjutkan pengalihan untuk mengakses direktori galeri Instagram Raihan?";
+        break;
+      case 'Email':
+        message = "Mengaktifkan protokol pengiriman pesan elektronik (SMTP). Lanjutkan untuk memicu aplikasi email client Anda untuk menghubungi Raihan?";
+        break;
+      case 'WhatsApp':
+        message = "Membuka port transmisi komunikasi instan. Bersedia mengonfirmasi pengalihan protokol langsung ke WhatsApp chat Raihan?";
+        break;
+      case 'Facebook':
+        message = "Membuka tautan portal sosial media. Lanjutkan pengalihan ke laman profil Facebook Raihan?";
+        break;
+      default:
+        message = "Apakah Anda bersedia melanjutkan pengalihan koneksi ke tautan luar?";
+    }
+
+    setModalConfig({
+      isOpen: true,
+      url,
+      platform,
+      message
+    });
+  };
+
+  const handleConfirmRedirect = (url) => {
+    setModalConfig((prev) => ({ ...prev, isOpen: false }));
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   // Command results terminal log
   const [cmdResults, setCmdResults] = useState([
     { text: 'DevCore OS v1.4.0 // Ketik help untuk mengeksplorasi biner', type: 'info' }
@@ -228,6 +275,7 @@ export default function App() {
           toggleDarkMode={toggleDarkMode}
           activeTheme={activeTheme}
           onOpenTerminal={() => setIsTerminalOpen(true)}
+          onRedirect={handleOpenRedirect}
         />
       )}
 
@@ -249,7 +297,7 @@ export default function App() {
       <Experience activeTheme={activeTheme} />
 
       {/* Contact broadcast details */}
-      <Contact activeTheme={activeTheme} onTransmission={addCommandLine} />
+      <Contact activeTheme={activeTheme} onTransmission={addCommandLine} onRedirect={handleOpenRedirect} />
 
       {/* Footer credits and link */}
       <Footer activeTheme={activeTheme} onOpenTerminal={() => setIsTerminalOpen(true)} />
@@ -289,6 +337,17 @@ export default function App() {
         cmdResults={cmdResults}
         addCommandLine={addCommandLine}
         onTriggerCompile={handleTriggerCompile}
+      />
+
+      {/* Custom Redirect Confirmation Modal */}
+      <ConfirmationModal
+        isOpen={modalConfig.isOpen}
+        onClose={() => setModalConfig((prev) => ({ ...prev, isOpen: false }))}
+        onConfirm={handleConfirmRedirect}
+        url={modalConfig.url}
+        platform={modalConfig.platform}
+        message={modalConfig.message}
+        activeTheme={activeTheme}
       />
     </div>
   );
