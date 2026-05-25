@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-obsidian: #030712;
+  --color-darkgray: #0B0F19;
+
+  --color-laravel-primary: #FF2D20;
+  --color-laravel-glow: rgba(255, 45, 32, 0.25);
+  --color-laravel-bg: #180B0B;
+
+  --color-golang-primary: #00ADD8;
+  --color-golang-glow: rgba(0, 173, 216, 0.25);
+  --color-golang-bg: #05141D;
+
+  --color-javascript-primary: #F7DF1E;
+  --color-javascript-glow: rgba(247, 223, 30, 0.25);
+  --color-javascript-bg: #141405;
+}
+
+:root {
+    --accent: #FF2D20;
+    --accent-glow: rgba(255, 45, 32, 0.25);
+    --accent-bg: #180B0B;
+    --bg-base: #030712;
+    --text-base: #F3F4F6;
+    --border-color: rgba(255, 255, 255, 0.05);
+    --grid-color: rgba(255, 255, 255, 0.015);
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-base);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Custom Modern Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* Modern Glass Card Layer */
+.glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Gloss Reflection Sweep Effect */
+.gloss-effect {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+    background: radial-gradient(circle at -50% -50%, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+    transition: background 0.1s ease;
+}
+
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Background grid pattern */
+.grid-bg {
+    background-size: 60px 60px;
+    background-image: linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+                      linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+}
+
+/* Smooth Hide Scrollbar Utility */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Scanning laser preloader line */
+@keyframes laser-sweep {
+    0% {
+        top: 0%;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+.laser-line {
+    animation: laser-sweep 2.5s infinite ease-in-out;
+}
