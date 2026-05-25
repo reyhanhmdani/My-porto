@@ -2,6 +2,37 @@ import React from 'react';
 import Reveal from './Reveal';
 
 export default function Contact({ activeTheme }) {
+  const handleNavigation = (e, url, platform) => {
+    e.preventDefault();
+    let message = "";
+    
+    switch (platform) {
+      case 'LinkedIn':
+        message = "Sistem mendeteksi pengalihan eksternal. Apakah Anda bersedia terhubung dan masuk ke profil LinkedIn Raihan Hamdani?";
+        break;
+      case 'GitHub':
+        message = "Inisialisasi koneksi repositori. Apakah Anda bersedia mengunjungi ruang kode GitHub Raihan Hamdani?";
+        break;
+      case 'Instagram':
+        message = "Mengalihkan transmisi visual. Apakah Anda ingin mengunjungi galeri Instagram Raihan Hamdani?";
+        break;
+      case 'Email':
+      case 'EmailDirect':
+        message = "Mengaktifkan protokol surat elektronik. Apakah Anda bersedia membuka client email untuk menghubungi Raihan Hamdani?";
+        break;
+      case 'WhatsApp':
+      case 'WhatsAppDirect':
+        message = "Membuka protokol komunikasi langsung. Lanjutkan untuk menghubungi Raihan Hamdani via WhatsApp?";
+        break;
+      default:
+        message = "Apakah Anda yakin ingin membuka tautan eksternal ini?";
+    }
+    
+    if (window.confirm(message)) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   const socialLinks = [
     {
       platform: 'LinkedIn',
@@ -83,6 +114,7 @@ export default function Contact({ activeTheme }) {
               {/* WhatsApp Call To Action */}
               <a
                 href="https://wa.me/6285761285875"
+                onClick={(e) => handleNavigation(e, "https://wa.me/6285761285875", "WhatsApp")}
                 target="_blank"
                 rel="noreferrer"
                 className="flex-1 px-6 py-4 rounded-xl font-bold font-mono text-xs sm:text-sm text-white bg-green-600 hover:bg-green-700 hover:shadow-[0_0_15px_rgba(22,163,74,0.4)] hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 select-none"
@@ -93,6 +125,7 @@ export default function Contact({ activeTheme }) {
               {/* Email Call To Action */}
               <a
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=rey7dan7@gmail.com"
+                onClick={(e) => handleNavigation(e, "https://mail.google.com/mail/?view=cm&fs=1&to=rey7dan7@gmail.com", "Email")}
                 target='_blank'
                 className="flex-1 px-6 py-4 rounded-xl font-bold font-mono text-xs sm:text-sm text-black hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 select-none"
                 style={{ backgroundColor: activeTheme.accent }}
@@ -123,6 +156,7 @@ export default function Contact({ activeTheme }) {
                 <a
                   key={index}
                   href={link.url}
+                  onClick={(e) => handleNavigation(e, link.url, link.platform)}
                   target="_blank"
                   rel="noreferrer"
                   className="glass-card p-4 rounded-2xl border border-slate-200 dark:border-white/10 flex items-center gap-4 hover:border-accent hover:shadow-[0_0_15px_var(--accent-glow)] transition-all duration-300 group"

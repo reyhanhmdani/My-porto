@@ -16,6 +16,13 @@ export default function Header({ isDarkMode, toggleDarkMode, activeTheme, onOpen
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavigation = (e, url, message) => {
+    e.preventDefault();
+    if (window.confirm(message)) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 w-full z-30 transition-all duration-300 ${
@@ -80,6 +87,7 @@ export default function Header({ isDarkMode, toggleDarkMode, activeTheme, onOpen
           <div className="hidden sm:flex items-center gap-3 text-slate-500 dark:text-slate-400 mr-2 border-r border-slate-200 dark:border-white/10 pr-4">
             <a
               href="https://www.linkedin.com/in/raihan-hamdani-51a2b438a/"
+              onClick={(e) => handleNavigation(e, "https://www.linkedin.com/in/raihan-hamdani-51a2b438a/", "Sistem mendeteksi pengalihan eksternal. Apakah Anda bersedia terhubung dan masuk ke profil LinkedIn Raihan Hamdani?")}
               target="_blank"
               rel="noreferrer"
               className="hover:text-blue-500 transition-all duration-300 hover:scale-110"
@@ -89,6 +97,7 @@ export default function Header({ isDarkMode, toggleDarkMode, activeTheme, onOpen
             </a>
             <a
               href="https://github.com/reyhanhmdani"
+              onClick={(e) => handleNavigation(e, "https://github.com/reyhanhmdani", "Inisialisasi koneksi repositori. Apakah Anda bersedia mengunjungi ruang kode GitHub Raihan Hamdani?")}
               target="_blank"
               rel="noreferrer"
               className="hover:text-slate-900 dark:hover:text-white transition-all duration-300 hover:scale-110"
@@ -98,6 +107,7 @@ export default function Header({ isDarkMode, toggleDarkMode, activeTheme, onOpen
             </a>
             <a
               href="https://wa.me/6285761285875"
+              onClick={(e) => handleNavigation(e, "https://wa.me/6285761285875", "Membuka protokol komunikasi langsung. Lanjutkan untuk menghubungi Raihan Hamdani via WhatsApp?")}
               target="_blank"
               rel="noreferrer"
               className="hover:text-green-500 transition-all duration-300 hover:scale-110"
@@ -107,6 +117,7 @@ export default function Header({ isDarkMode, toggleDarkMode, activeTheme, onOpen
             </a>
             <a
               href="https://www.instagram.com/r_ee__yyy"
+              onClick={(e) => handleNavigation(e, "https://www.instagram.com/r_ee__yyy", "Mengalihkan transmisi visual. Apakah Anda ingin mengunjungi galeri Instagram Raihan Hamdani?")}
               target="_blank"
               rel="noreferrer"
               className="hover:text-pink-500 transition-all duration-300 hover:scale-110"
@@ -116,6 +127,7 @@ export default function Header({ isDarkMode, toggleDarkMode, activeTheme, onOpen
             </a>
             <a
               href="https://web.facebook.com/raihan.hamdani.90"
+              onClick={(e) => handleNavigation(e, "https://web.facebook.com/raihan.hamdani.90", "Membuka tautan profil sosial. Lanjutkan menuju profil Facebook Raihan Hamdani?")}
               target="_blank"
               rel="noreferrer"
               className="hover:text-blue-600 transition-all duration-300 hover:scale-110"
