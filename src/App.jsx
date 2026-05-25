@@ -19,7 +19,7 @@ const THEMES = {
     accentGlow: 'rgba(255, 45, 32, 0.25)',
     accentBg: '#180B0B',
     filename: 'api_controller.php',
-    title: 'Laravel Backend',
+    title: 'Laravel',
     skillsActive: 'stack-laravel',
     keywords: ['<?php', 'Route::get', 'Eloquent', 'Controller', '$request', 'migration', 'artisan', 'namespace', 'middleware'],
     code: `<?php
