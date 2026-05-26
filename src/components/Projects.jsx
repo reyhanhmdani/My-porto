@@ -10,7 +10,7 @@ export default function Projects({ activeTheme }) {
       title: "ayobuatbaik.com",
       stack: "laravel",
       url: "https://ayobuatbaik.com",
-      image: "/image/Porto1.avif",
+      image: "/image/ayobuatbaik.avif",
       icon: "fa-solid fa-heart-circle-check",
       desc: "Platform donasi online terpercaya mendukung berbagai program sosial dan kemanusiaan.",
       tags: ["#Laravel", "#Tailwind", "#MySQL"],
