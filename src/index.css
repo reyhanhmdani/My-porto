@@ -3,7 +3,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-sans: 'Newsreader', 'Copernicus', 'Tiempos Headline', Georgia, serif;
+  --font-serif: 'Newsreader', 'Copernicus', 'Tiempos Headline', Georgia, serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   --color-obsidian: #030712;
@@ -35,7 +36,7 @@
 body {
     background-color: var(--bg-base);
     color: var(--text-base);
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Newsreader', 'Copernicus', 'Tiempos Headline', Georgia, serif;
     overflow-x: hidden;
     transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }

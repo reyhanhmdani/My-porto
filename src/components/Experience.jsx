@@ -5,9 +5,9 @@ export default function Experience({ activeTheme }) {
   const experiences = [
     {
       year: '2025 - 2026',
-      title: 'IT & Full-Stack Developer | Digital Strategist Intern',
-      company: 'Yayasan Sayf El Falah (Klaten) & B_erl Cosmetics',
-      desc: 'Mengabdi secara profesional sebagai IT & Fullstack Developer di Yayasan Sayf El Falah (Klaten). Aktif berkontribusi di organisasi Ayo Buat Baik dan DKM Masjid Salam (Selfa), bertanggung jawab melakukan rebuild web application Ayo Buat Baik, membangun platform selfa.sch.id, serta melakukan rebuild andreraditya.guru di samping merancang proyek eksperimental lokal. Secara simultan, didelegasikan selama 4 bulan di B_erl Cosmetics sebagai Meta Ads Intern untuk menganalisis dashboard periklanan, mengoptimasi konversi pemasaran digital, serta memetakan formula konten kreatif berpotensi viral berbasis data.',
+      title: 'Full-Stack Developer & Digital Strategist',
+      company: 'Sayf El Falah • B_erl Cosmetics • DumbWays (Batch 67)',
+      desc: 'Mengabdi sebagai IT & Full-Stack Developer di Yayasan Sayf El Falah (rebuild Ayo Buat Baik, selfa.sch.id, dan andreraditya.guru), didelegasikan sebagai Meta Ads Intern di B_erl Cosmetics untuk optimasi pemasaran berbasis data, serta menyelesaikan bootcamp intensif Full-Stack Developer di DumbWays Indonesia (Batch 67) berfokus pada ekosistem Golang, React, WebSocket, dan final project ReyClinic.',
       align: 'left'
     },
     {

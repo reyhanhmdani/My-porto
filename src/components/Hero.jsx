@@ -11,22 +11,21 @@ export default function Hero({ activeTheme, themes, setTheme, onCommandLog }) {
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Profile Info Panel */}
         <div className="lg:col-span-7 flex flex-col justify-center space-y-6 md:space-y-8 z-10">
-          <div className="inline-flex items-center gap-2 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 px-3 py-1.5 rounded-full w-fit">
-            <span className="w-2 h-2 rounded-full animate-ping" style={{ backgroundColor: activeTheme.accent }}></span>
-            <span className="font-mono text-[10px] uppercase tracking-widest text-slate-600 dark:text-white/80">
-              Membuat Aplikasi Web & Applikasi
+          <div className="inline-flex items-center gap-2.5 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 px-3.5 py-1.5 rounded-full w-fit">
+            <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: activeTheme.accent }}></span>
+            <span className="font-mono text-[11px] tracking-wide text-slate-700 dark:text-slate-300">
+              Full-Stack Software Engineer • Golang &amp; Laravel
             </span>
           </div>
 
           <div className="space-y-2">
-            <h2 className="text-lg md:text-xl font-mono text-slate-500 dark:text-white/50">Halo, saya</h2>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tighter text-slate-900 dark:text-white leading-none">
+            <h2 className="text-base md:text-lg font-mono text-slate-500 dark:text-white/50">Halo, saya</h2>
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-none font-sans">
               Raihan{' '}
               <span
                 className="text-transparent bg-clip-text bg-gradient-to-r"
                 style={{
-                  backgroundImage: `linear-gradient(to right, ${activeTheme.accent}, #718096)`,
-                  filter: 'drop-shadow(0 0 10px var(--accent-glow))'
+                  backgroundImage: `linear-gradient(to right, ${activeTheme.accent}, #94A3B8)`
                 }}
                 id="accent-name"
               >
@@ -34,7 +33,7 @@ export default function Hero({ activeTheme, themes, setTheme, onCommandLog }) {
               </span>
             </h1>
             <p className="text-base md:text-xl text-slate-700 dark:text-white/85 font-mono mt-2 flex flex-wrap items-center gap-2">
-              Software Developer specialized in{' '}
+              Full-Stack Engineer focused on{' '}
               <span
                 className="text-slate-900 dark:text-white border-b-2 font-semibold"
                 style={{ borderColor: activeTheme.accent }}
@@ -45,14 +44,14 @@ export default function Hero({ activeTheme, themes, setTheme, onCommandLog }) {
             </p>
           </div>
 
-          <p className="text-slate-600 dark:text-white/60 max-w-xl text-xs sm:text-sm md:text-base leading-relaxed font-medium">
-            Saya adalah pembuat aplikasi web yang merancang website interaktif, sistem server (backend) yang cepat dan aman, serta memanfaatkan kecerdasan buatan (AI) untuk otomatisasi sistem. Silakan pilih tombol di bawah untuk melihat simulasi kodenya!
+          <p className="text-slate-600 dark:text-white/70 max-w-xl text-sm md:text-base leading-relaxed font-normal">
+            Merancang arsitektur backend berkinerja tinggi menggunakan Golang dan Laravel, serta membangun antarmuka web modern dengan React dan Tailwind CSS. Berpengalaman menangani sistem produksi nyata end-to-end, mulai dari platform donasi publik hingga aplikasi manajemen klinik medis.
           </p>
 
           {/* Core Engine Selector */}
           <div className="space-y-3">
             <span className="font-mono text-xs text-slate-500 dark:text-white/40 block uppercase tracking-wider">
-              Pilih teknologi untuk melihat simulator kode:
+              Fokus Arsitektur &amp; Teknologi:
             </span>
             <div className="flex flex-wrap gap-2.5">
               {/* Laravel Engine Button */}
@@ -104,11 +103,11 @@ export default function Hero({ activeTheme, themes, setTheme, onCommandLog }) {
               >
                 <div className="gloss-effect"></div>
                 <span className="text-xl text-[#F7DF1E]">
-                  <i className="fa-brands fa-square-js"></i>
+                  <i className="fa-brands fa-react"></i>
                 </span>
                 <div className="text-left font-sans">
                   <p className="text-[10px] text-slate-400 dark:text-white/40">Full Stack</p>
-                  <p className="text-xs font-bold text-slate-800 dark:text-white">JavaScript</p>
+                  <p className="text-xs font-bold text-slate-800 dark:text-white">React &amp; Express</p>
                 </div>
               </button>
             </div>

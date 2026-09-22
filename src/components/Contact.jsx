@@ -66,8 +66,8 @@ export default function Contact({ activeTheme, onRedirect }) {
                 [SYSTEM_STATUS: ONLINE]
               </span>
               <div className="flex items-center gap-1.5 font-mono text-[10px]">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-ping"></span>
-                <span className="text-green-500 font-bold uppercase">READY_TO_CONNECT</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                <span className="text-emerald-400 font-bold uppercase tracking-wider">AVAILABLE FOR HIRE</span>
               </div>
             </div>
 

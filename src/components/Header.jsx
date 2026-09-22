@@ -198,8 +198,8 @@ export default function Header({ isDarkMode, toggleDarkMode, activeTheme, onOpen
                 [MENU]
               </span>
               <div className="flex items-center gap-1 font-mono text-[9px] text-green-500">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-ping"></span>
-                <span>ONLINE</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                <span className="text-emerald-400">ONLINE</span>
               </div>
             </div>
 

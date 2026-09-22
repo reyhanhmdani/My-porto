@@ -128,10 +128,7 @@ export default function CanvasBackground({ activeTheme, isDarkMode }) {
       const isDark = isDarkModeRef.current;
       const theme = activeThemeRef.current;
 
-      for (let i = 0; i < floatingKeywords.length; i++) {
-        floatingKeywords[i].update();
-        floatingKeywords[i].draw();
-      }
+      // Gentle background particles
 
       for (let i = 0; i < particlesArray.length; i++) {
         particlesArray[i].update();

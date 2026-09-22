@@ -107,8 +107,8 @@ export default function Preloader({ onComplete }) {
       <div className="flex flex-col sm:flex-row justify-between items-center border-t border-white/5 pt-4 gap-2 text-[10px] text-slate-500">
         <span>RAIHAN HAMDANI // ENGINE LOADER V4.2</span>
         <div className="flex items-center gap-2">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
-          <span id="load-percent">{percent}% SECURE_LOADED</span>
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span id="load-percent">{percent}% LOADED</span>
         </div>
       </div>
     </div>

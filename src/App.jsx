@@ -92,9 +92,9 @@ func handleSystem(w http.ResponseWriter, r *http.Request) {
     accentGlow: 'rgba(247, 223, 30, 0.25)',
     accentBg: '#141405',
     filename: 'pipeline.js',
-    title: 'React & Node.js',
+    title: 'React & Express.js',
     skillsActive: 'stack-javascript',
-    keywords: ['async/await', 'const app', 'import', 'Promise.resolve', '=>', 'export default', 'document', 'Node.js', 'React'],
+    keywords: ['async/await', 'const app', 'import', 'Promise.resolve', '=>', 'export default', 'express', 'React', 'REST_API'],
     code: `import express from 'express';
 const app = express();
  
@@ -115,7 +115,7 @@ app.get('/api/v1/optimize', async (req, res) => {
       'Menjalankan V8 asynchronous parser...',
       'Import statement diverifikasi aman.',
       'Express core terhubung dengan kluster V8.',
-      'Terminal output: Server Node.js aktif di port 3000.'
+      'Terminal output: Server Express.js aktif di port 5000.'
     ]
   }
 };
