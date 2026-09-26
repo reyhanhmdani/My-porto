@@ -1,14 +1,21 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Montserrat Variable";
+  src: url("/fonts/montserrat-latin-wght-normal.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: 'Newsreader', 'Copernicus', 'Tiempos Headline', Georgia, serif;
-  --font-serif: 'Newsreader', 'Copernicus', 'Tiempos Headline', Georgia, serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: "Montserrat Variable", "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 
-  --color-obsidian: #030712;
-  --color-darkgray: #0B0F19;
+  --color-obsidian: #101010;
+  --color-darkgray: #141414;
 
   --color-laravel-primary: #FF2D20;
   --color-laravel-glow: rgba(255, 45, 32, 0.25);
@@ -24,107 +31,103 @@
 }
 
 :root {
-    --accent: #FF2D20;
-    --accent-glow: rgba(255, 45, 32, 0.25);
-    --accent-bg: #180B0B;
-    --bg-base: #030712;
-    --text-base: #F3F4F6;
-    --border-color: rgba(255, 255, 255, 0.05);
-    --grid-color: rgba(255, 255, 255, 0.015);
+  --background: #101010;
+  --sec: #a476ff;
+  --white: #dfdfdf;
+  --white-icon: #f3f3f398;
+  --white-icon-tr: #f3f3f310;
+  --container: #1414149c;
+
+  --accent: #a476ff;
+  --bg-base: #101010;
+  --text-base: #dfdfdf;
+  --border-color: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  font-family: "Montserrat Variable", "Montserrat", -apple-system, system-ui, sans-serif;
+  box-sizing: border-box;
+}
+
+*::selection {
+  background-color: var(--sec);
+  color: var(--background);
 }
 
 body {
-    background-color: var(--bg-base);
-    color: var(--text-base);
-    font-family: 'Newsreader', 'Copernicus', 'Tiempos Headline', Georgia, serif;
-    overflow-x: hidden;
-    transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: var(--background);
+  color: var(--white);
+  font-family: "Montserrat Variable", "Montserrat", -apple-system, system-ui, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Custom Modern Scrollbar */
+/* Shiny gradient animation matching dark-minimal */
+.shiny-sec {
+  background: linear-gradient(135deg, #a476ff 25%, #eee5ff 50%, #a476ff 75%);
+  background-size: 400% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100% 50%;
+  }
+  30%,
+  70% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Continuous Logo Wall Marquee Ticker */
+@keyframes scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: scroll 28s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Custom Scrollbar styles */
 ::-webkit-scrollbar {
-    width: 6px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 99px;
+  background: #1f1f1f;
+  border-radius: 99px;
+  border: 2px solid var(--background);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--accent);
-}
-
-/* Modern Glass Card Layer */
-.glass-card {
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid var(--border-color);
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-}
-
-/* Gloss Reflection Sweep Effect */
-.gloss-effect {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 10;
-    background: radial-gradient(circle at -50% -50%, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
-    transition: background 0.1s ease;
-}
-
-#particle-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
-}
-
-/* Background grid pattern */
-.grid-bg {
-    background-size: 60px 60px;
-    background-image: linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
-                      linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background: var(--sec);
 }
 
 /* Smooth Hide Scrollbar Utility */
 .no-scrollbar::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-/* Scanning laser preloader line */
-@keyframes laser-sweep {
-    0% {
-        top: 0%;
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        top: 100%;
-        opacity: 0;
-    }
-}
-
-.laser-line {
-    animation: laser-sweep 2.5s infinite ease-in-out;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
