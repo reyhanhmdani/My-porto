@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const CategoryIcons = {
-  "Backend & System Architecture": (
+  "Backend Architecture": (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#A476FF]">
       <rect width="20" height="8" x="2" y="2" rx="2" ry="2"/>
       <rect width="20" height="8" x="2" y="14" rx="2" ry="2"/>
@@ -9,7 +9,7 @@ const CategoryIcons = {
       <line x1="6" x2="6.01" y1="18" y2="18"/>
     </svg>
   ),
-  "Frontend & UI Engineering": (
+  "Frontend Development": (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#A476FF]">
       <rect width="20" height="16" x="2" y="4" rx="2"/>
       <path d="M6 8h.01"/>
@@ -17,7 +17,7 @@ const CategoryIcons = {
       <path d="M14 8h.01"/>
     </svg>
   ),
-  "DevOps, Data & Integrations": (
+  "Database & DevOps": (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#A476FF]">
       <path d="M12 2v20"/>
       <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
@@ -26,26 +26,26 @@ const CategoryIcons = {
 };
 
 export default function SkillsAccordion() {
-  const [openItem, setOpenItem] = useState("Backend & System Architecture");
+  const [openItem, setOpenItem] = useState("Backend Architecture");
 
   const skills = {
-    "Backend & System Architecture": [
-      "High-Performance Go (Gin, GORM, Native WebSockets)",
-      "Laravel 11 Modular APIs & Queue Workers (Cron Jobs)",
-      "Clean 3-Tier Layered Architecture (Handler-Service-Repo)",
-      "Interactive API Documentation with Swagger / OpenAPI",
+    "Backend Architecture": [
+      "Go & Gin (Native WebSockets)",
+      "Laravel 11 & Queue Workers",
+      "Clean 3-Tier Architecture",
+      "RESTful APIs & Swagger Docs",
     ],
-    "Frontend & UI Engineering": [
-      "React 19 & TypeScript Modern Single Page Apps (SPA)",
-      "Responsive, Sub-Second Mobile-First UI with Tailwind CSS",
-      "Progressive Web Apps (PWA) Offline-Ready Interfaces",
-      "State Management & Real-Time WebSocket Feeds",
+    "Frontend Development": [
+      "React 19 & TypeScript SPAs",
+      "Tailwind CSS Responsive UI",
+      "Real-Time WebSocket Feeds",
+      "Modern State Management",
     ],
-    "DevOps, Data & Integrations": [
-      "PostgreSQL (Neon Cloud) & MySQL Schema Optimization",
-      "Docker Containerization (Alpine Linux ~10MB footprint)",
-      "Midtrans Payment Gateway (QRIS, VA, E-Wallet)",
-      "WhatsApp Business Automation & AI-Augmented Workflows",
+    "Database & DevOps": [
+      "PostgreSQL & MySQL Optimization",
+      "Docker Alpine Containerization",
+      "Midtrans Payment Gateway",
+      "WhatsApp Business API Automation",
     ],
   };
 

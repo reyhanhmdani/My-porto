@@ -97,19 +97,19 @@ export default function App() {
 
         {/* 4. WHAT I DO (SkillsAccordion + LetterGlitch Showcase) */}
         <section id="what-i-do" className="space-y-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left: Accordion */}
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-6">
               <SkillsAccordion />
             </div>
 
-            {/* Right: Contained LetterGlitch Animation Box */}
-            <div className="lg:col-span-5 flex justify-center w-full">
-              <div className="w-full max-w-[360px] h-[340px] rounded-3xl overflow-hidden shadow-2xl p-1 bg-gradient-to-br from-[#ffffff10] via-transparent to-[#a476ff20]">
+            {/* Right: Seamless LetterGlitch Visualizer */}
+            <div className="lg:col-span-6 flex justify-center items-center w-full">
+              <div className="w-full max-w-[420px] h-[300px] sm:h-[320px] overflow-hidden flex items-center justify-center">
                 <LetterGlitch
                   glitchColors={["#5e4491", "#A476FF", "#241a38"]}
-                  glitchSpeed={35}
+                  glitchSpeed={33}
                   outerVignette={true}
                   centerVignette={false}
                   smooth={true}
