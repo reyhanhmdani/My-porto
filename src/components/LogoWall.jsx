@@ -18,7 +18,7 @@ export default function LogoWall() {
   const list = [...TECHNOLOGIES, ...TECHNOLOGIES];
 
   return (
-    <div className="relative overflow-x-hidden py-8 border-y border-[#ffffff10] select-none">
+    <div className="relative overflow-x-hidden select-none">
       {/* Side gradient masks for smooth entry and exit */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-36 bg-gradient-to-r from-[#101010] to-transparent z-20"></div>
       <div className="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-36 bg-gradient-to-l from-[#101010] to-transparent z-20"></div>
@@ -34,7 +34,7 @@ export default function LogoWall() {
             <img
               src={`/svg/${tech.file}.svg`}
               alt={tech.name}
-              className="h-6 sm:h-7 w-auto object-contain transition-transform group-hover:scale-110 opacity-85 group-hover:opacity-100"
+              className="h-6 sm:h-7 w-auto object-contain transition-transform group-hover:scale-110 opacity-60 group-hover:opacity-100"
               width="28"
               height="28"
               loading={index < TECHNOLOGIES.length ? "eager" : "lazy"}

@@ -39,14 +39,14 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
     <div className="fixed inset-0 z-[9999] bg-[#101010]/95 backdrop-blur-2xl text-slate-100 flex flex-col overflow-hidden animate-in fade-in duration-200">
       
       {/* Modal Sticky Top Header Bar */}
-      <div className="bg-[#101010]/90 backdrop-blur-xl px-4 sm:px-8 py-3.5 border-b border-[#ffffff15] flex items-center justify-between gap-4 select-none shrink-0 z-30">
-        <div className="flex items-center gap-3 min-w-0">
-          <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-lg shrink-0">
+      <div className="bg-[#101010]/90 backdrop-blur-xl px-3 sm:px-6 md:px-8 py-2.5 sm:py-3.5 border-b border-[#ffffff15] flex items-center justify-between gap-2.5 sm:gap-4 select-none shrink-0 z-30">
+        <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+          <div className="hidden sm:flex w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/5 border border-white/10 items-center justify-center text-base sm:text-lg shrink-0">
             <i className={`${project.icon} text-[#A476FF]`}></i>
           </div>
           <div className="min-w-0">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] uppercase tracking-wider text-slate-400">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-400 truncate max-w-[130px] sm:max-w-none block">
                 {project.category}
               </span>
               <span className="hidden sm:inline-block w-1 h-1 rounded-full bg-slate-600"></span>
@@ -54,46 +54,47 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
                 {isMobileFrame ? "Mobile First View" : "Desktop Web View"}
               </span>
             </div>
-            <h3 className="text-base sm:text-xl font-bold text-white font-sans truncate">
+            <h3 className="text-sm sm:text-lg md:text-xl font-bold text-white font-sans truncate leading-tight">
               {project.title}
             </h3>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-          {/* Device Mode Switcher (Visible if project supports mobile or has dual modes) */}
+        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
           {/* Device Mode Switcher (Visible if project supports mobile or has dual modes) */}
           {hasMobileImages && hasDesktopImages && (
-            <div className="flex items-center p-1 rounded-xl bg-black/60 border border-white/10 font-mono text-[11px]">
+            <div className="flex items-center p-0.5 sm:p-1 rounded-lg sm:rounded-xl bg-black/60 border border-white/10 font-mono text-[10px] sm:text-[11px]">
               <button
                 onClick={() => handleDeviceChange("desktop")}
-                className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer flex items-center gap-1.5 ${
+                className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-md sm:rounded-lg transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 ${
                   !isMobileFrame
                     ? "bg-[#A476FF]/20 border border-[#A476FF]/40 text-white font-semibold shadow-sm"
                     : "text-slate-400 hover:text-white"
                 }`}
                 title={`Mode Tampilan Desktop (${project.desktopLabel || "Admin"})`}
               >
-                <i className="fa-solid fa-laptop text-[11px]"></i>
+                <i className="fa-solid fa-laptop text-[10px] sm:text-[11px]"></i>
                 <span className="hidden md:inline">
                   {project.desktopLabel ? `Desktop (${project.desktopLabel})` : "Desktop (Admin)"}
                 </span>
-                <span className="md:hidden">Desktop</span>
+                <span className="hidden sm:inline md:hidden">Desktop</span>
+                <span className="sm:hidden text-[10px]">Web</span>
               </button>
               <button
                 onClick={() => handleDeviceChange("mobile")}
-                className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer flex items-center gap-1.5 ${
+                className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-md sm:rounded-lg transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 ${
                   isMobileFrame
                     ? "bg-[#A476FF]/20 border border-[#A476FF]/40 text-[#A476FF] font-semibold shadow-sm"
                     : "text-slate-400 hover:text-white"
                 }`}
                 title={`Mode Tampilan Smartphone (${project.mobileLabel || "User"})`}
               >
-                <i className="fa-solid fa-mobile-screen-button text-[11px]"></i>
+                <i className="fa-solid fa-mobile-screen-button text-[10px] sm:text-[11px]"></i>
                 <span className="hidden md:inline">
                   {project.mobileLabel ? `Mobile (${project.mobileLabel})` : "Mobile (User)"}
                 </span>
-                <span className="md:hidden">Mobile</span>
+                <span className="hidden sm:inline md:hidden">Mobile</span>
+                <span className="sm:hidden text-[10px]">App</span>
               </button>
             </div>
           )}
@@ -120,7 +121,7 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
 
           <button
             onClick={onClose}
-            className="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 flex items-center gap-2 text-slate-300 hover:text-white transition-colors cursor-pointer font-mono text-xs"
+            className="px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg sm:rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 flex items-center gap-1.5 sm:gap-2 text-slate-300 hover:text-white transition-colors cursor-pointer font-mono text-xs"
             title="Tutup (ESC)"
             aria-label="Close fullscreen modal"
           >
@@ -344,18 +345,18 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
             {/* Wide Panoramic Browser Frame */}
             <div className="rounded-2xl border border-white/10 bg-[#1414149c] overflow-hidden shadow-2xl">
               {/* Browser Header Bar */}
-              <div className="bg-black/80 px-4 py-2.5 border-b border-white/10 flex items-center justify-between font-mono text-xs text-slate-400 select-none">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
-                  <span className="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
-                  <span className="w-3 h-3 rounded-full bg-[#27c93f]"></span>
+              <div className="bg-black/80 px-3 sm:px-4 py-2 sm:py-2.5 border-b border-white/10 flex items-center justify-between font-mono text-xs text-slate-400 select-none gap-2">
+                <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                  <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#ff5f56]"></span>
+                  <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#ffbd2e]"></span>
+                  <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#27c93f]"></span>
                 </div>
-                <div className="bg-white/5 px-4 py-1 rounded-md border border-white/5 text-[11px] text-slate-300 max-w-md truncate flex items-center gap-2">
-                  <i className="fa-solid fa-lock text-[9px] text-emerald-400"></i>
-                  <span>{project.url}</span>
+                <div className="bg-white/5 px-2 sm:px-4 py-0.5 sm:py-1 rounded-md border border-white/5 text-[10px] sm:text-[11px] text-slate-300 min-w-0 max-w-[160px] sm:max-w-md truncate flex items-center gap-1.5 sm:gap-2">
+                  <i className="fa-solid fa-lock text-[9px] text-emerald-400 shrink-0"></i>
+                  <span className="truncate">{project.url}</span>
                 </div>
-                <span className="text-[10px] text-slate-400 font-mono">
-                  Slide {modalSlideIdx + 1} / {images.length}
+                <span className="text-[10px] text-slate-400 font-mono shrink-0">
+                  {modalSlideIdx + 1} / {images.length}
                 </span>
               </div>
 
@@ -604,20 +605,7 @@ function ProjectCard({ project, onOpenModal }) {
       </div>
 
       {/* Slider Viewport Area */}
-      <div className="h-60 sm:h-64 overflow-hidden relative border-b border-[#ffffff10] select-none bg-black">
-        {/* Floating Icon Badge */}
-        <div className="absolute top-3 left-3 bg-black/80 backdrop-blur-md border border-white/10 w-9 h-9 rounded-xl flex items-center justify-center z-20 shadow-md pointer-events-none">
-          <i className={`${project.icon} text-[#A476FF] text-base`}></i>
-        </div>
-
-        {/* Metric Chip (If Available) */}
-        {project.badgeMetric && (
-          <div className="absolute top-3 right-3 bg-black/80 backdrop-blur-md border border-white/15 px-2.5 py-1 rounded-lg text-[10px] font-mono text-emerald-300 z-20 pointer-events-none flex items-center gap-1.5 shadow-md">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>{project.badgeMetric}</span>
-          </div>
-        )}
-
+      <div className="h-64 sm:h-72 lg:h-80 overflow-hidden relative border-b border-[#ffffff10] select-none bg-black">
         {/* Sliding Image Track */}
         <div
           className="flex h-full transition-transform duration-500 ease-out"

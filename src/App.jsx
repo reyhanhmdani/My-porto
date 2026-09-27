@@ -20,10 +20,10 @@ const EXPERIENCES_DATA = [
     desc: "Spearheaded internal institutional digitization, developed selfa.sch.id, and re-architected donation & CMS platforms with database optimization.",
   },
   {
-    role: "Intern (Meta Ads & IT Ops)",
+    role: "Meta Ads & Traffic Analytics Intern",
     org: "B_ERL Cosmetics",
     period: "2025 (Internship)",
-    desc: "Ad tech performance tracking, conversion tracking integration, and cross-divisional IT workflow support.",
+    desc: "Managed Meta Ads campaigns, evaluated creative performance through key ad metrics (CTR, CPC), and analyzed inbound website traffic via Meta Pixel tracking.",
   },
   {
     role: "Backend Engineering Trainee",
@@ -44,19 +44,19 @@ export default function App() {
       {/* 1. FLOATING MINIMALIST NAVBAR (Exact DarkMinimal Layout) */}
       <Navbar />
 
-      <main className="max-w-5xl mx-auto px-6 pt-32 pb-24 flex flex-col gap-24 sm:gap-32">
+      <main className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 pt-32 pb-24 flex flex-col gap-24 sm:gap-32">
 
         {/* 2. HERO SECTION */}
         <section id="home" className="space-y-4 pt-4 text-[var(--white)]">
-          <p className="text-base sm:text-lg text-[var(--white-icon)]">
+          <p className="text-md md:text-lg text-[var(--white-icon)]">
             Hi, I'm <strong className="text-white font-semibold">Raihan Hamdani</strong>
           </p>
 
-          <div className="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-8 md:gap-6">
-            <h1 className="text-white text-5xl md:text-6xl font-medium text-pretty leading-none shrink-0">
-              Full-Stack <br /> Software Engineer
+          <div className="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-8 md:gap-4">
+            <h1 className="text-[var(--white)] text-5xl md:text-6xl font-medium text-pretty leading-none">
+              Fullstack <br /> Engineer
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-[var(--white-icon)] leading-relaxed max-w-xl">
+            <p className="text-md md:text-2xl text-[var(--white-icon)]">
               Building resilient web platforms and real-time APIs with{" "}
               <span className="text-[var(--sec)] shiny-sec font-semibold">Go</span>,{" "}
               <span className="text-[var(--sec)] shiny-sec font-semibold">Laravel</span>, and{" "}
@@ -64,8 +64,8 @@ export default function App() {
             </p>
           </div>
 
-          {/* Social Icons row (Square rounded button style from dark-minimal) */}
-          <div className="flex justify-start gap-3 pt-3 md:pt-4">
+          {/* Social Icons row (Exact match from dark-minimal home.astro) */}
+          <div className="flex justify-start gap-2 pt-3 md:pt-6">
             <a
               target="_blank"
               href="https://github.com/reyhanhmdani"
@@ -97,16 +97,16 @@ export default function App() {
 
         {/* 4. WHAT I DO (SkillsAccordion + LetterGlitch Showcase) */}
         <section id="what-i-do" className="space-y-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
             
-            {/* Left: Accordion */}
-            <div className="lg:col-span-6">
+            {/* Left: Accordion (Pinned to 400px like dark-minimal reference) */}
+            <div className="w-full lg:w-[400px] shrink-0">
               <SkillsAccordion />
             </div>
 
-            {/* Right: Seamless LetterGlitch Visualizer */}
-            <div className="lg:col-span-6 flex justify-center items-center w-full">
-              <div className="w-full max-w-[420px] h-[300px] sm:h-[320px] overflow-hidden flex items-center justify-center">
+            {/* Right: Seamless LetterGlitch Visualizer (Expands toward the left) */}
+            <div className="w-full flex-1 flex justify-center items-center h-[290px] sm:h-[300px] md:h-[320px] overflow-hidden">
+              <div className="w-full h-full flex items-center justify-center">
                 <LetterGlitch
                   glitchColors={["#5e4491", "#A476FF", "#241a38"]}
                   glitchSpeed={33}

@@ -54,7 +54,7 @@ export default function SkillsAccordion() {
   };
 
   return (
-    <div className="text-left w-full">
+    <div className="text-left w-full md:w-[400px]">
       <h3 className="text-white text-3xl md:text-4xl font-semibold mb-6 flex items-center gap-3">
         <span>What I do?</span>
         <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-[#a476ff15] text-[#A476FF] border border-[#a476ff30]">
@@ -68,7 +68,7 @@ export default function SkillsAccordion() {
             <li key={category} className="w-full">
               <div
                 onClick={() => toggleItem(category)}
-                className="w-full bg-[#1414149c] rounded-2xl text-left hover:bg-[#1a1a1acc] transition-all border border-[#ffffff15] hover:border-[#a476ff50] cursor-pointer overflow-hidden shadow-lg"
+                className="w-full md:w-[400px] bg-[#1414149c] rounded-2xl text-left hover:bg-[#1a1a1acc] transition-all border border-[#ffffff15] hover:border-[#a476ff50] cursor-pointer overflow-hidden shadow-lg"
               >
                 <div className="flex items-center gap-3.5 p-4 sm:p-5">
                   <div className="p-2 rounded-xl bg-[#a476ff10] border border-[#a476ff20] shrink-0">
