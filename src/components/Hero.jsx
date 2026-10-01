@@ -107,7 +107,7 @@ export default function Hero() {
         <div className="text-center">
           <a href="#home" className="inline-block group">
             <span className="font-sans font-black text-xl sm:text-3xl tracking-tight text-[#0A0A0A] block leading-none">
-              RAIHAN
+              REY
             </span>
             <span className="font-mono text-[8px] sm:text-[9px] tracking-[0.25em] sm:tracking-[0.3em] text-neutral-600 uppercase block mt-0.5 group-hover:text-black transition-colors">
               THE ENGINEER

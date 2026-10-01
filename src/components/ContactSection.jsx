@@ -52,7 +52,7 @@ export default function ContactSection() {
           <div className="md:col-span-4 space-y-4">
             <div>
               <span className="font-sans font-black text-2xl tracking-tight text-white block leading-none">
-                RAIHAN
+                REY
               </span>
               <span className="text-[9px] tracking-[0.25em] text-neutral-400 uppercase block mt-0.5">
                 THE ENGINEER
