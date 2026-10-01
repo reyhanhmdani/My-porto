@@ -41,14 +41,16 @@ export default function TechnicalStandards() {
       gsap.from(".standard-item", {
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 85%",
+          start: "top 92%",
           toggleActions: "play none none none",
+          once: true,
         },
-        y: 25,
+        y: 20,
         opacity: 0,
-        stagger: 0.08,
-        duration: 0.7,
-        ease: "power3.out",
+        stagger: 0.06,
+        duration: 0.5,
+        ease: "power2.out",
+        clearProps: "all",
       });
     },
     { scope: containerRef }
@@ -59,9 +61,14 @@ export default function TechnicalStandards() {
       ref={containerRef}
       className="w-full bg-[#EAE7E1] text-[#0A0A0A] border-b border-black/10 py-6 sm:py-8 select-none"
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-6 lg:gap-8">
         {STANDARDS.map((std, idx) => (
-          <div key={idx} className="standard-item flex items-start gap-3">
+          <div
+            key={idx}
+            className={`standard-item flex items-start gap-3 ${
+              idx === 4 ? "col-span-2 sm:col-span-1" : ""
+            }`}
+          >
             <div className="w-8 h-8 rounded border border-black/20 flex items-center justify-center shrink-0 text-[#0A0A0A] text-sm mt-0.5">
               <i className={std.icon}></i>
             </div>

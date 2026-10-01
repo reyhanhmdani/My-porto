@@ -13,17 +13,19 @@ export default function StoryManifesto() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 75%",
+          start: "top 88%",
           toggleActions: "play none none none",
+          once: true,
         },
       });
 
       // 1. Subtitle Tag
       tl.from(".profile-tag", {
         opacity: 0,
-        y: 20,
-        duration: 0.6,
-        ease: "power3.out",
+        y: 15,
+        duration: 0.4,
+        ease: "power2.out",
+        clearProps: "all",
       });
 
       // 2. Bold 3-line Headline Reveal
@@ -32,11 +34,12 @@ export default function StoryManifesto() {
         {
           yPercent: 100,
           opacity: 0,
-          stagger: 0.1,
-          duration: 0.8,
-          ease: "power4.out",
+          stagger: 0.08,
+          duration: 0.6,
+          ease: "power3.out",
+          clearProps: "all",
         },
-        "-=0.4"
+        "-=0.2"
       );
 
       // 3. Narrative Text Paragraphs
@@ -44,12 +47,13 @@ export default function StoryManifesto() {
         ".profile-narrative p",
         {
           opacity: 0,
-          y: 20,
-          stagger: 0.12,
-          duration: 0.8,
-          ease: "power3.out",
+          y: 15,
+          stagger: 0.08,
+          duration: 0.5,
+          ease: "power2.out",
+          clearProps: "all",
         },
-        "-=0.5"
+        "-=0.3"
       );
 
       // 4. Action Buttons
@@ -57,34 +61,26 @@ export default function StoryManifesto() {
         ".profile-cta a",
         {
           opacity: 0,
-          y: 15,
-          stagger: 0.1,
-          duration: 0.6,
+          y: 10,
+          stagger: 0.06,
+          duration: 0.4,
           ease: "power2.out",
+          clearProps: "all",
         },
-        "-=0.5"
+        "-=0.3"
       );
 
-      // 5. Right Dossier Frame & Photo Parallax Zoom-out
+      // 5. Right Dossier Frame
       tl.from(
         ".dossier-frame",
         {
           opacity: 0,
-          y: 40,
-          duration: 1,
-          ease: "power3.out",
-        },
-        "-=0.8"
-      );
-
-      tl.from(
-        ".dossier-img",
-        {
-          scale: 1.1,
-          duration: 1.4,
+          y: 25,
+          duration: 0.6,
           ease: "power2.out",
+          clearProps: "all",
         },
-        "-=0.9"
+        "-=0.4"
       );
     },
     { scope: sectionRef }

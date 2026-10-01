@@ -85,9 +85,9 @@ export default function Hero() {
       className="relative w-full bg-[#EAE7E1] text-[#0A0A0A] overflow-hidden select-none"
     >
       {/* 1. TOP EDITORIAL BAR (Integrated Flush Header matching Mafia Reference) */}
-      <header className="hero-header w-full border-b border-black/10 px-6 sm:px-10 lg:px-16 py-4 flex items-center justify-between">
+      <header className="hero-header w-full border-b border-black/10 px-4 sm:px-8 lg:px-16 py-3.5 sm:py-4 flex items-center justify-between gap-3">
         {/* Left Nav Anchors */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8 font-mono text-[11px] font-bold tracking-widest uppercase text-neutral-800">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 font-mono text-[11px] font-bold tracking-widest uppercase text-neutral-800">
           <a href="#home" className="hover:text-black transition-colors">HOME</a>
           <a href="#manifesto" className="hover:text-black transition-colors">PROFILE</a>
           <a href="#capabilities" className="hover:text-black transition-colors">STACK</a>
@@ -95,39 +95,49 @@ export default function Hero() {
           <a href="#experience" className="hover:text-black transition-colors">CAREER</a>
         </nav>
 
+        {/* Mobile/Tablet Left Badge */}
+        <div className="lg:hidden flex items-center gap-1.5 font-mono text-[10px] text-neutral-600 font-bold uppercase tracking-widest">
+          <span className="w-5 h-5 rounded-full bg-black text-white font-sans text-[10px] font-black flex items-center justify-center">
+            RH
+          </span>
+          <span className="hidden sm:inline">ENGINEER</span>
+        </div>
+
         {/* Center Brand Identity */}
         <div className="text-center">
           <a href="#home" className="inline-block group">
-            <span className="font-sans font-black text-2xl sm:text-3xl tracking-tight text-[#0A0A0A] block leading-none">
+            <span className="font-sans font-black text-xl sm:text-3xl tracking-tight text-[#0A0A0A] block leading-none">
               RAIHAN
             </span>
-            <span className="font-mono text-[9px] tracking-[0.3em] text-neutral-600 uppercase block mt-0.5 group-hover:text-black transition-colors">
+            <span className="font-mono text-[8px] sm:text-[9px] tracking-[0.25em] sm:tracking-[0.3em] text-neutral-600 uppercase block mt-0.5 group-hover:text-black transition-colors">
               THE ENGINEER
             </span>
           </a>
         </div>
 
         {/* Right Utility Handles */}
-        <div className="flex items-center gap-4 sm:gap-6 font-mono text-[11px] font-bold text-neutral-800 uppercase tracking-wider">
+        <div className="flex items-center gap-2.5 sm:gap-6 font-mono text-[11px] font-bold text-neutral-800 uppercase tracking-wider shrink-0">
           <a
             href="https://github.com/reyhanhmdani"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:flex items-center gap-1.5 hover:text-black transition-colors"
+            className="flex items-center gap-1.5 hover:text-black transition-colors p-1"
+            title="GitHub"
           >
             <i className="fa-brands fa-github text-sm"></i>
-            <span>GITHUB</span>
+            <span className="hidden sm:inline">GITHUB</span>
           </a>
           <a
             href="https://linkedin.com/in/raihan-hamdani"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:flex items-center gap-1.5 hover:text-black transition-colors"
+            className="flex items-center gap-1.5 hover:text-black transition-colors p-1"
+            title="LinkedIn"
           >
             <i className="fa-brands fa-linkedin text-sm text-[#0A66C2]"></i>
-            <span>LINKEDIN</span>
+            <span className="hidden sm:inline">LINKEDIN</span>
           </a>
-          <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-black/15 bg-black/5 text-[10px] text-emerald-800 font-bold">
+          <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full border border-black/15 bg-black/5 text-[9px] sm:text-[10px] text-emerald-800 font-bold whitespace-nowrap">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
             <span>AVAILABLE</span>
           </div>
@@ -135,24 +145,24 @@ export default function Hero() {
       </header>
 
       {/* 2. HERO MONUMENTAL STAGE */}
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-8 pb-10 sm:pb-16 flex flex-col justify-between min-h-[82vh] sm:min-h-[88vh]">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 pt-6 sm:pt-8 pb-10 sm:pb-16 flex flex-col justify-between min-h-[80vh] sm:min-h-[88vh]">
         
         {/* Top Left Quote / Manifesto */}
-        <div className="hero-quote relative z-10 text-left space-y-1 font-mono text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#1a1a1a] leading-snug max-w-xs">
+        <div className="hero-quote relative z-10 text-left space-y-1 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#1a1a1a] leading-snug max-w-xs">
           <p>LOYALTY TO CLEAN CODE.</p>
           <p>POWER IN CONCURRENCY.</p>
           <p>SYSTEMS BUILT TO SCALE.</p>
         </div>
 
         {/* GIANT MONUMENTAL NAME (100% FOCUS ON RAIHAN HAMDANI WITH STAGGER CURTAIN MASK REVEAL) */}
-        <div className="w-full my-auto py-10 sm:py-16 md:py-20 flex flex-col items-center justify-center text-center select-none">
+        <div className="w-full my-auto py-8 sm:py-16 md:py-20 flex flex-col items-center justify-center text-center select-none overflow-hidden">
           <div className="overflow-hidden">
-            <h1 className="hero-name-line font-sans font-black text-[16vw] sm:text-[14vw] md:text-[13vw] text-[#0A0A0A] tracking-[0.12em] sm:tracking-[0.16em] uppercase leading-[0.85] text-center whitespace-nowrap drop-shadow-sm will-change-transform">
+            <h1 className="hero-name-line font-sans font-black text-[15vw] sm:text-[14vw] md:text-[13vw] text-[#0A0A0A] tracking-[0.06em] sm:tracking-[0.16em] uppercase leading-[0.85] text-center whitespace-nowrap drop-shadow-sm will-change-transform">
               RAIHAN
             </h1>
           </div>
           <div className="overflow-hidden">
-            <h2 className="hero-name-line font-sans font-black text-[13.5vw] sm:text-[12vw] md:text-[11vw] text-[#0A0A0A] tracking-[0.08em] sm:tracking-[0.12em] uppercase leading-[0.85] text-center whitespace-nowrap -mt-2 sm:-mt-4 md:-mt-6 will-change-transform">
+            <h2 className="hero-name-line font-sans font-black text-[12.5vw] sm:text-[12vw] md:text-[11vw] text-[#0A0A0A] tracking-[0.04em] sm:tracking-[0.12em] uppercase leading-[0.85] text-center whitespace-nowrap -mt-1 sm:-mt-4 md:-mt-6 will-change-transform">
               HAMDANI
             </h2>
           </div>

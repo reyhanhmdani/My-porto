@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import StoryManifesto from "./components/StoryManifesto";
@@ -9,7 +11,29 @@ import ExperienceTimeline from "./components/ExperienceTimeline";
 import ContactSection from "./components/ContactSection";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function App() {
+  useEffect(() => {
+    const handleRefresh = () => {
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener("load", handleRefresh);
+    window.addEventListener("resize", handleRefresh);
+
+    const timer1 = setTimeout(handleRefresh, 300);
+    const timer2 = setTimeout(handleRefresh, 800);
+    const timer3 = setTimeout(handleRefresh, 1500);
+
+    return () => {
+      window.removeEventListener("load", handleRefresh);
+      window.removeEventListener("resize", handleRefresh);
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+    };
+  }, []);
   return (
     <div className="bg-[#0A0A0A] text-[#ededed] min-h-screen selection:bg-[#0A0A0A] selection:text-white relative overflow-x-hidden">
       

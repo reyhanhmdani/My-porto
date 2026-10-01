@@ -45,17 +45,19 @@ export default function ExperienceTimeline() {
 
   useGSAP(
     () => {
-      gsap.from(".career-card", {
+      gsap.from(".career-card-wrapper", {
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 80%",
+          start: "top 92%",
           toggleActions: "play none none none",
+          once: true,
         },
-        y: 35,
+        y: 20,
         opacity: 0,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: "power3.out",
+        stagger: 0.08,
+        duration: 0.5,
+        ease: "power2.out",
+        clearProps: "all",
       });
     },
     { scope: containerRef }
@@ -81,43 +83,42 @@ export default function ExperienceTimeline() {
       {/* Editorial Ledger Cards with GSAP Stagger */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {EXPERIENCES.map((item, idx) => (
-          <div
-            key={idx}
-            className="career-card bg-[#121212] border border-white/10 hover:border-white/30 rounded-sm p-6 sm:p-7 flex flex-col justify-between space-y-4 group transition-all duration-300 hover:-translate-y-1 shadow-lg"
-          >
-            {/* Top Indicator */}
-            <div className="flex items-center justify-between font-mono text-xs border-b border-white/10 pb-3">
-              <span className="font-sans font-black text-xl text-neutral-600 group-hover:text-white transition-colors">
-                {item.num}
-              </span>
-              <span className="text-[11px] font-semibold text-neutral-300 bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-sm">
-                {item.period}
-              </span>
-            </div>
-
-            {/* Role & Org */}
-            <div className="space-y-1.5">
-              <h3 className="font-syne font-bold text-base sm:text-lg text-white tracking-wide uppercase">
-                {item.role}
-              </h3>
-              <p className="font-mono text-xs text-neutral-300 tracking-wider uppercase font-semibold">
-                {item.org}
-              </p>
-              <p className="text-xs text-neutral-400 leading-relaxed font-normal pt-1 font-sans">
-                {item.desc}
-              </p>
-            </div>
-
-            {/* Tech Tags */}
-            <div className="pt-3 border-t border-white/[0.06] flex flex-wrap gap-1.5">
-              {item.tags.map((tag, tIdx) => (
-                <span
-                  key={tIdx}
-                  className="font-mono text-[10px] text-neutral-400 bg-black/40 border border-white/5 px-2 py-0.5 rounded-sm"
-                >
-                  #{tag}
+          <div key={idx} className="career-card-wrapper h-full">
+            <div className="career-card bg-[#121212] border border-white/10 hover:border-white/30 rounded-sm p-6 sm:p-7 flex flex-col justify-between space-y-4 group transition-all duration-300 hover:-translate-y-1 shadow-lg h-full">
+              {/* Top Indicator */}
+              <div className="flex items-center justify-between font-mono text-xs border-b border-white/10 pb-3">
+                <span className="font-sans font-black text-xl text-neutral-600 group-hover:text-white transition-colors">
+                  {item.num}
                 </span>
-              ))}
+                <span className="text-[11px] font-semibold text-neutral-300 bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-sm">
+                  {item.period}
+                </span>
+              </div>
+
+              {/* Role & Org */}
+              <div className="space-y-1.5">
+                <h3 className="font-syne font-bold text-base sm:text-lg text-white tracking-wide uppercase">
+                  {item.role}
+                </h3>
+                <p className="font-mono text-xs text-neutral-300 tracking-wider uppercase font-semibold">
+                  {item.org}
+                </p>
+                <p className="text-xs text-neutral-400 leading-relaxed font-normal pt-1 font-sans">
+                  {item.desc}
+                </p>
+              </div>
+
+              {/* Tech Tags */}
+              <div className="pt-3 border-t border-white/[0.06] flex flex-wrap gap-1.5">
+                {item.tags.map((tag, tIdx) => (
+                  <span
+                    key={tIdx}
+                    className="font-mono text-[10px] text-neutral-400 bg-black/40 border border-white/5 px-2 py-0.5 rounded-sm"
+                  >
+                    #{tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         ))}
