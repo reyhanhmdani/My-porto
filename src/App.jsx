@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import StoryManifesto from "./components/StoryManifesto";
+import TechnicalStandards from "./components/TechnicalStandards";
 import LogoWall from "./components/LogoWall";
 import Projects from "./components/Projects";
 import ExperienceTimeline from "./components/ExperienceTimeline";
@@ -22,24 +23,27 @@ export default function App() {
       {/* 3. THE MANIFESTO SECTION (Exact Mafia "THE STORY" 1:1 Layout) */}
       <StoryManifesto />
 
-      {/* 4. DEEP NOIR TECHNICAL PORTFOLIO STAGE */}
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col gap-24 sm:gap-32 pt-16 pb-20">
+      {/* 4. TECHNICAL ASSURANCE STRIP (Exact Mafia 5-Item Horizontal Utility Bar) */}
+      <TechnicalStandards />
+
+      {/* 5. DEEP NOIR TECHNICAL PORTFOLIO STAGE */}
+      <main className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex flex-col gap-24 sm:gap-32 pt-16 pb-12">
         
-        {/* Continuous Logo Wall (Infinite Tech Marquee Ticker) */}
-        <div className="border-y border-white/[0.06] py-6 -mx-6 sm:-mx-8 lg:-mx-12 px-6 sm:px-8 lg:px-12 bg-[#0c0c0c]/60 backdrop-blur-sm">
+        {/* Continuous Tech Stack Marquee Ticker */}
+        <div className="border-y border-white/[0.06] py-6 -mx-6 sm:-mx-10 lg:-mx-16 px-6 sm:px-10 lg:px-16 bg-[#0c0c0c]/80 backdrop-blur-sm">
           <LogoWall />
         </div>
 
-        {/* Selected Engineering Projects & Case Studies (Hero Flagship + Grid) */}
+        {/* 6. CHOOSE YOUR EDITION (4-Column Projects Grid matching Mafia Game Editions) */}
         <Projects />
 
-        {/* Chronological Career Experience & Education */}
+        {/* 7. CAREER CHRONOLOGY (Sharp Noir Ledger Cards) */}
         <ExperienceTimeline />
 
-        {/* Contact Billboard & Editorial Footer */}
-        <ContactSection />
+      </main>
 
-      </div>
+      {/* 8. EDITORIAL 5-COLUMN DIRECTORY FOOTER (Exact Mafia Bottom Footer) */}
+      <ContactSection />
 
       {/* Vercel Speed Insights */}
       <SpeedInsights />

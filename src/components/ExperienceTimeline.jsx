@@ -2,6 +2,7 @@ import React from "react";
 
 const EXPERIENCES = [
   {
+    num: "01",
     role: "Fullstack Engineering Graduate",
     org: "PT. DumbWays Indonesia Teknologi",
     period: "2026 (Batch 67)",
@@ -9,6 +10,7 @@ const EXPERIENCES = [
     tags: ["Go (Golang)", "Gin Engine", "React 19", "WebSockets", "Clean Architecture"],
   },
   {
+    num: "02",
     role: "Full-Stack Developer",
     org: "Lembaga Sayf El Falah",
     period: "2025 — 2026",
@@ -16,6 +18,7 @@ const EXPERIENCES = [
     tags: ["Laravel 11", "MySQL Optimization", "Midtrans Gateway", "Queue Workers"],
   },
   {
+    num: "03",
     role: "Meta Ads & Traffic Analytics Intern",
     org: "B_ERL Cosmetics",
     period: "2025 (Internship)",
@@ -23,6 +26,7 @@ const EXPERIENCES = [
     tags: ["Meta Pixel", "Conversion Analytics", "Traffic Funnels", "Performance Metrics"],
   },
   {
+    num: "04",
     role: "Backend Engineering Trainee",
     org: "Pondok IT Yogyakarta",
     period: "2022 — 2025",
@@ -33,15 +37,15 @@ const EXPERIENCES = [
 
 export default function ExperienceTimeline() {
   return (
-    <section id="experience" className="space-y-10 pt-6 select-none">
+    <section id="experience" className="space-y-8 pt-6 select-none">
       {/* Editorial Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/[0.08] pb-5">
         <div>
           <span className="font-mono text-xs text-[#A476FF] uppercase tracking-widest block mb-1">
-            [04] Chronology &amp; Career
+            [05] Career Chronology
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-white uppercase">
-            Experience &amp; Education
+          <h2 className="font-sans font-black text-3xl sm:text-5xl tracking-tight text-white uppercase">
+            EXPERIENCE &amp; EDUCATION
           </h2>
         </div>
         <p className="font-mono text-xs text-slate-400 max-w-md leading-relaxed md:text-right">
@@ -49,48 +53,46 @@ export default function ExperienceTimeline() {
         </p>
       </div>
 
-      {/* Connected Chronological Timeline (High-Contrast Noir Editorial) */}
-      <div className="relative max-w-4xl mx-auto pl-6 sm:pl-8 border-l border-white/15 space-y-12">
+      {/* Editorial Ledger Cards (Exact Mafia Sharp Noir Styling) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {EXPERIENCES.map((item, idx) => (
-          <div key={idx} className="relative group">
-            {/* Luminous Node on Vertical Line */}
-            <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#0a0a0a] border-2 border-white/40 group-hover:border-[#A476FF] group-hover:scale-125 transition-all duration-300">
-              <div className="w-1.5 h-1.5 rounded-full bg-white/60 group-hover:bg-[#A476FF] mx-auto mt-[2px] transition-colors" />
+          <div
+            key={idx}
+            className="bg-[#121212] border border-white/10 hover:border-white/30 rounded-sm p-6 sm:p-7 flex flex-col justify-between space-y-4 group transition-all duration-300 hover:-translate-y-1 shadow-lg"
+          >
+            {/* Top Indicator */}
+            <div className="flex items-center justify-between font-mono text-xs border-b border-white/10 pb-3">
+              <span className="font-sans font-black text-xl text-neutral-600 group-hover:text-white transition-colors">
+                {item.num}
+              </span>
+              <span className="text-[11px] font-semibold text-neutral-300 bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-sm">
+                {item.period}
+              </span>
             </div>
 
-            {/* Card Content */}
-            <div className="bg-[#121212]/80 hover:bg-[#161616] border border-white/[0.08] hover:border-white/20 rounded-2xl p-6 sm:p-7 transition-all duration-300 space-y-3 shadow-lg">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/[0.06] pb-3">
-                <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight font-sans">
-                    {item.role}
-                  </h3>
-                  <div className="flex items-center gap-2 mt-0.5">
-                    <span className="text-xs sm:text-sm text-slate-300 font-mono">
-                      {item.org}
-                    </span>
-                  </div>
-                </div>
-                <span className="font-mono text-xs font-semibold text-[#A476FF] bg-[#a476ff15] border border-[#a476ff30] px-3 py-1 rounded-full w-fit shrink-0">
-                  {item.period}
-                </span>
-              </div>
-
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-normal">
+            {/* Role & Org */}
+            <div className="space-y-1.5">
+              <h3 className="font-sans font-bold text-base sm:text-lg text-white tracking-wide uppercase">
+                {item.role}
+              </h3>
+              <p className="font-mono text-xs text-[#A476FF] tracking-wider uppercase font-semibold">
+                {item.org}
+              </p>
+              <p className="text-xs text-neutral-400 leading-relaxed font-normal pt-1">
                 {item.desc}
               </p>
+            </div>
 
-              {/* Technologies Tags */}
-              <div className="flex flex-wrap gap-1.5 pt-2">
-                {item.tags.map((tag, tIdx) => (
-                  <span
-                    key={tIdx}
-                    className="font-mono text-[10px] text-slate-400 bg-white/5 border border-white/5 px-2.5 py-0.5 rounded-md"
-                  >
-                    #{tag}
-                  </span>
-                ))}
-              </div>
+            {/* Tech Tags */}
+            <div className="pt-3 border-t border-white/[0.06] flex flex-wrap gap-1.5">
+              {item.tags.map((tag, tIdx) => (
+                <span
+                  key={tIdx}
+                  className="font-mono text-[10px] text-neutral-400 bg-black/40 border border-white/5 px-2 py-0.5 rounded-sm"
+                >
+                  #{tag}
+                </span>
+              ))}
             </div>
           </div>
         ))}

@@ -531,17 +531,10 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
   );
 }
 
-function ProjectCard({ project, onOpenModal, isFeatured = false }) {
+function ProjectCard({ project, onOpenModal }) {
   const [currentIdx, setCurrentIdx] = useState(0);
   const images = project.images || [project.image];
-  const isMobileProject = project.device === "mobile";
   const currentImg = images[currentIdx] || "";
-  const isCurrentSlideMobile =
-    (project.mobileImages && project.mobileImages.includes(currentImg)) ||
-    currentImg.includes("patient") ||
-    currentImg.includes("ayobuatbaik_1") ||
-    currentImg.includes("ayobuatbaik_2") ||
-    (isMobileProject && !currentImg.includes("admin"));
 
   const handlePrev = (e) => {
     e.stopPropagation();
@@ -553,181 +546,105 @@ function ProjectCard({ project, onOpenModal, isFeatured = false }) {
     setCurrentIdx((prev) => (prev + 1) % images.length);
   };
 
-  const handleSelectDot = (e, index) => {
-    e.stopPropagation();
-    setCurrentIdx(index);
-  };
+  const isFlagship = project.title.toLowerCase().includes("clinic");
+  const badgeLabel = isFlagship
+    ? "FLAGSHIP SYSTEM"
+    : project.stack === "laravel"
+    ? "HIGH TRAFFIC"
+    : project.stack === "golang"
+    ? "CONCURRENT ENGINE"
+    : "DIGITAL PLATFORM";
 
-  const handleLaunch = (e) => {
-    e.stopPropagation();
-  };
+  const metricValue = project.badgeMetric || (isFlagship ? "10.29 MB RAM" : project.stack === "laravel" ? "80K+ DONORS" : "SPA ARCH");
 
   return (
     <div
       onClick={() => onOpenModal(project)}
-      className={`bg-[#121212]/90 border border-white/10 hover:border-white/30 rounded-3xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)] cursor-pointer flex flex-col h-full overflow-hidden group ${
-        isFeatured ? "md:col-span-2 border-white/20 shadow-[0_15px_35px_rgba(0,0,0,0.7)]" : ""
-      }`}
+      className="bg-[#121212] border border-white/10 hover:border-white/30 rounded-sm overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)] cursor-pointer select-none"
     >
-      {/* Flagship Highlight Banner */}
-      {isFeatured && (
-        <div className="bg-[#18181b] px-4 py-2 border-b border-white/10 flex items-center justify-between font-mono text-[11px] select-none">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-white font-bold tracking-wider uppercase">
-              Featured Flagship Project
-            </span>
-          </div>
-          <span className="text-slate-400 hidden sm:inline">
-            Go &amp; Gin • WebSockets • React 19 • 10.29 MB RAM Idle
-          </span>
-        </div>
-      )}
-
-      {/* Browser / Device Mockup Header Bar */}
-      <div className="bg-black/80 px-4 py-2.5 border-b border-[#ffffff10] flex items-center justify-between relative z-20 select-none">
-        {isCurrentSlideMobile ? (
-          <div className="flex items-center gap-1.5 text-slate-400 font-mono text-[10px]">
-            <span className="flex items-center gap-1 text-emerald-400">
-              <i className="fa-solid fa-signal text-[8px]"></i>
-              <i className="fa-solid fa-wifi text-[8px]"></i>
-            </span>
-            <span className="text-[#A476FF] font-semibold text-[9px]">
-              {project.mobileLabel ? `MOBILE (${project.mobileLabel.toUpperCase()})` : "MOBILE APP"}
-            </span>
-          </div>
-        ) : (
-          <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></span>
-            <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></span>
-            <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></span>
-            <span className="hidden sm:inline font-mono text-[9px] text-slate-500 ml-1">
-              {project.desktopLabel ? `(${project.desktopLabel})` : "DESKTOP"}
-            </span>
-          </div>
-        )}
-
-        <div className="font-mono text-[10px] text-slate-400 flex items-center gap-1.5 bg-white/5 px-3 py-0.5 rounded-md border border-white/5 max-w-[190px] truncate">
-          {isCurrentSlideMobile ? (
-            <i className="fa-solid fa-mobile-screen text-[9px] text-[#A476FF]"></i>
-          ) : (
-            <i className="fa-solid fa-lock text-[8px] text-emerald-400"></i>
-          )}
-          <span>{project.url.replace("https://", "")}</span>
-        </div>
-
-        <span className="font-mono text-[10px] text-slate-400">
-          {currentIdx + 1}/{images.length}
+      {/* Top Edition Badge Strip (Exact Mafia Edition Header) */}
+      <div className="bg-[#181818] px-3.5 py-2 border-b border-white/10 flex items-center justify-between font-mono text-[10px] text-slate-400">
+        <span className="text-white font-bold tracking-wider uppercase flex items-center gap-1.5">
+          {isFlagship && <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />}
+          {badgeLabel}
         </span>
+        <span className="text-slate-500 uppercase">{project.stack}</span>
       </div>
 
-      {/* Slider Viewport Area */}
-      <div className="h-64 sm:h-72 lg:h-80 overflow-hidden relative border-b border-[#ffffff10] select-none bg-black">
-        {/* Sliding Image Track */}
-        <div
-          className="flex h-full transition-transform duration-500 ease-out"
-          style={{ transform: `translateX(-${currentIdx * 100}%)` }}
-        >
-          {images.map((imgSrc, imgIdx) => {
-            const isSlideMobile =
-              (project.mobileImages && project.mobileImages.includes(imgSrc)) ||
-              imgSrc.includes("patient") ||
-              imgSrc.includes("ayobuatbaik_1") ||
-              imgSrc.includes("ayobuatbaik_2") ||
-              (isMobileProject && !imgSrc.includes("admin"));
-            return (
-              <div
-                key={imgIdx}
-                className={`w-full h-full shrink-0 relative flex items-center justify-center ${
-                  isSlideMobile ? "bg-black p-2" : "bg-black"
-                }`}
-              >
-                <img
-                  src={imgSrc}
-                  alt={`${project.title} slide ${imgIdx + 1}`}
-                  className={`w-full h-full ${
-                    isSlideMobile
-                      ? "object-contain rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.8)] border border-white/10 group-hover:scale-105"
-                      : "object-cover object-top group-hover:scale-102"
-                  } transition-transform duration-500`}
-                />
-              </div>
-            );
-          })}
-        </div>
+      {/* Cinematic Preview Image (Noir High-Contrast) */}
+      <div className="relative aspect-[16/10] bg-black overflow-hidden border-b border-white/10">
+        <img
+          src={currentImg}
+          alt={project.title}
+          className="w-full h-full object-cover object-top grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
 
-        {/* Prev / Next Controls */}
+        {/* Slide Controls if Multi-image */}
         {images.length > 1 && (
-          <>
+          <div className="absolute bottom-2 right-2 flex items-center gap-1 z-20">
             <button
               onClick={handlePrev}
-              className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/75 hover:bg-black text-white border border-white/20 flex items-center justify-center transition-all duration-200 z-20 opacity-80 hover:opacity-100 hover:scale-110 cursor-pointer shadow-md"
-              title="Slide Sebelumnya"
-              aria-label="Previous Slide"
+              className="w-5 h-5 rounded bg-black/80 hover:bg-black text-white text-[9px] flex items-center justify-center border border-white/20"
             >
-              <i className="fa-solid fa-chevron-left text-[11px]"></i>
+              ◀
             </button>
+            <span className="font-mono text-[9px] text-slate-300 px-1 bg-black/80 rounded">
+              {currentIdx + 1}/{images.length}
+            </span>
             <button
               onClick={handleNext}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/75 hover:bg-black text-white border border-white/20 flex items-center justify-center transition-all duration-200 z-20 opacity-80 hover:opacity-100 hover:scale-110 cursor-pointer shadow-md"
-              title="Slide Selanjutnya"
-              aria-label="Next Slide"
+              className="w-5 h-5 rounded bg-black/80 hover:bg-black text-white text-[9px] flex items-center justify-center border border-white/20"
             >
-              <i className="fa-solid fa-chevron-right text-[11px]"></i>
+              ▶
             </button>
-
-            {/* Pagination Dots */}
-            <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-20 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/15">
-              {images.map((_, dotIdx) => (
-                <button
-                  key={dotIdx}
-                  onClick={(e) => handleSelectDot(e, dotIdx)}
-                  className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                    dotIdx === currentIdx
-                      ? "w-5 bg-[#A476FF]"
-                      : "w-1.5 bg-white/40 hover:bg-white/70"
-                  }`}
-                  aria-label={`Go to slide ${dotIdx + 1}`}
-                />
-              ))}
-            </div>
-          </>
+          </div>
         )}
       </div>
 
-      {/* Card Content */}
-      <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+      {/* Card Content & Specs */}
+      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-4">
         <div className="space-y-2">
-          <div className="flex items-center justify-between gap-2">
-            <h4 className="font-sans text-xl font-bold text-white group-hover:text-[#A476FF] transition-colors duration-200 truncate">
-              {project.title}
-            </h4>
-            <span className="text-[11px] font-mono text-slate-400 group-hover:text-[#A476FF] transition-colors flex items-center gap-1 shrink-0">
-              Case Study <i className="fa-solid fa-arrow-right text-[9px]"></i>
-            </span>
-          </div>
-          <p className="text-xs text-slate-400 leading-relaxed font-normal line-clamp-2">
-            {project.desc}
+          <h4 className="font-sans font-black text-base uppercase tracking-wider text-white group-hover:text-white transition-colors truncate">
+            {project.title}
+          </h4>
+          <p className="font-mono text-[10px] text-slate-400 uppercase tracking-widest line-clamp-1">
+            {project.category}
           </p>
+
+          {/* Edition Specs (Bullet Items matching Mafia Edition Details) */}
+          <div className="pt-2 border-t border-white/[0.06] space-y-1 font-mono text-[11px] text-neutral-400">
+            <p className="flex items-center gap-2">
+              <span className="text-white">•</span>
+              <span className="truncate">{project.tags[0] || "Clean Architecture"}</span>
+            </p>
+            <p className="flex items-center gap-2">
+              <span className="text-white">•</span>
+              <span className="truncate">{project.tags[1] || "Production Scalable"}</span>
+            </p>
+            <p className="flex items-center gap-2">
+              <span className="text-white">•</span>
+              <span className="truncate">{project.tags[2] || "Optimized Schema"}</span>
+            </p>
+          </div>
         </div>
 
-        <div className="flex items-center justify-between pt-4 border-t border-[#ffffff10] font-mono text-[10px]">
-          <div className="flex flex-wrap gap-1.5 text-slate-400">
-            {project.tags.slice(0, 3).map((tag, tIdx) => (
-              <span key={tIdx} className="px-2 py-0.5 rounded-md bg-white/5 border border-white/5">
-                {tag}
-              </span>
-            ))}
+        {/* Bottom Row: Price/Metric on Left + Solid Button on Right */}
+        <div className="pt-4 border-t border-white/10 flex items-center justify-between font-mono">
+          <div className="space-y-0.5">
+            <span className="text-[9px] text-slate-500 uppercase block tracking-wider">Benchmark</span>
+            <span className="text-sm font-black text-white font-sans tracking-tight">
+              {metricValue}
+            </span>
           </div>
-          <a
-            href={project.url}
-            onClick={handleLaunch}
-            target="_blank"
-            rel="noreferrer"
-            className="text-white hover:text-[#A476FF] flex items-center gap-1.5 font-mono font-bold shrink-0 ml-2"
+
+          <button
+            onClick={() => onOpenModal(project)}
+            className="px-3.5 py-1.5 bg-white text-black font-bold font-mono text-[10px] uppercase tracking-wider rounded-sm hover:bg-neutral-300 transition-colors shadow-sm flex items-center gap-1.5"
           >
-            LAUNCH <i className="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
-          </a>
+            <span>CASE STUDY</span>
+            <span className="text-[8px]">▶</span>
+          </button>
         </div>
       </div>
     </div>
@@ -975,30 +892,30 @@ export default function Projects({ activeTheme = { accent: "#A476FF" } }) {
   });
 
   return (
-    <section id="projects" className="space-y-8 pt-4 select-none">
-      {/* Editorial Section Header */}
+    <section id="projects" className="space-y-8 pt-6 select-none">
+      {/* Editorial Section Header (Exact Mafia "CHOOSE YOUR EDITION" Header) */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/[0.08] pb-5">
         <div>
           <span className="font-mono text-xs text-[#A476FF] uppercase tracking-widest block mb-1">
-            [03] Selected Case Studies
+            [04] Production Systems
           </span>
-          <h2 className="font-display text-4xl sm:text-6xl font-bold tracking-tight text-white uppercase">
-            Engineering Projects
+          <h2 className="font-sans font-black text-3xl sm:text-5xl tracking-tight text-white uppercase">
+            CHOOSE YOUR EDITION
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 max-w-xl mt-1.5 leading-relaxed font-sans">
-            Klik kartu mana saja untuk membuka popup modal interaktif, flow diagram sistem, dan arsitektur teknis lengkapnya.
+            Klik kartu sistem mana saja untuk membuka popup modal interaktif, flow diagram arsitektur, dan benchmark performa teknisnya.
           </p>
         </div>
 
         {/* High-Contrast Filter Tabs */}
-        <div className="flex items-center gap-1.5 bg-[#121212] p-1.5 rounded-2xl border border-white/10 font-mono text-xs text-slate-300 w-fit self-start md:self-end">
+        <div className="flex items-center gap-1.5 bg-[#121212] p-1.5 rounded-sm border border-white/10 font-mono text-xs text-slate-300 w-fit self-start md:self-end">
           {["all", "golang", "laravel", "react"].map((tab) => (
             <button
               key={tab}
               onClick={() => setFilter(tab)}
-              className={`px-4 py-1.5 rounded-xl font-medium transition-all duration-200 cursor-pointer capitalize ${
+              className={`px-3.5 py-1.5 rounded-sm font-medium transition-all duration-200 cursor-pointer capitalize text-xs ${
                 filter === tab
-                  ? "bg-white text-black font-bold shadow-md"
+                  ? "bg-white text-black font-bold shadow-sm"
                   : "text-slate-400 hover:text-white"
               }`}
             >
@@ -1008,25 +925,19 @@ export default function Projects({ activeTheme = { accent: "#A476FF" } }) {
         </div>
       </div>
 
-      {/* Projects Grid with Flagship Hero Feature */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects-grid">
-        {filteredProjects.map((project, index) => {
-          const isItemFeatured = filter === "all" && index === 0;
-          return (
-            <Reveal
-              key={project.title}
-              className={`h-full flex flex-col transition-all duration-500 ${
-                isItemFeatured ? "md:col-span-2" : ""
-              }`}
-            >
-              <ProjectCard
-                project={project}
-                onOpenModal={setSelectedProject}
-                isFeatured={isItemFeatured}
-              />
-            </Reveal>
-          );
-        })}
+      {/* 4-Column Edition Cards Grid (Exact Mafia Reference Grid) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5" id="projects-grid">
+        {filteredProjects.map((project) => (
+          <Reveal
+            key={project.title}
+            className="h-full flex flex-col transition-all duration-500"
+          >
+            <ProjectCard
+              project={project}
+              onOpenModal={setSelectedProject}
+            />
+          </Reveal>
+        ))}
       </div>
 
       {/* Fullscreen Interactive Project Detail & Flow Popup Modal */}
