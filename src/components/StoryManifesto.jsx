@@ -8,54 +8,73 @@ export default function StoryManifesto() {
         {/* Left Column: Bold Editorial Narrative (Exact Mafia "THE STORY" Layout) */}
         <div className="lg:col-span-6 space-y-6">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-neutral-600 block">
-            THE MANIFESTO
+            [02] THE PROFILE &amp; PHILOSOPHY
           </span>
 
-          <h2 className="font-sans font-black text-4xl sm:text-6xl md:text-7xl tracking-tighter uppercase leading-[0.9] text-[#0A0A0A]">
-            RESILIENT.<br />
-            SCALABLE.<br />
-            PERFORMANT.
+          <h2 className="font-syne font-black text-4xl sm:text-6xl md:text-7xl tracking-tighter uppercase leading-[0.9] text-[#0A0A0A]">
+            PRECISION.<br />
+            RESILIENCE.<br />
+            MASTERY.
           </h2>
 
-          <p className="font-mono text-xs sm:text-sm text-neutral-700 leading-relaxed max-w-lg">
-            Building resilient web platforms and real-time APIs with Go, Laravel, and React. Mastered 3-tier clean architecture, database query optimization, and high-concurrency production deployments that endure under real-world loads.
-          </p>
+          <div className="space-y-3 font-sans text-xs sm:text-sm text-neutral-800 leading-relaxed max-w-lg font-normal">
+            <p>
+              Saya adalah <strong>Full-Stack Software Engineer</strong> yang berfokus pada rekayasa backend performa tinggi (<strong>Go, Gin</strong>), sistem web enterprise yang scalable (<strong>Laravel</strong>), dan antarmuka web modern yang responsif (<strong>React</strong>).
+            </p>
+            <p className="text-neutral-700">
+              Bagi saya, rekayasa perangkat lunak bukan sekadar membuat fitur berjalan, melainkan membangun arsitektur 3-tier yang kokoh, kueri database yang teroptimasi, dan integrasi real-time yang terbukti tangguh di bawah beban production nyata.
+            </p>
+          </div>
 
-          <div className="pt-2">
+          <div className="pt-2 flex flex-wrap items-center gap-3">
             <a
               href="#projects"
-              className="inline-block px-8 py-3.5 bg-[#0A0A0A] text-white font-mono text-xs uppercase tracking-widest font-bold rounded-sm hover:bg-neutral-800 transition-all shadow-md active:scale-95"
+              className="inline-block px-7 py-3.5 bg-[#0A0A0A] text-white font-mono text-xs uppercase tracking-widest font-bold rounded-sm hover:bg-neutral-800 transition-all shadow-md active:scale-95"
             >
-              DISCOVER CASE STUDIES
+              EXPLORE WORKS
+            </a>
+            <a
+              href="https://linkedin.com/in/raihan-hamdani"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-transparent border border-black/30 text-[#0A0A0A] font-mono text-xs uppercase tracking-widest font-bold rounded-sm hover:bg-black/5 transition-all active:scale-95"
+            >
+              <i className="fa-brands fa-linkedin text-sm"></i>
+              <span>LINKEDIN</span>
             </a>
           </div>
         </div>
 
-        {/* Right Column: High-Contrast Technical Architecture / System Showcase */}
+        {/* Right Column: Cinematic Editorial Portrait (Exact Mafia Protagonist Photo Frame) */}
         <div className="lg:col-span-6">
-          <div className="relative bg-[#0A0A0A] p-3 sm:p-4 rounded-xl border border-black/20 shadow-2xl overflow-hidden group">
-            {/* Top Browser / System Dot Bar */}
-            <div className="flex items-center justify-between pb-3 px-2 border-b border-white/10 text-slate-400 font-mono text-[10px]">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-neutral-700"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-neutral-700"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-neutral-700"></span>
-                <span className="text-white ml-2 font-bold">REYCLINIC • SYSTEM TOPOLOGY</span>
+          <div className="relative bg-[#0A0A0A] p-2.5 sm:p-3 rounded-sm border border-black/20 shadow-2xl overflow-hidden group">
+            {/* Top Dossier Meta Bar */}
+            <div className="flex items-center justify-between pb-2.5 px-2 border-b border-white/10 text-neutral-400 font-mono text-[10px]">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span className="text-white font-bold tracking-wider uppercase">PROFILE DOSSIER // RH-01</span>
               </div>
-              <span className="text-emerald-400 font-bold">● 10.29 MB RAM IDLE</span>
+              <span className="text-neutral-400 font-mono">INDONESIA (UTC+7)</span>
             </div>
 
-            {/* Dashboard / Flowchart Showcase Image */}
-            <div className="relative aspect-[16/10] overflow-hidden rounded-lg mt-2 bg-neutral-900">
+            {/* Cinematic Portrait Frame */}
+            <div className="relative aspect-[3/2] overflow-hidden rounded-sm mt-2 bg-neutral-900 border border-white/10">
               <img
-                src="/images/reyclinic-dashboard.png"
-                alt="ReyClinic System Architecture"
-                className="w-full h-full object-cover object-top grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
+                src="/images/engineer-portrait.jpg"
+                alt="Raihan Hamdani - Software Engineer"
+                className="w-full h-full object-cover object-center grayscale contrast-110 group-hover:scale-[1.02] transition-all duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between font-mono text-[11px] text-white">
-                <span className="bg-black/80 px-2.5 py-1 rounded border border-white/10">Go + Gin + WebSockets</span>
-                <span className="text-slate-300">Live Hospital Ops</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
+              
+              {/* Bottom Editorial Badge Overlay */}
+              <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between font-mono text-white">
+                <div>
+                  <p className="text-[10px] uppercase tracking-widest text-neutral-400">Full-Stack Software Engineer</p>
+                  <h4 className="font-syne font-black text-sm sm:text-base text-white uppercase tracking-tight">Raihan Hamdani</h4>
+                </div>
+                <span className="text-[10px] px-2 py-0.5 rounded-sm bg-white/15 backdrop-blur-md border border-white/20 text-neutral-200 uppercase tracking-wider">
+                  Go • Laravel • React
+                </span>
               </div>
             </div>
           </div>
