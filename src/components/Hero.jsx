@@ -66,25 +66,14 @@ export default function Hero() {
           <p>SYSTEMS BUILT TO SCALE.</p>
         </div>
 
-        {/* GIANT CENTER TYPOGRAPHY & STANDING PROFILE CUTOUT */}
-        <div className="relative w-full my-auto flex items-center justify-center py-6 sm:py-12">
-          
-          {/* GIANT BACKDROP TEXT: R A I H A N */}
-          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex items-center justify-center select-none pointer-events-none z-10">
-            <h1 className="font-sans font-black text-[17vw] sm:text-[16vw] text-[#0A0A0A] tracking-[0.14em] sm:tracking-[0.18em] uppercase leading-none text-center whitespace-nowrap">
-              RAIHAN
-            </h1>
-          </div>
-
-          {/* STANDING CENTER FIGURE (Subject Overlapping Across Letters) */}
-          <div className="relative z-20 flex justify-center items-end h-[55vh] sm:h-[65vh] md:h-[72vh] max-h-[760px] pointer-events-none">
-            <img
-              src="/images/engineer-hero.jpg"
-              alt="Raihan Hamdani Standing Hero"
-              className="h-full w-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.35)] grayscale contrast-125 brightness-95"
-            />
-          </div>
-
+        {/* GIANT MONUMENTAL NAME (100% FOCUS ON RAIHAN HAMDANI) */}
+        <div className="w-full my-auto py-10 sm:py-16 md:py-20 flex flex-col items-center justify-center text-center select-none">
+          <h1 className="font-sans font-black text-[16vw] sm:text-[14vw] md:text-[13vw] text-[#0A0A0A] tracking-[0.12em] sm:tracking-[0.16em] uppercase leading-[0.85] text-center whitespace-nowrap drop-shadow-sm">
+            RAIHAN
+          </h1>
+          <h2 className="font-sans font-black text-[13.5vw] sm:text-[12vw] md:text-[11vw] text-[#0A0A0A] tracking-[0.08em] sm:tracking-[0.12em] uppercase leading-[0.85] text-center whitespace-nowrap -mt-2 sm:-mt-4 md:-mt-6">
+            HAMDANI
+          </h2>
         </div>
 
         {/* BOTTOM METADATA & CALL-TO-ACTION STRIP */}
