@@ -36,40 +36,40 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
   const isMobileFrame = deviceMode === "mobile";
 
   return (
-    <div className="fixed inset-0 z-[9999] bg-[#101010]/95 backdrop-blur-2xl text-slate-100 flex flex-col overflow-hidden animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-[9999] bg-[#0A0A0A]/95 backdrop-blur-2xl text-neutral-100 flex flex-col overflow-hidden animate-in fade-in duration-200">
       
       {/* Modal Sticky Top Header Bar */}
-      <div className="bg-[#101010]/90 backdrop-blur-xl px-3 sm:px-6 md:px-8 py-2.5 sm:py-3.5 border-b border-[#ffffff15] flex items-center justify-between gap-2.5 sm:gap-4 select-none shrink-0 z-30">
-        <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-          <div className="hidden sm:flex w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/5 border border-white/10 items-center justify-center text-base sm:text-lg shrink-0">
-            <i className={`${project.icon} text-[#A476FF]`}></i>
+      <div className="bg-[#0A0A0A]/95 backdrop-blur-xl px-4 sm:px-8 py-3 sm:py-3.5 border-b border-white/10 flex items-center justify-between gap-3 sm:gap-4 select-none shrink-0 z-30">
+        <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+          <div className="hidden sm:flex w-9 h-9 sm:w-10 sm:h-10 rounded-sm bg-neutral-900 border border-white/15 items-center justify-center text-base sm:text-lg text-white shrink-0">
+            <i className={project.icon}></i>
           </div>
           <div className="min-w-0">
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-400 truncate max-w-[130px] sm:max-w-none block">
+            <div className="flex items-center gap-2">
+              <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.15em] text-neutral-400 truncate max-w-[130px] sm:max-w-none block">
                 {project.category}
               </span>
-              <span className="hidden sm:inline-block w-1 h-1 rounded-full bg-slate-600"></span>
-              <span className="hidden sm:inline-block font-mono text-[10px] text-emerald-400 font-semibold uppercase">
+              <span className="hidden sm:inline-block w-1 h-1 rounded-full bg-neutral-600"></span>
+              <span className="hidden sm:inline-block font-mono text-[10px] text-emerald-400 font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded-sm bg-emerald-500/10 border border-emerald-500/20">
                 {isMobileFrame ? "Mobile First View" : "Desktop Web View"}
               </span>
             </div>
-            <h3 className="text-sm sm:text-lg md:text-xl font-bold text-white font-sans truncate leading-tight">
+            <h3 className="text-base sm:text-xl md:text-2xl font-syne font-black text-white uppercase tracking-tight truncate leading-tight mt-0.5">
               {project.title}
             </h3>
           </div>
         </div>
 
-        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           {/* Device Mode Switcher (Visible if project supports mobile or has dual modes) */}
           {hasMobileImages && hasDesktopImages && (
-            <div className="flex items-center p-0.5 sm:p-1 rounded-lg sm:rounded-xl bg-black/60 border border-white/10 font-mono text-[10px] sm:text-[11px]">
+            <div className="flex items-center p-0.5 sm:p-1 rounded-sm bg-neutral-950 border border-white/15 font-mono text-[10px] sm:text-[11px]">
               <button
                 onClick={() => handleDeviceChange("desktop")}
-                className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-md sm:rounded-lg transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 ${
+                className={`px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-sm transition-all cursor-pointer flex items-center gap-1.5 uppercase tracking-wider ${
                   !isMobileFrame
-                    ? "bg-[#A476FF]/20 border border-[#A476FF]/40 text-white font-semibold shadow-sm"
-                    : "text-slate-400 hover:text-white"
+                    ? "bg-white text-black font-bold shadow-sm"
+                    : "text-neutral-400 hover:text-white"
                 }`}
                 title={`Mode Tampilan Desktop (${project.desktopLabel || "Admin"})`}
               >
@@ -82,10 +82,10 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
               </button>
               <button
                 onClick={() => handleDeviceChange("mobile")}
-                className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-md sm:rounded-lg transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 ${
+                className={`px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-sm transition-all cursor-pointer flex items-center gap-1.5 uppercase tracking-wider ${
                   isMobileFrame
-                    ? "bg-[#A476FF]/20 border border-[#A476FF]/40 text-[#A476FF] font-semibold shadow-sm"
-                    : "text-slate-400 hover:text-white"
+                    ? "bg-white text-black font-bold shadow-sm"
+                    : "text-neutral-400 hover:text-white"
                 }`}
                 title={`Mode Tampilan Smartphone (${project.mobileLabel || "User"})`}
               >
@@ -104,7 +104,7 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
               href={project.githubUrl}
               target="_blank"
               rel="noreferrer"
-              className="hidden md:flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-slate-300 hover:text-white font-mono text-xs transition-colors"
+              className="hidden md:flex items-center gap-1.5 px-3.5 py-2 rounded-sm bg-neutral-900 hover:bg-neutral-800 border border-white/15 text-neutral-300 hover:text-white font-mono text-xs uppercase tracking-wider transition-colors"
             >
               <i className="fa-brands fa-github text-sm"></i> REPO
             </a>
@@ -114,19 +114,19 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
             href={project.url}
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-xl font-mono text-xs font-semibold text-black transition-all duration-200 hover:scale-105 shadow-md bg-[#A476FF] hover:bg-[#b28cff]"
+            className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-sm font-mono text-xs font-bold uppercase tracking-wider text-black bg-white hover:bg-neutral-200 transition-all duration-200 shadow-sm"
           >
             KUNJUNGI LIVE <i className="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
           </a>
 
           <button
             onClick={onClose}
-            className="px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg sm:rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 flex items-center gap-1.5 sm:gap-2 text-slate-300 hover:text-white transition-colors cursor-pointer font-mono text-xs"
+            className="px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-sm bg-neutral-900 hover:bg-neutral-800 border border-white/15 flex items-center gap-2 text-neutral-300 hover:text-white transition-colors cursor-pointer font-mono text-xs uppercase tracking-wider"
             title="Tutup (ESC)"
             aria-label="Close fullscreen modal"
           >
             <span className="hidden sm:inline">TUTUP</span>
-            <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[9px] bg-white/10 rounded border border-white/10 text-slate-400">ESC</kbd>
+            <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[9px] bg-white/10 rounded-sm border border-white/10 text-neutral-400 font-mono">ESC</kbd>
             <i className="fa-solid fa-xmark text-sm"></i>
           </button>
         </div>
@@ -137,15 +137,15 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
         {/* Mobile View Mode */}
         {isMobileFrame ? (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            {/* Left Column: Realistic Phone Mockup (Full-size uncropped screenshot 628x938) */}
+            {/* Left Column: Realistic Phone Mockup */}
             <div className="lg:col-span-5 flex flex-col items-center lg:sticky lg:top-4">
               {/* Phone Device Chassis */}
-              <div className={`relative w-full ${project.mobileContainerClass || "max-w-[320px] sm:max-w-[350px] md:max-w-[365px]"} rounded-[38px] sm:rounded-[42px] border-[3px] border-[#ffffff20] bg-[#141414] p-2 sm:p-2.5 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_25px_rgba(164,118,255,0.15)] flex flex-col items-center shrink-0`}>
+              <div className={`relative w-full ${project.mobileContainerClass || "max-w-[320px] sm:max-w-[350px] md:max-w-[365px]"} rounded-[36px] sm:rounded-[40px] border-[2px] border-white/20 bg-[#121212] p-2.5 sm:p-3 shadow-2xl flex flex-col items-center shrink-0`}>
                 {/* Subtle Phone Speaker Grill */}
                 <div className="w-12 h-1 rounded-full bg-white/20 mb-2 shrink-0"></div>
 
                 {/* Screen Viewport */}
-                <div className={`relative w-full ${project.mobileAspect || "aspect-[628/938]"} rounded-[24px] sm:rounded-[28px] overflow-hidden bg-black select-none shadow-inner group/screen`}>
+                <div className={`relative w-full ${project.mobileAspect || "aspect-[628/938]"} rounded-[24px] sm:rounded-[28px] overflow-hidden bg-black select-none border border-white/10 group/screen`}>
                   <div
                     className="flex h-full w-full transition-transform duration-500 ease-out"
                     style={{ transform: `translateX(-${modalSlideIdx * 100}%)` }}
@@ -174,7 +174,7 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
                             (prev) => (prev - 1 + images.length) % images.length
                           );
                         }}
-                        className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/80 hover:bg-black text-white border border-white/20 flex items-center justify-center transition-all cursor-pointer hover:scale-110 shadow-xl z-20"
+                        className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/80 hover:bg-white hover:text-black text-white border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-xl z-20"
                         title="Slide Sebelumnya"
                         aria-label="Previous Slide"
                       >
@@ -188,7 +188,7 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
                             (prev) => (prev + 1) % images.length
                           );
                         }}
-                        className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/80 hover:bg-black text-white border border-white/20 flex items-center justify-center transition-all cursor-pointer hover:scale-110 shadow-xl z-20"
+                        className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/80 hover:bg-white hover:text-black text-white border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-xl z-20"
                         title="Slide Selanjutnya"
                         aria-label="Next Slide"
                       >
@@ -206,8 +206,8 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
                             }}
                             className={`h-1.5 rounded-full transition-all cursor-pointer ${
                               idx === modalSlideIdx
-                                ? "w-4 bg-[#A476FF]"
-                                : "w-1.5 bg-white/40 hover:bg-white/70"
+                                ? "w-5 bg-white"
+                                : "w-1.5 bg-neutral-500 hover:bg-neutral-300"
                             }`}
                             aria-label={`Slide ${idx + 1}`}
                           />
@@ -218,11 +218,11 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
                 </div>
 
                 {/* Subtle Bottom Phone Chin */}
-                <div className="w-20 sm:w-24 h-1 rounded-full bg-white/15 mt-2 shrink-0"></div>
+                <div className="w-20 sm:w-24 h-1 rounded-full bg-white/20 mt-2 shrink-0"></div>
               </div>
 
               {/* Status Caption */}
-              <div className="mt-3 flex items-center gap-2 font-mono text-[11px] text-slate-400 text-center">
+              <div className="mt-3 flex items-center gap-2 font-mono text-[11px] text-neutral-400 text-center">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span>
                   {project.title === "ReyClinic"
@@ -240,37 +240,43 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
 
             {/* Right Column: Case Study Narrative */}
             <div className="lg:col-span-7 space-y-8">
-              {/* Overview */}
+              {/* [01] Overview */}
               <div className="space-y-3">
-                <h4 className="font-mono text-xs uppercase tracking-wider text-[#A476FF] font-semibold">
-                  [01] Project Overview
-                </h4>
-                <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+                <div className="flex items-center gap-2 border-b border-white/10 pb-2">
+                  <span className="font-mono text-xs font-bold text-neutral-400 tracking-[0.2em]">[01]</span>
+                  <h4 className="font-syne font-bold text-xs uppercase tracking-[0.2em] text-white">
+                    PROJECT OVERVIEW
+                  </h4>
+                </div>
+                <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-sans font-light">
                   {project.longDesc || project.desc}
                 </p>
               </div>
 
-              {/* Flow Aplikasi */}
+              {/* [02] Flow Aplikasi */}
               {project.flow && project.flow.length > 0 && (
                 <div className="space-y-4">
-                  <h4 className="font-mono text-xs uppercase tracking-wider text-[#A476FF] font-semibold">
-                    [02] Flow Aplikasi &amp; Alur Sistem
-                  </h4>
+                  <div className="flex items-center gap-2 border-b border-white/10 pb-2">
+                    <span className="font-mono text-xs font-bold text-neutral-400 tracking-[0.2em]">[02]</span>
+                    <h4 className="font-syne font-bold text-xs uppercase tracking-[0.2em] text-white">
+                      FLOW APLIKASI &amp; ALUR SISTEM
+                    </h4>
+                  </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                     {project.flow.map((item, idx) => (
                       <div
                         key={idx}
-                        className="p-4 rounded-2xl bg-[#1414149c] border border-white/10 space-y-2 hover:border-[#A476FF]/40 transition-colors"
+                        className="p-4 rounded-sm bg-[#121212] border border-white/10 space-y-2 hover:border-white/30 transition-colors"
                       >
                         <div className="flex items-center gap-2">
-                          <span className="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-[#A476FF]/15 text-[#A476FF] border border-[#A476FF]/30">
+                          <span className="font-mono text-[11px] font-bold px-2 py-0.5 rounded-sm bg-white text-black">
                             {item.step}
                           </span>
-                          <span className="font-sans text-xs font-bold text-white">
+                          <span className="font-syne text-xs font-bold text-white uppercase tracking-wide">
                             {item.title}
                           </span>
                         </div>
-                        <p className="text-xs text-slate-400 leading-relaxed font-normal">
+                        <p className="text-xs text-neutral-400 leading-relaxed font-sans">
                           {item.desc}
                         </p>
                       </div>
@@ -279,40 +285,38 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
                 </div>
               )}
 
-              {/* Architecture Highlights */}
+              {/* [03] Architecture Highlights */}
               {project.architecture && (
                 <div className="space-y-3">
-                  <h4 className="font-mono text-xs uppercase tracking-wider text-[#A476FF] font-semibold">
-                    [03] Arsitektur &amp; Rekayasa Teknis
-                  </h4>
-                  <div className="p-4 sm:p-5 rounded-2xl bg-[#1414149c] border border-white/10 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  <div className="flex items-center gap-2 border-b border-white/10 pb-2">
+                    <span className="font-mono text-xs font-bold text-neutral-400 tracking-[0.2em]">[03]</span>
+                    <h4 className="font-syne font-bold text-xs uppercase tracking-[0.2em] text-white">
+                      ARSITEKTUR &amp; REKAYASA TEKNIS
+                    </h4>
+                  </div>
+                  <div className="p-4 sm:p-5 rounded-sm bg-[#121212] border border-white/10 text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed">
                     {project.architecture}
                   </div>
                 </div>
               )}
 
-              {/* Tech Stack */}
+              {/* [04] Tech Stack */}
               <div className="space-y-3">
-                <h4 className="font-mono text-xs uppercase tracking-wider text-[#A476FF] font-semibold">
-                  [04] Technologies &amp; Tools Used
-                </h4>
+                <div className="flex items-center gap-2 border-b border-white/10 pb-2">
+                  <span className="font-mono text-xs font-bold text-neutral-400 tracking-[0.2em]">[04]</span>
+                  <h4 className="font-syne font-bold text-xs uppercase tracking-[0.2em] text-white">
+                    TECHNOLOGIES &amp; TOOLS USED
+                  </h4>
+                </div>
                 <div className="flex flex-wrap gap-2 font-mono text-xs">
-                  {project.techBadges?.map((tech, idx) => (
+                  {(project.techBadges || project.tags).map((tech, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 font-semibold"
+                      className="px-3 py-1.5 rounded-sm bg-neutral-900 border border-white/10 text-neutral-300 font-mono text-[11px] uppercase tracking-wider hover:border-white/30 transition-colors"
                     >
                       {tech}
                     </span>
-                  )) ||
-                    project.tags.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 font-semibold"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  ))}
                 </div>
               </div>
 
@@ -323,16 +327,16 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
                     href={project.githubUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-white font-semibold transition-colors flex items-center gap-2 font-mono text-xs"
+                    className="px-5 py-2.5 rounded-sm bg-neutral-900 hover:bg-neutral-800 border border-white/20 text-white font-mono text-xs uppercase tracking-wider transition-colors flex items-center gap-2"
                   >
-                    <i className="fa-brands fa-github"></i> REPOSITORI GIT
+                    <i className="fa-brands fa-github text-sm"></i> REPOSITORI GIT
                   </a>
                 )}
                 <a
                   href={project.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-5 py-2.5 rounded-xl text-black font-bold transition-transform hover:scale-105 flex items-center gap-2 font-mono text-xs bg-[#A476FF] hover:bg-[#b28cff]"
+                  className="px-5 py-2.5 rounded-sm bg-white hover:bg-neutral-200 text-black font-bold font-mono text-xs uppercase tracking-wider transition-all duration-200 hover:scale-[1.02] flex items-center gap-2 shadow-sm"
                 >
                   LAUNCH PROJECT <i className="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
                 </a>
@@ -343,19 +347,19 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
           /* Desktop Landscape Mode */
           <div className="space-y-10">
             {/* Wide Panoramic Browser Frame */}
-            <div className="rounded-2xl border border-white/10 bg-[#1414149c] overflow-hidden shadow-2xl">
+            <div className="rounded-sm border border-white/15 bg-[#121212] overflow-hidden shadow-2xl">
               {/* Browser Header Bar */}
-              <div className="bg-black/80 px-3 sm:px-4 py-2 sm:py-2.5 border-b border-white/10 flex items-center justify-between font-mono text-xs text-slate-400 select-none gap-2">
+              <div className="bg-neutral-950 px-4 py-2.5 border-b border-white/10 flex items-center justify-between font-mono text-xs text-neutral-400 select-none gap-2">
                 <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-                  <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#ff5f56]"></span>
-                  <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#ffbd2e]"></span>
-                  <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#27c93f]"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56] opacity-80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e] opacity-80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f] opacity-80"></span>
                 </div>
-                <div className="bg-white/5 px-2 sm:px-4 py-0.5 sm:py-1 rounded-md border border-white/5 text-[10px] sm:text-[11px] text-slate-300 min-w-0 max-w-[160px] sm:max-w-md truncate flex items-center gap-1.5 sm:gap-2">
+                <div className="bg-neutral-900/90 px-3 sm:px-4 py-1 rounded-sm border border-white/10 text-[10px] sm:text-[11px] text-neutral-300 min-w-0 max-w-[200px] sm:max-w-md truncate flex items-center gap-2">
                   <i className="fa-solid fa-lock text-[9px] text-emerald-400 shrink-0"></i>
                   <span className="truncate">{project.url}</span>
                 </div>
-                <span className="text-[10px] text-slate-400 font-mono shrink-0">
+                <span className="text-[11px] text-neutral-400 font-mono shrink-0">
                   {modalSlideIdx + 1} / {images.length}
                 </span>
               </div>
@@ -386,7 +390,7 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
                           (prev) => (prev - 1 + images.length) % images.length
                         )
                       }
-                      className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/80 hover:bg-black text-white border border-white/20 flex items-center justify-center transition-all cursor-pointer hover:scale-110 shadow-lg z-20"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/80 hover:bg-white hover:text-black text-white border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-lg z-20"
                       aria-label="Previous Slide"
                     >
                       <i className="fa-solid fa-chevron-left text-sm"></i>
@@ -395,7 +399,7 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
                       onClick={() =>
                         setModalSlideIdx((prev) => (prev + 1) % images.length)
                       }
-                      className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/80 hover:bg-black text-white border border-white/20 flex items-center justify-center transition-all cursor-pointer hover:scale-110 shadow-lg z-20"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/80 hover:bg-white hover:text-black text-white border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-lg z-20"
                       aria-label="Next Slide"
                     >
                       <i className="fa-solid fa-chevron-right text-sm"></i>
@@ -408,8 +412,8 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
                           onClick={() => setModalSlideIdx(idx)}
                           className={`h-1.5 rounded-full transition-all cursor-pointer ${
                             idx === modalSlideIdx
-                              ? "w-6 bg-[#A476FF]"
-                              : "w-2 bg-white/40 hover:bg-white/70"
+                              ? "w-6 bg-white"
+                              : "w-2 bg-neutral-500 hover:bg-neutral-300"
                           }`}
                           aria-label={`Slide ${idx + 1}`}
                         />
@@ -425,10 +429,13 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
               <div className="lg:col-span-5 space-y-6">
                 {/* [01] Overview */}
                 <div className="space-y-3">
-                  <h4 className="font-mono text-xs uppercase tracking-wider text-[#A476FF] font-semibold">
-                    [01] Project Overview
-                  </h4>
-                  <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+                  <div className="flex items-center gap-2 border-b border-white/10 pb-2">
+                    <span className="font-mono text-xs font-bold text-neutral-400 tracking-[0.2em]">[01]</span>
+                    <h4 className="font-syne font-bold text-xs uppercase tracking-[0.2em] text-white">
+                      PROJECT OVERVIEW
+                    </h4>
+                  </div>
+                  <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-sans font-light">
                     {project.longDesc || project.desc}
                   </p>
                 </div>
@@ -436,10 +443,13 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
                 {/* [03] Architecture */}
                 {project.architecture && (
                   <div className="space-y-3">
-                    <h4 className="font-mono text-xs uppercase tracking-wider text-[#A476FF] font-semibold">
-                      [03] Arsitektur &amp; Rekayasa Teknis
-                    </h4>
-                    <div className="p-4 sm:p-5 rounded-2xl bg-[#1414149c] border border-white/10 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    <div className="flex items-center gap-2 border-b border-white/10 pb-2">
+                      <span className="font-mono text-xs font-bold text-neutral-400 tracking-[0.2em]">[03]</span>
+                      <h4 className="font-syne font-bold text-xs uppercase tracking-[0.2em] text-white">
+                        ARSITEKTUR &amp; REKAYASA TEKNIS
+                      </h4>
+                    </div>
+                    <div className="p-4 sm:p-5 rounded-sm bg-[#121212] border border-white/10 text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed">
                       {project.architecture}
                     </div>
                   </div>
@@ -450,24 +460,27 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
                 {/* [02] Flow */}
                 {project.flow && project.flow.length > 0 && (
                   <div className="space-y-4">
-                    <h4 className="font-mono text-xs uppercase tracking-wider text-[#A476FF] font-semibold">
-                      [02] Flow Aplikasi &amp; Alur Sistem
-                    </h4>
+                    <div className="flex items-center gap-2 border-b border-white/10 pb-2">
+                      <span className="font-mono text-xs font-bold text-neutral-400 tracking-[0.2em]">[02]</span>
+                      <h4 className="font-syne font-bold text-xs uppercase tracking-[0.2em] text-white">
+                        FLOW APLIKASI &amp; ALUR SISTEM
+                      </h4>
+                    </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                       {project.flow.map((item, idx) => (
                         <div
                           key={idx}
-                          className="p-4 rounded-2xl bg-[#1414149c] border border-white/10 space-y-2 hover:border-[#A476FF]/40 transition-colors"
+                          className="p-4 rounded-sm bg-[#121212] border border-white/10 space-y-2 hover:border-white/30 transition-colors"
                         >
                           <div className="flex items-center gap-2">
-                            <span className="font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-[#A476FF]/15 text-[#A476FF] border border-[#A476FF]/30">
+                            <span className="font-mono text-[11px] font-bold px-2 py-0.5 rounded-sm bg-white text-black">
                               {item.step}
                             </span>
-                            <span className="font-sans text-xs font-bold text-white">
+                            <span className="font-syne text-xs font-bold text-white uppercase tracking-wide">
                               {item.title}
                             </span>
                           </div>
-                          <p className="text-xs text-slate-400 leading-relaxed font-normal">
+                          <p className="text-xs text-neutral-400 leading-relaxed font-sans">
                             {item.desc}
                           </p>
                         </div>
@@ -478,26 +491,21 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
 
                 {/* [04] Tech Stack */}
                 <div className="space-y-3">
-                  <h4 className="font-mono text-xs uppercase tracking-wider text-[#A476FF] font-semibold">
-                    [04] Technologies &amp; Tools Used
-                  </h4>
+                  <div className="flex items-center gap-2 border-b border-white/10 pb-2">
+                    <span className="font-mono text-xs font-bold text-neutral-400 tracking-[0.2em]">[04]</span>
+                    <h4 className="font-syne font-bold text-xs uppercase tracking-[0.2em] text-white">
+                      TECHNOLOGIES &amp; TOOLS USED
+                    </h4>
+                  </div>
                   <div className="flex flex-wrap gap-2 font-mono text-xs">
-                    {project.techBadges?.map((tech, idx) => (
+                    {(project.techBadges || project.tags).map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 font-semibold"
+                        className="px-3 py-1.5 rounded-sm bg-neutral-900 border border-white/10 text-neutral-300 font-mono text-[11px] uppercase tracking-wider hover:border-white/30 transition-colors"
                       >
                         {tech}
                       </span>
-                    )) ||
-                      project.tags.map((tag, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 font-semibold"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                    ))}
                   </div>
                 </div>
 
@@ -508,16 +516,16 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
                       href={project.githubUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-white font-semibold transition-colors flex items-center gap-2 font-mono text-xs"
+                      className="px-5 py-2.5 rounded-sm bg-neutral-900 hover:bg-neutral-800 border border-white/20 text-white font-mono text-xs uppercase tracking-wider transition-colors flex items-center gap-2"
                     >
-                      <i className="fa-brands fa-github"></i> REPOSITORI GIT
+                      <i className="fa-brands fa-github text-sm"></i> REPOSITORI GIT
                     </a>
                   )}
                   <a
                     href={project.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="px-5 py-2.5 rounded-xl text-black font-bold transition-transform hover:scale-105 flex items-center gap-2 font-mono text-xs bg-[#A476FF] hover:bg-[#b28cff]"
+                    className="px-5 py-2.5 rounded-sm bg-white hover:bg-neutral-200 text-black font-bold font-mono text-xs uppercase tracking-wider transition-all duration-200 hover:scale-[1.02] flex items-center gap-2 shadow-sm"
                   >
                     LAUNCH PROJECT <i className="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
                   </a>
@@ -539,7 +547,7 @@ function ProjectCard({ project, onOpenModal }) {
   return (
     <div
       onClick={() => onOpenModal(project)}
-      className="bg-[#1414149c] hover:bg-[#181818] border border-white/10 hover:border-[#A476FF]/60 rounded-2xl overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8),0_0_20px_rgba(164,118,255,0.15)] cursor-pointer select-none"
+      className="bg-[#121212] hover:bg-[#181818] border border-white/10 hover:border-white/30 rounded-sm overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer select-none"
     >
       {/* 1. Full-Color Screenshot Preview (Natural Colors Preserved) */}
       <div className="relative aspect-[16/10] bg-black overflow-hidden border-b border-white/10">
@@ -552,7 +560,7 @@ function ProjectCard({ project, onOpenModal }) {
 
         {/* Stack Tag Pill */}
         <div className="absolute top-3 left-3 z-10">
-          <span className="font-mono text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-md bg-[#0e0e0e]/85 backdrop-blur-md border border-white/15 text-[#A476FF]">
+          <span className="font-mono text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-sm bg-black/85 backdrop-blur-md border border-white/15 text-white">
             {project.stack}
           </span>
         </div>
@@ -560,7 +568,7 @@ function ProjectCard({ project, onOpenModal }) {
         {/* Responsive Badge for projects with both Desktop & Mobile */}
         {hasDualMode && (
           <div className="absolute top-3 right-3 z-10">
-            <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-md border border-white/10 text-emerald-400 flex items-center gap-1">
+            <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-sm bg-black/80 backdrop-blur-md border border-white/10 text-emerald-400 flex items-center gap-1">
               <i className="fa-solid fa-mobile-screen text-[8px]"></i>
               <span>Desktop &amp; Mobile</span>
             </span>
@@ -572,32 +580,32 @@ function ProjectCard({ project, onOpenModal }) {
       <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
         <div className="space-y-1.5">
           <div className="flex items-center justify-between gap-2">
-            <h4 className="font-sans font-bold text-lg text-white group-hover:text-[#A476FF] transition-colors truncate">
+            <h4 className="font-syne font-bold text-lg text-white group-hover:text-white transition-colors truncate uppercase">
               {project.title}
             </h4>
-            <span className="text-[#A476FF] text-xs group-hover:translate-x-1 transition-transform shrink-0">
+            <span className="text-neutral-400 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0">
               <i className="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
             </span>
           </div>
-          <p className="font-mono text-[11px] text-slate-400 truncate">
+          <p className="font-mono text-[11px] text-neutral-400 truncate">
             {project.category}
           </p>
-          <p className="text-xs text-slate-400 font-normal line-clamp-2 leading-relaxed pt-1">
+          <p className="text-xs text-neutral-400 font-normal line-clamp-2 leading-relaxed pt-1 font-sans">
             {project.desc}
           </p>
         </div>
 
         {/* Bottom Tags & Detail Action */}
         <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between font-mono text-[10px]">
-          <div className="flex flex-wrap gap-1.5 text-slate-400">
+          <div className="flex flex-wrap gap-1.5 text-neutral-400">
             {project.tags.slice(0, 2).map((tag, tIdx) => (
-              <span key={tIdx} className="px-2 py-0.5 rounded bg-white/5 border border-white/5 text-slate-300">
+              <span key={tIdx} className="px-2 py-0.5 rounded-sm bg-white/5 border border-white/10 text-neutral-300">
                 {tag}
               </span>
             ))}
           </div>
 
-          <span className="text-[#A476FF] font-semibold tracking-wider text-[11px] flex items-center gap-1 group-hover:text-white transition-colors">
+          <span className="text-white font-mono font-semibold tracking-wider text-[11px] flex items-center gap-1 group-hover:underline transition-all">
             <span>Detail</span>
             <i className="fa-solid fa-chevron-right text-[8px]"></i>
           </span>
@@ -607,7 +615,7 @@ function ProjectCard({ project, onOpenModal }) {
   );
 }
 
-export default function Projects({ activeTheme = { accent: "#A476FF" } }) {
+export default function Projects({ activeTheme = { accent: "#FFFFFF" } }) {
   const [filter, setFilter] = useState("all");
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -850,29 +858,29 @@ export default function Projects({ activeTheme = { accent: "#A476FF" } }) {
   return (
     <section id="projects" className="space-y-8 pt-6 select-none">
       {/* Portfolio Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/[0.08] pb-5">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-5">
         <div>
-          <span className="font-mono text-xs text-[#A476FF] uppercase tracking-widest block mb-1">
+          <span className="font-mono text-xs text-neutral-400 uppercase tracking-[0.2em] block mb-1">
             [04] Selected Works
           </span>
-          <h2 className="font-sans font-black text-3xl sm:text-5xl tracking-tight text-white uppercase">
+          <h2 className="font-syne font-black text-3xl sm:text-5xl tracking-tight text-white uppercase">
             Engineering Projects
           </h2>
-          <p className="text-xs sm:text-sm text-slate-400 max-w-xl mt-1.5 leading-relaxed font-sans">
+          <p className="text-xs sm:text-sm text-neutral-400 max-w-xl mt-1.5 leading-relaxed font-sans font-light">
             Klik kartu mana saja untuk membuka popup modal interaktif, alur flow sistem, serta preview tampilan desktop &amp; mobile.
           </p>
         </div>
 
-        {/* Portfolio Glow Filter Tabs */}
-        <div className="flex items-center gap-1.5 bg-[#1414149c] p-1 rounded-xl border border-white/10 font-mono text-xs text-slate-300 w-fit self-start md:self-end">
+        {/* Portfolio Clean Filter Tabs */}
+        <div className="flex items-center gap-1 bg-neutral-950 p-1 rounded-sm border border-white/15 font-mono text-xs text-neutral-300 w-fit self-start md:self-end">
           {["all", "golang", "laravel", "react"].map((tab) => (
             <button
               key={tab}
               onClick={() => setFilter(tab)}
-              className={`px-3.5 py-1.5 rounded-lg font-medium transition-all duration-200 cursor-pointer capitalize text-xs ${
+              className={`px-3.5 py-1.5 rounded-sm font-semibold transition-all duration-200 cursor-pointer uppercase tracking-wider text-[11px] ${
                 filter === tab
-                  ? "bg-[#A476FF]/25 border border-[#A476FF]/60 text-white shadow-[0_0_12px_rgba(164,118,255,0.25)] font-semibold"
-                  : "text-slate-400 hover:text-white"
+                  ? "bg-white text-black font-bold shadow-sm"
+                  : "text-neutral-400 hover:text-white"
               }`}
             >
               {tab === "all" ? "All Works" : tab === "golang" ? "Go" : tab === "laravel" ? "Laravel" : "React"}
