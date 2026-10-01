@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CV_URL } from "../constants/links";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -100,10 +101,17 @@ export default function Navbar() {
           })}
         </ul>
 
-        <div className="flex items-center gap-2 pl-2 border-l border-white/10 font-mono text-[10px] text-emerald-400 font-bold shrink-0">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="hidden xl:inline">AVAILABLE</span>
-        </div>
+        <a
+          href={CV_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 pl-3 border-l border-white/15 font-mono text-[10px] text-neutral-300 hover:text-white font-bold tracking-widest uppercase shrink-0 transition-colors group whitespace-nowrap"
+          title="Download Curriculum Vitae (CV)"
+        >
+          <span className="hidden xl:inline">DOWNLOAD </span>
+          <span>CV</span>
+          <i className="fa-solid fa-arrow-down text-[9px] text-neutral-400 group-hover:text-white group-hover:translate-y-0.5 transition-all"></i>
+        </a>
       </nav>
 
       {/* 2. MOBILE BOTTOM FLOATING DOCK (STRICTLY MOBILE ONLY: md:hidden) */}

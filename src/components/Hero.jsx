@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { CV_URL, GITHUB_URL, LINKEDIN_URL } from "../constants/links";
 
 export default function Hero() {
   const heroRef = useRef(null);
@@ -116,9 +117,9 @@ export default function Hero() {
         </div>
 
         {/* Right Utility Handles */}
-        <div className="flex items-center gap-2.5 sm:gap-6 font-mono text-[11px] font-bold text-neutral-800 uppercase tracking-wider shrink-0">
+        <div className="flex items-center gap-3 sm:gap-6 font-mono text-[11px] font-bold text-neutral-800 uppercase tracking-wider shrink-0">
           <a
-            href="https://github.com/reyhanhmdani"
+            href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 hover:text-black transition-colors p-1"
@@ -128,7 +129,7 @@ export default function Hero() {
             <span className="hidden sm:inline">GITHUB</span>
           </a>
           <a
-            href="https://linkedin.com/in/raihan-hamdani"
+            href={LINKEDIN_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 hover:text-black transition-colors p-1"
@@ -137,10 +138,17 @@ export default function Hero() {
             <i className="fa-brands fa-linkedin text-sm text-[#0A66C2]"></i>
             <span className="hidden sm:inline">LINKEDIN</span>
           </a>
-          <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full border border-black/15 bg-black/5 text-[9px] sm:text-[10px] text-emerald-800 font-bold whitespace-nowrap">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
-            <span>AVAILABLE</span>
-          </div>
+          <a
+            href={CV_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 bg-[#0A0A0A] text-white rounded-sm font-mono text-[10px] sm:text-[11px] font-bold tracking-widest uppercase transition-all duration-200 hover:bg-neutral-800 active:scale-95 shadow-sm whitespace-nowrap"
+            title="Download Curriculum Vitae (CV)"
+          >
+            <span className="hidden sm:inline">DOWNLOAD </span>
+            <span>CV</span>
+            <i className="fa-solid fa-arrow-down text-[9px] transition-transform duration-200 group-hover:translate-y-0.5 text-neutral-300 group-hover:text-white"></i>
+          </a>
         </div>
       </header>
 
@@ -155,14 +163,14 @@ export default function Hero() {
         </div>
 
         {/* GIANT MONUMENTAL NAME (100% FOCUS ON RAIHAN HAMDANI WITH STAGGER CURTAIN MASK REVEAL) */}
-        <div className="w-full my-auto py-8 sm:py-16 md:py-20 flex flex-col items-center justify-center text-center select-none overflow-hidden">
-          <div className="overflow-hidden">
-            <h1 className="hero-name-line font-sans font-black text-[15vw] sm:text-[14vw] md:text-[13vw] text-[#0A0A0A] tracking-[0.06em] sm:tracking-[0.16em] uppercase leading-[0.85] text-center whitespace-nowrap drop-shadow-sm will-change-transform">
+        <div className="w-full my-auto py-6 sm:py-12 md:py-14 -translate-y-3 sm:-translate-y-6 flex flex-col items-center justify-center text-center select-none">
+          <div className="overflow-hidden py-1">
+            <h1 className="hero-name-line font-sans font-black text-[15vw] sm:text-[14vw] md:text-[13vw] text-[#0A0A0A] tracking-[0.06em] sm:tracking-[0.16em] uppercase leading-[0.9] text-center whitespace-nowrap drop-shadow-sm will-change-transform">
               RAIHAN
             </h1>
           </div>
-          <div className="overflow-hidden">
-            <h2 className="hero-name-line font-sans font-black text-[12.5vw] sm:text-[12vw] md:text-[11vw] text-[#0A0A0A] tracking-[0.04em] sm:tracking-[0.12em] uppercase leading-[0.85] text-center whitespace-nowrap -mt-1 sm:-mt-4 md:-mt-6 will-change-transform">
+          <div className="overflow-hidden py-1">
+            <h2 className="hero-name-line font-sans font-black text-[12.5vw] sm:text-[12vw] md:text-[11vw] text-[#0A0A0A] tracking-[0.04em] sm:tracking-[0.12em] uppercase leading-[0.9] text-center whitespace-nowrap will-change-transform">
               HAMDANI
             </h2>
           </div>
