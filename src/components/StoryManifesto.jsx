@@ -1,23 +1,122 @@
-import React from "react";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function StoryManifesto() {
+  const sectionRef = useRef(null);
+
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      // 1. Subtitle Tag
+      tl.from(".profile-tag", {
+        opacity: 0,
+        y: 20,
+        duration: 0.6,
+        ease: "power3.out",
+      });
+
+      // 2. Bold 3-line Headline Reveal
+      tl.from(
+        ".profile-title-line",
+        {
+          yPercent: 100,
+          opacity: 0,
+          stagger: 0.1,
+          duration: 0.8,
+          ease: "power4.out",
+        },
+        "-=0.4"
+      );
+
+      // 3. Narrative Text Paragraphs
+      tl.from(
+        ".profile-narrative p",
+        {
+          opacity: 0,
+          y: 20,
+          stagger: 0.12,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "-=0.5"
+      );
+
+      // 4. Action Buttons
+      tl.from(
+        ".profile-cta a",
+        {
+          opacity: 0,
+          y: 15,
+          stagger: 0.1,
+          duration: 0.6,
+          ease: "power2.out",
+        },
+        "-=0.5"
+      );
+
+      // 5. Right Dossier Frame & Photo Parallax Zoom-out
+      tl.from(
+        ".dossier-frame",
+        {
+          opacity: 0,
+          y: 40,
+          duration: 1,
+          ease: "power3.out",
+        },
+        "-=0.8"
+      );
+
+      tl.from(
+        ".dossier-img",
+        {
+          scale: 1.1,
+          duration: 1.4,
+          ease: "power2.out",
+        },
+        "-=0.9"
+      );
+    },
+    { scope: sectionRef }
+  );
+
   return (
-    <section id="manifesto" className="w-full bg-[#EAE7E1] text-[#0A0A0A] py-16 sm:py-24 border-b border-black/10 select-none">
+    <section
+      ref={sectionRef}
+      id="manifesto"
+      className="w-full bg-[#EAE7E1] text-[#0A0A0A] py-16 sm:py-24 border-b border-black/10 select-none overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         {/* Left Column: Bold Editorial Narrative (Exact Mafia "THE STORY" Layout) */}
         <div className="lg:col-span-6 space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-neutral-600 block">
+          <span className="profile-tag font-mono text-xs uppercase tracking-[0.25em] text-neutral-600 block">
             [02] THE PROFILE &amp; PHILOSOPHY
           </span>
 
           <h2 className="font-syne font-black text-4xl sm:text-6xl md:text-7xl tracking-tighter uppercase leading-[0.9] text-[#0A0A0A]">
-            PRECISION.<br />
-            RESILIENCE.<br />
-            MASTERY.
+            <div className="overflow-hidden">
+              <span className="profile-title-line block">PRECISION.</span>
+            </div>
+            <div className="overflow-hidden">
+              <span className="profile-title-line block">RESILIENCE.</span>
+            </div>
+            <div className="overflow-hidden">
+              <span className="profile-title-line block">MASTERY.</span>
+            </div>
           </h2>
 
-          <div className="space-y-3 font-sans text-xs sm:text-sm text-neutral-800 leading-relaxed max-w-lg font-normal">
+          <div className="profile-narrative space-y-3 font-sans text-xs sm:text-sm text-neutral-800 leading-relaxed max-w-lg font-normal">
             <p>
               Saya adalah <strong>Full-Stack Software Engineer</strong> yang berfokus pada rekayasa backend performa tinggi (<strong>Go, Gin</strong>), sistem web enterprise yang scalable (<strong>Laravel</strong>), dan antarmuka web modern yang responsif (<strong>React</strong>).
             </p>
@@ -26,7 +125,7 @@ export default function StoryManifesto() {
             </p>
           </div>
 
-          <div className="pt-2 flex flex-wrap items-center gap-3">
+          <div className="profile-cta pt-2 flex flex-wrap items-center gap-3">
             <a
               href="#projects"
               className="inline-block px-7 py-3.5 bg-[#0A0A0A] text-white font-mono text-xs uppercase tracking-widest font-bold rounded-sm hover:bg-neutral-800 transition-all shadow-md active:scale-95"
@@ -47,7 +146,7 @@ export default function StoryManifesto() {
 
         {/* Right Column: Cinematic Editorial Portrait (Using User's Real Photo with Noir Grade) */}
         <div className="lg:col-span-6 flex justify-center lg:justify-end">
-          <div className="relative w-full max-w-[440px] bg-[#0A0A0A] p-2.5 sm:p-3 rounded-sm border border-black/20 shadow-2xl overflow-hidden group">
+          <div className="dossier-frame relative w-full max-w-[440px] bg-[#0A0A0A] p-2.5 sm:p-3 rounded-sm border border-black/20 shadow-2xl overflow-hidden group">
             {/* Top Dossier Meta Bar */}
             <div className="flex items-center justify-between pb-2.5 px-2 border-b border-white/10 text-neutral-400 font-mono text-[10px]">
               <div className="flex items-center gap-2">
@@ -62,7 +161,7 @@ export default function StoryManifesto() {
               <img
                 src="/images/raihan-profile.jpg"
                 alt="Raihan Hamdani - Full-Stack Software Engineer"
-                className="w-full h-full object-cover object-[center_18%] filter grayscale contrast-125 brightness-[0.80] group-hover:brightness-95 group-hover:contrast-115 group-hover:scale-[1.02] transition-all duration-700"
+                className="dossier-img w-full h-full object-cover object-[center_18%] filter grayscale contrast-125 brightness-[0.80] group-hover:brightness-95 group-hover:contrast-115 group-hover:scale-[1.02] transition-all duration-700 will-change-transform"
               />
               {/* Cinematic Noir Vignette & Bottom Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-black/20 pointer-events-none" />

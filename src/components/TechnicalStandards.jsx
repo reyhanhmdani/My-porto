@@ -1,4 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const STANDARDS = [
   {
@@ -29,11 +34,34 @@ const STANDARDS = [
 ];
 
 export default function TechnicalStandards() {
+  const containerRef = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.from(".standard-item", {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+        y: 25,
+        opacity: 0,
+        stagger: 0.08,
+        duration: 0.7,
+        ease: "power3.out",
+      });
+    },
+    { scope: containerRef }
+  );
+
   return (
-    <div className="w-full bg-[#EAE7E1] text-[#0A0A0A] border-b border-black/10 py-6 sm:py-8 select-none">
+    <div
+      ref={containerRef}
+      className="w-full bg-[#EAE7E1] text-[#0A0A0A] border-b border-black/10 py-6 sm:py-8 select-none"
+    >
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
         {STANDARDS.map((std, idx) => (
-          <div key={idx} className="flex items-start gap-3">
+          <div key={idx} className="standard-item flex items-start gap-3">
             <div className="w-8 h-8 rounded border border-black/20 flex items-center justify-center shrink-0 text-[#0A0A0A] text-sm mt-0.5">
               <i className={std.icon}></i>
             </div>

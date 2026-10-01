@@ -1,5 +1,9 @@
-import React, { useState } from "react";
-import Reveal from "./Reveal";
+import React, { useState, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function ProjectCard({ project }) {
   const images = project.images || [project.image];
@@ -120,6 +124,7 @@ function ProjectCard({ project }) {
 
 export default function Projects() {
   const [filter, setFilter] = useState("all");
+  const sectionRef = useRef(null);
 
   const projects = [
     {
@@ -134,16 +139,6 @@ export default function Projects() {
         "/image/clinic_admin_3.png",
         "/image/clinic_patient_1.png",
         "/image/clinic_patient_2.png",
-        "/images/reyclinic-flowchart.jpg"
-      ],
-      mobileImages: [
-        "/image/clinic_patient_1.png",
-        "/image/clinic_patient_2.png"
-      ],
-      desktopImages: [
-        "/image/clinic_admin_1.png",
-        "/image/clinic_admin_2.png",
-        "/image/clinic_admin_3.png",
         "/images/reyclinic-flowchart.jpg"
       ],
       icon: "fa-solid fa-hospital",
@@ -161,15 +156,6 @@ export default function Projects() {
         "/image/ayobuatbaik_admin_programs.png",
         "/image/ayobuatbaik_1.png",
         "/image/ayobuatbaik_2.png"
-      ],
-      mobileImages: [
-        "/image/ayobuatbaik_1.png",
-        "/image/ayobuatbaik_2.png"
-      ],
-      desktopImages: [
-        "/image/ayobuatbaik_admin_dashboard.png",
-        "/image/ayobuatbaik_admin_transactions.png",
-        "/image/ayobuatbaik_admin_programs.png"
       ],
       icon: "fa-solid fa-heart-circle-check",
       desc: "Platform donasi online & Dashboard CMS Admin: Pengelolaan kampanye, pemantauan transaksi real-time Rp 95Jt+, dan verifikasi donatur otomatis.",
@@ -208,8 +194,26 @@ export default function Projects() {
     return project.stack === filter;
   });
 
+  useGSAP(
+    () => {
+      gsap.from(".project-card-item", {
+        scrollTrigger: {
+          trigger: "#projects-grid",
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+        y: 40,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+    },
+    { scope: sectionRef, dependencies: [filter] }
+  );
+
   return (
-    <section id="projects" className="space-y-8 pt-6 select-none">
+    <section ref={sectionRef} id="projects" className="space-y-8 pt-6 select-none">
       {/* Portfolio Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-5">
         <div>
@@ -242,15 +246,12 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* 4-Column Edition Cards Grid */}
+      {/* 4-Column Edition Cards Grid with GSAP Stagger */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5" id="projects-grid">
         {filteredProjects.map((project) => (
-          <Reveal
-            key={project.title}
-            className="h-full flex flex-col transition-all duration-500"
-          >
+          <div key={project.title} className="project-card-item h-full flex flex-col">
             <ProjectCard project={project} />
-          </Reveal>
+          </div>
         ))}
       </div>
     </section>

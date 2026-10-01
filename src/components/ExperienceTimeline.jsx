@@ -1,4 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const EXPERIENCES = [
   {
@@ -36,29 +41,49 @@ const EXPERIENCES = [
 ];
 
 export default function ExperienceTimeline() {
+  const containerRef = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.from(".career-card", {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+        y: 35,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+    },
+    { scope: containerRef }
+  );
+
   return (
-    <section id="experience" className="space-y-8 pt-6 select-none">
+    <section ref={containerRef} id="experience" className="space-y-8 pt-6 select-none">
       {/* Editorial Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/[0.08] pb-5">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-5">
         <div>
-          <span className="font-mono text-xs text-[#A476FF] uppercase tracking-widest block mb-1">
+          <span className="font-mono text-xs text-neutral-400 uppercase tracking-[0.2em] block mb-1">
             [05] Career Chronology
           </span>
-          <h2 className="font-sans font-black text-3xl sm:text-5xl tracking-tight text-white uppercase">
+          <h2 className="font-syne font-black text-3xl sm:text-5xl tracking-tight text-white uppercase">
             EXPERIENCE &amp; EDUCATION
           </h2>
         </div>
-        <p className="font-mono text-xs text-slate-400 max-w-md leading-relaxed md:text-right">
+        <p className="font-mono text-xs text-neutral-400 max-w-md leading-relaxed md:text-right font-light">
           A continuous record of engineering apprenticeships, institutional digitization, and production deliveries.
         </p>
       </div>
 
-      {/* Editorial Ledger Cards (Exact Mafia Sharp Noir Styling) */}
+      {/* Editorial Ledger Cards with GSAP Stagger */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {EXPERIENCES.map((item, idx) => (
           <div
             key={idx}
-            className="bg-[#121212] border border-white/10 hover:border-white/30 rounded-sm p-6 sm:p-7 flex flex-col justify-between space-y-4 group transition-all duration-300 hover:-translate-y-1 shadow-lg"
+            className="career-card bg-[#121212] border border-white/10 hover:border-white/30 rounded-sm p-6 sm:p-7 flex flex-col justify-between space-y-4 group transition-all duration-300 hover:-translate-y-1 shadow-lg"
           >
             {/* Top Indicator */}
             <div className="flex items-center justify-between font-mono text-xs border-b border-white/10 pb-3">
@@ -72,13 +97,13 @@ export default function ExperienceTimeline() {
 
             {/* Role & Org */}
             <div className="space-y-1.5">
-              <h3 className="font-sans font-bold text-base sm:text-lg text-white tracking-wide uppercase">
+              <h3 className="font-syne font-bold text-base sm:text-lg text-white tracking-wide uppercase">
                 {item.role}
               </h3>
-              <p className="font-mono text-xs text-[#A476FF] tracking-wider uppercase font-semibold">
+              <p className="font-mono text-xs text-neutral-300 tracking-wider uppercase font-semibold">
                 {item.org}
               </p>
-              <p className="text-xs text-neutral-400 leading-relaxed font-normal pt-1">
+              <p className="text-xs text-neutral-400 leading-relaxed font-normal pt-1 font-sans">
                 {item.desc}
               </p>
             </div>
