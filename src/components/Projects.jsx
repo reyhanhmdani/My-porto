@@ -531,7 +531,7 @@ function ProjectModal({ project, onClose, activeTheme = { accent: "#A476FF" } })
   );
 }
 
-function ProjectCard({ project, onOpenModal }) {
+function ProjectCard({ project, onOpenModal, isFeatured = false }) {
   const [currentIdx, setCurrentIdx] = useState(0);
   const images = project.images || [project.image];
   const isMobileProject = project.device === "mobile";
@@ -565,10 +565,27 @@ function ProjectCard({ project, onOpenModal }) {
   return (
     <div
       onClick={() => onOpenModal(project)}
-      className="bg-[#1414149c] border border-[#ffffff15] hover:border-[#a476ff50] rounded-3xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8),0_0_20px_rgba(164,118,255,0.15)] cursor-pointer flex flex-col h-full overflow-hidden group"
+      className={`bg-[#121212]/90 border border-white/10 hover:border-white/30 rounded-3xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)] cursor-pointer flex flex-col h-full overflow-hidden group ${
+        isFeatured ? "md:col-span-2 border-white/20 shadow-[0_15px_35px_rgba(0,0,0,0.7)]" : ""
+      }`}
     >
+      {/* Flagship Highlight Banner */}
+      {isFeatured && (
+        <div className="bg-[#18181b] px-4 py-2 border-b border-white/10 flex items-center justify-between font-mono text-[11px] select-none">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-white font-bold tracking-wider uppercase">
+              Featured Flagship Project
+            </span>
+          </div>
+          <span className="text-slate-400 hidden sm:inline">
+            Go &amp; Gin • WebSockets • React 19 • 10.29 MB RAM Idle
+          </span>
+        </div>
+      )}
+
       {/* Browser / Device Mockup Header Bar */}
-      <div className="bg-black/60 px-4 py-2.5 border-b border-[#ffffff10] flex items-center justify-between relative z-20 select-none">
+      <div className="bg-black/80 px-4 py-2.5 border-b border-[#ffffff10] flex items-center justify-between relative z-20 select-none">
         {isCurrentSlideMobile ? (
           <div className="flex items-center gap-1.5 text-slate-400 font-mono text-[10px]">
             <span className="flex items-center gap-1 text-emerald-400">
@@ -958,46 +975,58 @@ export default function Projects({ activeTheme = { accent: "#A476FF" } }) {
   });
 
   return (
-    <section id="projects" className="space-y-8 pt-4">
-      {/* Section Header with DarkMinimal filter tabs */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#ffffff10] pb-5">
+    <section id="projects" className="space-y-8 pt-4 select-none">
+      {/* Editorial Section Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/[0.08] pb-5">
         <div>
           <span className="font-mono text-xs text-[#A476FF] uppercase tracking-widest block mb-1">
-            Featured Work • Case Studies
+            [03] Selected Case Studies
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="font-display text-4xl sm:text-6xl font-bold tracking-tight text-white uppercase">
             Engineering Projects
           </h2>
-          <p className="text-xs sm:text-sm text-slate-400 max-w-xl mt-1.5 leading-relaxed">
-            Klik kartu mana saja untuk membuka popup modal interaktif, alur flow sistem lengkap, dan arsitektur teknisnya.
+          <p className="text-xs sm:text-sm text-slate-400 max-w-xl mt-1.5 leading-relaxed font-sans">
+            Klik kartu mana saja untuk membuka popup modal interaktif, flow diagram sistem, dan arsitektur teknis lengkapnya.
           </p>
         </div>
 
-        {/* Filter Tabs */}
-        <div className="flex items-center gap-1.5 bg-[#1414149c] p-1 rounded-2xl border border-[#ffffff15] font-mono text-xs text-slate-300 w-fit self-start md:self-end">
+        {/* High-Contrast Filter Tabs */}
+        <div className="flex items-center gap-1.5 bg-[#121212] p-1.5 rounded-2xl border border-white/10 font-mono text-xs text-slate-300 w-fit self-start md:self-end">
           {["all", "golang", "laravel", "react"].map((tab) => (
             <button
               key={tab}
               onClick={() => setFilter(tab)}
-              className={`px-3.5 py-1.5 rounded-xl font-medium transition-all duration-200 cursor-pointer capitalize ${
+              className={`px-4 py-1.5 rounded-xl font-medium transition-all duration-200 cursor-pointer capitalize ${
                 filter === tab
-                  ? "bg-[#A476FF]/20 border border-[#A476FF]/50 text-white shadow-[0_0_12px_rgba(164,118,255,0.25)] font-semibold"
+                  ? "bg-white text-black font-bold shadow-md"
                   : "text-slate-400 hover:text-white"
               }`}
             >
-              {tab === "all" ? "All" : tab === "golang" ? "Golang" : tab === "laravel" ? "Laravel" : "React"}
+              {tab === "all" ? "All Works" : tab === "golang" ? "Go" : tab === "laravel" ? "Laravel" : "React"}
             </button>
           ))}
         </div>
       </div>
 
-      {/* Projects Grid: 2 Columns for optimal card preview and slider size */}
+      {/* Projects Grid with Flagship Hero Feature */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects-grid">
-        {filteredProjects.map((project, index) => (
-          <Reveal key={index} className="h-full flex flex-col transition-all duration-500">
-            <ProjectCard project={project} onOpenModal={setSelectedProject} />
-          </Reveal>
-        ))}
+        {filteredProjects.map((project, index) => {
+          const isItemFeatured = filter === "all" && index === 0;
+          return (
+            <Reveal
+              key={project.title}
+              className={`h-full flex flex-col transition-all duration-500 ${
+                isItemFeatured ? "md:col-span-2" : ""
+              }`}
+            >
+              <ProjectCard
+                project={project}
+                onOpenModal={setSelectedProject}
+                isFeatured={isItemFeatured}
+              />
+            </Reveal>
+          );
+        })}
       </div>
 
       {/* Fullscreen Interactive Project Detail & Flow Popup Modal */}

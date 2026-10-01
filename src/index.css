@@ -12,10 +12,12 @@
 
 @theme {
   --font-sans: "Montserrat Variable", "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Bebas Neue", "Syne", sans-serif;
+  --font-heading: "Syne", "Montserrat Variable", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --color-obsidian: #101010;
-  --color-darkgray: #141414;
+  --color-obsidian: #0a0a0a;
+  --color-darkgray: #121212;
 
   --color-laravel-primary: #FF2D20;
   --color-laravel-glow: rgba(255, 45, 32, 0.25);
@@ -31,16 +33,16 @@
 }
 
 :root {
-  --background: #101010;
+  --background: #0a0a0a;
   --sec: #a476ff;
-  --white: #dfdfdf;
+  --white: #ededed;
   --white-icon: #f3f3f398;
   --white-icon-tr: #f3f3f310;
-  --container: #1414149c;
+  --container: #121212c0;
 
   --accent: #a476ff;
-  --bg-base: #101010;
-  --text-base: #dfdfdf;
+  --bg-base: #0a0a0a;
+  --text-base: #ededed;
   --border-color: rgba(255, 255, 255, 0.08);
 }
 
@@ -131,3 +133,69 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Typography Classes */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Subtle Film Grain / Grid Background */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Entrance Animations */
+@keyframes cinematicRise {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes letterDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.05);
+  }
+}
+
+.animate-cinematic-rise {
+  animation: cinematicRise 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 6s ease-in-out infinite;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+

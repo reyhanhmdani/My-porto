@@ -1,36 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 const NAV_ITEMS = [
-  {
-    label: "Home",
-    href: "#home",
-    id: "home",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-        <path d="M21 20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9.48907C3 9.18048 3.14247 8.88917 3.38606 8.69972L11.3861 2.47749C11.7472 2.19663 12.2528 2.19663 12.6139 2.47749L20.6139 8.69972C20.8575 8.88917 21 9.18048 21 9.48907V20ZM19 19V9.97815L12 4.53371L5 9.97815V19H19Z" />
-      </svg>
-    ),
-  },
-  {
-    label: "Projects",
-    href: "#projects",
-    id: "projects",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-        <path d="M4 5V19H20V7H11.5858L9.58579 5H4ZM12.4142 5H21C21.5523 5 22 5.44772 22 6V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H10.4142L12.4142 5Z" />
-      </svg>
-    ),
-  },
-  {
-    label: "Contact",
-    href: "#contact",
-    id: "contact",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-        <path d="M21.7267 2.95694L16.2734 22.0432C16.1225 22.5716 15.7979 22.5956 15.5563 22.1126L11 13L1.9229 9.36919C1.41322 9.16532 1.41953 8.86022 1.95695 8.68108L21.0432 2.31901C21.5716 2.14285 21.8747 2.43866 21.7267 2.95694ZM19.0353 5.09647L6.81221 9.17085L12.4488 11.4255L15.4895 17.5068L19.0353 5.09647Z" />
-      </svg>
-    ),
-  },
+  { label: "Home", href: "#home", id: "home" },
+  { label: "Capabilities", href: "#capabilities", id: "capabilities" },
+  { label: "Projects", href: "#projects", id: "projects" },
+  { label: "Experience", href: "#experience", id: "experience" },
+  { label: "Contact", href: "#contact", id: "contact" },
 ];
 
 export default function Navbar() {
@@ -41,17 +16,15 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      // Deterministic scroll spy for Home, Projects, Contact
-      const scrollPosition = window.scrollY + 250;
-      const contactEl = document.getElementById("contact");
-      const projectsEl = document.getElementById("projects");
+      const scrollPosition = window.scrollY + 280;
+      const sections = ["contact", "experience", "projects", "capabilities", "home"];
 
-      if (contactEl && scrollPosition >= contactEl.offsetTop) {
-        setActiveSection("contact");
-      } else if (projectsEl && scrollPosition >= projectsEl.offsetTop) {
-        setActiveSection("projects");
-      } else {
-        setActiveSection("home");
+      for (const sec of sections) {
+        const el = document.getElementById(sec);
+        if (el && scrollPosition >= el.offsetTop) {
+          setActiveSection(sec);
+          break;
+        }
       }
     };
 
@@ -72,15 +45,30 @@ export default function Navbar() {
 
   return (
     <>
-      {/* DESKTOP FLOATING CAPSULE NAVBAR (Exact match to dark-minimal nav.astro) */}
+      {/* DESKTOP EDITORIAL CAPSULE NAVBAR */}
       <nav
-        className={`hidden md:flex fixed top-6 left-1/2 -translate-x-1/2 z-[100] transition-all duration-300 ease-in-out items-center justify-center ${
+        className={`hidden md:flex fixed top-5 left-1/2 -translate-x-1/2 z-[100] transition-all duration-300 ease-in-out items-center justify-between gap-8 select-none ${
           isScrolled
-            ? "bg-[#141414cc] backdrop-blur-xl border border-[#ffffff15] py-2.5 px-8 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
-            : "bg-transparent border border-transparent py-2.5 px-6"
+            ? "bg-[#0c0c0ce8] backdrop-blur-2xl border border-white/15 py-2.5 px-7 rounded-full shadow-[0_15px_35px_rgba(0,0,0,0.9)]"
+            : "bg-[#121212]/50 backdrop-blur-md border border-white/[0.08] py-2.5 px-6 rounded-full"
         }`}
       >
-        <ul className="flex items-center gap-12 text-base font-medium">
+        {/* Monogram Brand */}
+        <a
+          href="#home"
+          onClick={(e) => handleNavClick(e, "#home")}
+          className="flex items-center gap-2 group cursor-pointer"
+        >
+          <span className="w-7 h-7 rounded-full bg-white text-black font-display text-sm font-bold flex items-center justify-center transition-transform group-hover:scale-110">
+            RH
+          </span>
+          <span className="font-display tracking-tight text-white font-bold text-sm hidden lg:inline">
+            RAIHAN HAMDANI
+          </span>
+        </a>
+
+        {/* Links */}
+        <ul className="flex items-center gap-7 text-xs font-mono">
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.id;
             return (
@@ -88,26 +76,29 @@ export default function Navbar() {
                 <a
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`relative flex items-center transition-colors duration-200 cursor-pointer ${
-                    isActive ? "text-white font-medium" : "text-[#f3f3f398] hover:text-white"
+                  className={`transition-colors duration-200 cursor-pointer uppercase tracking-wider ${
+                    isActive ? "text-white font-bold" : "text-slate-400 hover:text-white"
                   }`}
                 >
-                  {/* Glowing Green Active Dot Indicator (Absolute positioned so text never jumps) */}
-                  <span
-                    className={`absolute -left-5 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#A9FF5B] transition-all duration-300 shadow-[0_0_8px_#A9FF5B] ${
-                      isActive ? "scale-100 opacity-100" : "scale-0 opacity-0"
-                    }`}
-                  />
-                  <span>{item.label}</span>
+                  {item.label}
+                  {isActive && (
+                    <span className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-white rounded-full shadow-[0_0_8px_#ffffff]" />
+                  )}
                 </a>
               </li>
             );
           })}
         </ul>
+
+        {/* Status Pill */}
+        <div className="flex items-center gap-2 pl-3 border-l border-white/10 font-mono text-[11px] text-slate-300">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#A9FF5B] shadow-[0_0_6px_#A9FF5B]" />
+          <span className="hidden xl:inline text-emerald-400 font-medium">OPEN FOR ROLES</span>
+        </div>
       </nav>
 
-      {/* MOBILE BOTTOM APP-BAR NAVBAR (Exact match to dark-minimal mobile nav) */}
-      <nav className="md:hidden fixed bottom-0 inset-x-0 z-[100] bg-[#141414f0] backdrop-blur-xl border-t border-[#ffffff15] py-2.5 px-6 rounded-t-2xl shadow-2xl">
+      {/* MOBILE BOTTOM APP-BAR NAVBAR */}
+      <nav className="md:hidden fixed bottom-0 inset-x-0 z-[100] bg-[#0c0c0cf5] backdrop-blur-2xl border-t border-white/15 py-2.5 px-4 shadow-2xl select-none">
         <ul className="flex items-center justify-around">
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.id;
@@ -116,13 +107,15 @@ export default function Navbar() {
                 <a
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`flex flex-col items-center gap-1 text-xs font-medium transition-colors ${
-                    isActive ? "text-white" : "text-[#f3f3f398] hover:text-white"
+                  className={`flex flex-col items-center gap-1 font-mono text-[10px] uppercase tracking-wider transition-colors ${
+                    isActive ? "text-white font-bold" : "text-slate-400 hover:text-white"
                   }`}
                 >
-                  <span className={`w-6 h-6 flex items-center justify-center transition-colors ${isActive ? "text-[#A9FF5B]" : "text-[#f3f3f398]"}`}>
-                    {item.icon}
-                  </span>
+                  <span
+                    className={`w-1.5 h-1.5 rounded-full transition-all ${
+                      isActive ? "bg-[#A9FF5B] scale-125 shadow-[0_0_8px_#A9FF5B]" : "bg-transparent"
+                    }`}
+                  />
                   <span>{item.label}</span>
                 </a>
               </li>

@@ -1,210 +1,45 @@
-import React, { useState } from "react";
-import LetterGlitch from "./components/LetterGlitch";
-import SkillsAccordion from "./components/SkillsAccordion";
-import Projects from "./components/Projects";
-import LogoWall from "./components/LogoWall";
+import React from "react";
 import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import LogoWall from "./components/LogoWall";
+import CapabilitiesPillars from "./components/CapabilitiesPillars";
+import Projects from "./components/Projects";
+import ExperienceTimeline from "./components/ExperienceTimeline";
+import ContactSection from "./components/ContactSection";
 import { SpeedInsights } from "@vercel/speed-insights/react";
-
-const EXPERIENCES_DATA = [
-  {
-    role: "Fullstack Engineering Graduate",
-    org: "PT. DumbWays Indonesia Teknologi",
-    period: "2026 (Batch 67)",
-    desc: "Intensive full-stack residency: micro-architecture, agile delivery, and built the end-to-end ReyClinic system with Go refactoring.",
-  },
-  {
-    role: "Full-Stack Developer",
-    org: "Lembaga Sayf El Falah",
-    period: "2025 — 2026",
-    desc: "Spearheaded internal institutional digitization, developed selfa.sch.id, and re-architected donation & CMS platforms with database optimization.",
-  },
-  {
-    role: "Meta Ads & Traffic Analytics Intern",
-    org: "B_ERL Cosmetics",
-    period: "2025 (Internship)",
-    desc: "Managed Meta Ads campaigns, evaluated creative performance through key ad metrics (CTR, CPC), and analyzed inbound website traffic via Meta Pixel tracking.",
-  },
-  {
-    role: "Backend Engineering Trainee",
-    org: "Pondok IT Yogyakarta",
-    period: "2022 — 2025",
-    desc: "Mastered 3-tier clean architecture, RESTful API design in Go & PHP, Swagger/OpenAPI documentation, and relational schema optimization.",
-  },
-];
 
 export default function App() {
   return (
-    <div className="bg-[#101010] text-[#dfdfdf] min-h-screen selection:bg-[#a476ff] selection:text-[#101010] relative overflow-x-hidden">
+    <div className="bg-[#0a0a0a] text-[#ededed] min-h-screen selection:bg-white selection:text-black relative overflow-x-hidden bg-grid-pattern">
       
-      {/* Ambient Quiet Glows (Static & Lightweight) */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#a476ff15] via-blue-500/5 to-transparent blur-[120px] pointer-events-none -z-10"></div>
-      <div className="fixed bottom-0 right-0 w-[500px] h-[350px] bg-[#a476ff08] blur-[140px] pointer-events-none -z-10"></div>
+      {/* Cinematic Ambient Atmosphere Overlays */}
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-[#a476ff14] via-transparent to-transparent blur-[140px] pointer-events-none -z-10" />
+      <div className="fixed bottom-0 right-0 w-[600px] h-[400px] bg-[#00add808] blur-[160px] pointer-events-none -z-10" />
 
-      {/* 1. FLOATING MINIMALIST NAVBAR (Exact DarkMinimal Layout) */}
+      {/* 1. FLOATING MINIMALIST EDITORIAL NAVBAR */}
       <Navbar />
 
-      <main className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 pt-32 pb-24 flex flex-col gap-24 sm:gap-32">
+      <main className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col gap-24 sm:gap-32 pb-20">
+        
+        {/* 2. MONUMENTAL HERO SECTION (High-Contrast Noir Typography & Depth Layer) */}
+        <Hero />
 
-        {/* 2. HERO SECTION */}
-        <section id="home" className="space-y-4 pt-4 text-[var(--white)]">
-          <p className="text-md md:text-lg text-[var(--white-icon)]">
-            Hi, I'm <strong className="text-white font-semibold">Raihan Hamdani</strong>
-          </p>
+        {/* 3. CONTINUOUS LOGO WALL (Tech Stack Marquee Ticker) */}
+        <div className="pt-4 border-y border-white/[0.06] py-6 -mx-6 sm:-mx-8 lg:-mx-12 px-6 sm:px-8 lg:px-12 bg-[#0c0c0c]/60 backdrop-blur-sm">
+          <LogoWall />
+        </div>
 
-          <div className="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-8 md:gap-4">
-            <h1 className="text-[var(--white)] text-5xl md:text-6xl font-medium text-pretty leading-none">
-              Fullstack <br /> Engineer
-            </h1>
-            <p className="text-md md:text-2xl text-[var(--white-icon)]">
-              Building resilient web platforms and real-time APIs with{" "}
-              <span className="text-[var(--sec)] shiny-sec font-semibold">Go</span>,{" "}
-              <span className="text-[var(--sec)] shiny-sec font-semibold">Laravel</span>, and{" "}
-              <span className="text-[var(--sec)] shiny-sec font-semibold">React</span>. Focused on clean code, database optimization, and scalable production systems.
-            </p>
-          </div>
+        {/* 4. CORE CAPABILITIES (3-Pillar Executive Architectural Breakdown) */}
+        <CapabilitiesPillars />
 
-          {/* Social Icons row (Exact match from dark-minimal home.astro) */}
-          <div className="flex justify-start gap-2 pt-3 md:pt-6">
-            <a
-              target="_blank"
-              href="https://github.com/reyhanhmdani"
-              aria-label="GitHub"
-              className="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)] w-12 h-12 flex items-center justify-center text-xl shadow-lg"
-            >
-              <i className="fa-brands fa-github"></i>
-            </a>
-            <a
-              target="_blank"
-              href="https://linkedin.com/in/raihan-hamdani"
-              aria-label="LinkedIn"
-              className="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)] w-12 h-12 flex items-center justify-center text-xl shadow-lg"
-            >
-              <i className="fa-brands fa-linkedin text-[#0A66C2]"></i>
-            </a>
-            <a
-              href="mailto:rey7dan7@gmail.com"
-              aria-label="Email"
-              className="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)] w-12 h-12 flex items-center justify-center text-xl shadow-lg"
-            >
-              <i className="fa-regular fa-envelope text-[#A476FF]"></i>
-            </a>
-          </div>
-        </section>
-
-        {/* 3. LOGO WALL (Continuous Infinite Running Marquee Ticker) */}
-        <LogoWall />
-
-        {/* 4. WHAT I DO (SkillsAccordion + LetterGlitch Showcase) */}
-        <section id="what-i-do" className="space-y-6">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-            
-            {/* Left: Accordion (Pinned to 400px like dark-minimal reference) */}
-            <div className="w-full lg:w-[400px] shrink-0">
-              <SkillsAccordion />
-            </div>
-
-            {/* Right: Seamless LetterGlitch Visualizer (Expands toward the left) */}
-            <div className="w-full flex-1 flex justify-center items-center h-[290px] sm:h-[300px] md:h-[320px] overflow-hidden">
-              <div className="w-full h-full flex items-center justify-center">
-                <LetterGlitch
-                  glitchColors={["#5e4491", "#A476FF", "#241a38"]}
-                  glitchSpeed={33}
-                  outerVignette={true}
-                  centerVignette={false}
-                  smooth={true}
-                />
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        {/* 5. FEATURED PROJECTS SHOWCASE (Detailed Cards, Multi-Screen Switcher & Interactive Modal) */}
+        {/* 5. SELECTED ENGINEERING PROJECTS & CASE STUDIES */}
         <Projects />
 
-        {/* 6. EXPERIENCE & EDUCATION */}
-        <section id="experience" className="space-y-6">
-          <div className="border-b border-[#ffffff10] pb-4">
-            <span className="font-mono text-xs text-[#A476FF] uppercase tracking-widest block mb-1">
-              Background
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Experience &amp; Education
-            </h2>
-          </div>
+        {/* 6. CHRONOLOGICAL EXPERIENCE & TIMELINE */}
+        <ExperienceTimeline />
 
-          <div className="space-y-4">
-            {EXPERIENCES_DATA.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-[#1414149c] border border-[#ffffff15] hover:border-[#a476ff30] rounded-2xl p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all"
-              >
-                <div>
-                  <div className="flex items-center gap-2">
-                    <h3 className="font-bold text-white text-base">{item.role}</h3>
-                    <span className="text-slate-500">•</span>
-                    <span className="text-slate-400 text-sm">{item.org}</span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
-                    {item.desc}
-                  </p>
-                </div>
-                <span className="font-mono text-xs text-[#A476FF] sm:text-right shrink-0">
-                  {item.period}
-                </span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 7. CONTACT & FOOTER */}
-        <section id="contact" className="bg-[#1414149c] border border-[#ffffff15] rounded-3xl p-8 sm:p-12 text-center space-y-6">
-          <div className="max-w-xl mx-auto space-y-3">
-            <span className="font-mono text-xs text-[#A476FF] uppercase tracking-widest">
-              Get in Touch
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Let's Build Something Exceptional
-            </h2>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              Available for Full-Stack &amp; Backend Software Engineering positions. Feel free to reach out directly via email or LinkedIn.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <a
-              href="mailto:rey7dan7@gmail.com"
-              className="px-6 py-3 rounded-xl bg-white text-black font-bold text-sm hover:bg-slate-200 transition-all flex items-center gap-2 shadow-lg shadow-white/10"
-            >
-              <i className="fa-regular fa-envelope text-xs"></i>
-              <span>Send an Email</span>
-            </a>
-            <a
-              href="https://linkedin.com/in/raihan-hamdani"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 rounded-xl bg-[#ffffff08] border border-[#ffffff20] hover:border-white text-white font-medium text-sm transition-all flex items-center gap-2"
-            >
-              <i className="fa-brands fa-linkedin text-sm text-[#0A66C2]"></i>
-              <span>LinkedIn</span>
-            </a>
-            <a
-              href="https://github.com/reyhanhmdani"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 rounded-xl bg-[#ffffff08] border border-[#ffffff20] hover:border-white text-white font-medium text-sm transition-all flex items-center gap-2"
-            >
-              <i className="fa-brands fa-github text-sm"></i>
-              <span>GitHub</span>
-            </a>
-          </div>
-
-          <div className="pt-10 mt-10 border-t border-[#ffffff0a] flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 font-mono gap-3">
-            <span>&copy; 2026 Raihan Hamdani. All rights reserved.</span>
-            <span>Crafted with Go, React 19, &amp; Tailwind</span>
-          </div>
-        </section>
+        {/* 7. CONTACT BILLBOARD & EDITORIAL FOOTER */}
+        <ContactSection />
 
       </main>
 
