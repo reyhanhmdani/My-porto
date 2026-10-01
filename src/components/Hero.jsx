@@ -1,188 +1,223 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 export default function Hero() {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleScrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section
       id="home"
-      className="relative min-h-[92vh] sm:min-h-screen flex flex-col justify-between pt-28 pb-12 overflow-hidden select-none"
+      className="relative w-full bg-[#EAE7E1] text-[#0A0A0A] overflow-hidden select-none"
     >
-      {/* Ambient Atmospheric Lighting */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[350px] bg-gradient-to-b from-[#a476ff18] via-[#a476ff08] to-transparent blur-[140px] pointer-events-none -z-10 animate-glow-pulse" />
-      <div className="absolute top-1/3 left-1/4 w-[350px] h-[350px] bg-blue-500/5 blur-[120px] pointer-events-none -z-10" />
+      {/* 1. TOP EDITORIAL BAR (Integrated Flush Header matching Mafia Reference) */}
+      <header className="w-full border-b border-black/10 px-6 sm:px-10 lg:px-16 py-4 flex items-center justify-between">
+        {/* Left Nav Anchors */}
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8 font-mono text-[11px] font-bold tracking-widest uppercase text-neutral-800">
+          <a href="#home" className="hover:text-black transition-colors">HOME</a>
+          <a href="#manifesto" className="hover:text-black transition-colors">MANIFESTO</a>
+          <a href="#capabilities" className="hover:text-black transition-colors">STACK</a>
+          <a href="#projects" className="hover:text-black transition-colors">WORKS</a>
+          <a href="#experience" className="hover:text-black transition-colors">CAREER</a>
+        </nav>
 
-      {/* 1. TOP EDITORIAL META HEADER */}
-      <div className="w-full flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/[0.08] pb-6 animate-cinematic-rise">
-        <div className="flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-[#A9FF5B] shadow-[0_0_10px_#A9FF5B]" />
-          <span className="font-mono text-xs uppercase tracking-widest text-slate-300">
-            Available for Full-Stack &amp; Backend Engineering
-          </span>
+        {/* Center Brand Identity (Exact MAFIA THE GAME typography hierarchy) */}
+        <div className="text-center">
+          <a href="#home" className="inline-block group">
+            <span className="font-sans font-black text-2xl sm:text-3xl tracking-tight text-[#0A0A0A] block leading-none">
+              RAIHAN
+            </span>
+            <span className="font-mono text-[9px] tracking-[0.3em] text-neutral-600 uppercase block mt-0.5 group-hover:text-black transition-colors">
+              THE ENGINEER
+            </span>
+          </a>
         </div>
 
-        <div className="flex items-center gap-6 font-mono text-xs text-slate-400">
-          <span>BASED IN INDONESIA</span>
-          <span className="hidden sm:inline text-white/20">•</span>
-          <span className="hidden sm:inline">EST. 2022 — 2026</span>
-        </div>
-      </div>
-
-      {/* 2. MONUMENTAL TYPOGRAPHY & CINEMATIC STAGE */}
-      <div className="relative my-auto py-8 sm:py-12 flex flex-col items-center justify-center text-center">
-        
-        {/* Sub-Tagline Eyebrow */}
-        <p className="font-mono text-xs sm:text-sm uppercase tracking-[0.28em] text-[#a476ff] mb-2 sm:mb-4 animate-cinematic-rise">
-          Architectural Resilience • Concurrency • Clean Code
-        </p>
-
-        {/* GIANT MONUMENTAL NAME (Parallax Layer) */}
-        <div 
-          className="relative w-full overflow-hidden leading-none transition-transform duration-100 ease-out"
-          style={{ transform: `translateY(${scrollY * 0.12}px)` }}
-        >
-          <h1 className="font-display text-[19vw] sm:text-[17vw] tracking-tighter uppercase font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-white/10 drop-shadow-[0_20px_50px_rgba(0,0,0,0.9)] scale-y-105">
-            RAIHAN
-          </h1>
-          <div className="w-full flex justify-between items-baseline px-2 sm:px-6 -mt-[4vw] sm:-mt-[3.5vw]">
-            <span className="font-mono text-[9px] sm:text-xs text-slate-500 uppercase tracking-widest">
-              [01] FULLSTACK ENGINEER
-            </span>
-            <span className="font-display text-[8vw] sm:text-[7vw] font-bold text-white/20 tracking-tight">
-              HAMDANI
-            </span>
-            <span className="font-mono text-[9px] sm:text-xs text-slate-500 uppercase tracking-widest">
-              PRODUCTION READY
-            </span>
+        {/* Right Utility Handles */}
+        <div className="flex items-center gap-4 sm:gap-6 font-mono text-[11px] font-bold text-neutral-800 uppercase tracking-wider">
+          <a
+            href="https://github.com/reyhanhmdani"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:flex items-center gap-1.5 hover:text-black transition-colors"
+          >
+            <i className="fa-brands fa-github text-sm"></i>
+            <span>GITHUB</span>
+          </a>
+          <a
+            href="https://linkedin.com/in/raihan-hamdani"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:flex items-center gap-1.5 hover:text-black transition-colors"
+          >
+            <i className="fa-brands fa-linkedin text-sm text-[#0A66C2]"></i>
+            <span>LINKEDIN</span>
+          </a>
+          <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-black/15 bg-black/5 text-[10px] text-emerald-800 font-bold">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
+            <span>AVAILABLE</span>
           </div>
         </div>
+      </header>
 
-        {/* SUBJECT DEPTH LAYER (Center Focal Badge / Portrait Frame) */}
-        <div className="relative z-10 -mt-6 sm:-mt-12 flex flex-col items-center">
-          <div className="relative group cursor-pointer">
-            {/* Glowing Aura Behind Avatar */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#a476ff30] to-white/20 blur-xl opacity-75 group-hover:opacity-100 transition-opacity duration-500" />
-            
-            {/* Minimalist Profile Ring (Placeholder ready for user's LinkedIn Photo) */}
-            <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full border-2 border-white/20 bg-gradient-to-b from-[#18181b] to-[#09090b] p-1.5 shadow-[0_15px_35px_rgba(0,0,0,0.9)] transition-transform duration-500 group-hover:scale-105">
-              <div className="w-full h-full rounded-full overflow-hidden bg-[#121212] flex items-center justify-center relative border border-white/10">
-                <img
-                  src="/image/ayobuatbaik.avif"
-                  alt="Raihan Hamdani"
-                  className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700 opacity-80 group-hover:opacity-100"
-                  onError={(e) => {
-                    // Fallback to stylized monogram if image not found
-                    e.currentTarget.style.display = "none";
-                  }}
-                />
-                {/* Monogram Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center font-display text-4xl sm:text-5xl text-white font-bold bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity">
-                  RH
-                </div>
-              </div>
-            </div>
+      {/* 2. HERO MONUMENTAL STAGE */}
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-8 pb-10 sm:pb-16 flex flex-col justify-between min-h-[82vh] sm:min-h-[88vh]">
+        
+        {/* Top Left Quote / Manifesto (Matching MAFIA Upper-Left Block) */}
+        <div className="relative z-10 text-left space-y-1 font-mono text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#1a1a1a] leading-snug max-w-xs">
+          <p>LOYALTY TO CLEAN CODE.</p>
+          <p>POWER IN CONCURRENCY.</p>
+          <p>SYSTEMS BUILT TO SCALE.</p>
+        </div>
 
-            {/* Floating Live Tech Stack Badge */}
-            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#0d0d0df0] backdrop-blur-md border border-white/15 px-3 py-1 rounded-full shadow-xl flex items-center gap-2 whitespace-nowrap">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00ADD8] animate-pulse" />
-              <span className="font-mono text-[10px] font-semibold text-slate-200 tracking-wide">
-                GO • LARAVEL • REACT
+        {/* GIANT CENTER TYPOGRAPHY & STANDING PROFILE CUTOUT */}
+        <div className="relative w-full my-auto flex items-center justify-center py-6 sm:py-12">
+          
+          {/* GIANT BACKDROP TEXT: R A I H A N */}
+          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex items-center justify-center select-none pointer-events-none z-10">
+            <h1 className="font-sans font-black text-[17vw] sm:text-[16vw] text-[#0A0A0A] tracking-[0.14em] sm:tracking-[0.18em] uppercase leading-none text-center whitespace-nowrap">
+              RAIHAN
+            </h1>
+          </div>
+
+          {/* STANDING CENTER FIGURE (Subject Overlapping Across Letters) */}
+          <div className="relative z-20 flex justify-center items-end h-[55vh] sm:h-[65vh] md:h-[72vh] max-h-[760px] pointer-events-none">
+            <img
+              src="/images/engineer-hero.jpg"
+              alt="Raihan Hamdani Standing Hero"
+              className="h-full w-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.35)] grayscale contrast-125 brightness-95"
+            />
+          </div>
+
+        </div>
+
+        {/* BOTTOM METADATA & CALL-TO-ACTION STRIP */}
+        <div className="relative z-20 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 pt-4 border-t border-black/10">
+          
+          {/* Left: Buttons (Solid Black Button + Text Button) */}
+          <div className="flex flex-wrap items-center gap-4">
+            <a
+              href="#projects"
+              className="px-7 py-3 bg-[#0A0A0A] text-white font-mono text-xs uppercase tracking-widest font-bold rounded-sm hover:bg-neutral-800 transition-all duration-200 shadow-md active:scale-95"
+            >
+              EXPLORE WORKS
+            </a>
+            <a
+              href="mailto:rey7dan7@gmail.com"
+              className="px-4 py-3 font-mono text-xs uppercase tracking-widest font-bold text-[#0A0A0A] hover:opacity-70 transition-opacity flex items-center gap-2 group"
+            >
+              <span>GET IN TOUCH</span>
+              <span className="text-[10px] group-hover:translate-x-1 transition-transform">▶</span>
+            </a>
+          </div>
+
+          {/* Right: Technical Identification Block */}
+          <div className="text-left sm:text-right font-mono text-xs tracking-wider text-[#1a1a1a] space-y-1">
+            <p className="font-bold text-[11px] uppercase tracking-widest text-[#0A0A0A]">
+              FULLSTACK SOFTWARE ENGINEER
+            </p>
+            <p className="text-neutral-600 text-[11px]">
+              EST. 2022 — 2026
+            </p>
+            <div className="w-10 h-[2px] bg-black sm:ml-auto mt-1" />
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* 3. NOIR TRANSITION: 4-COLUMN CAPABILITY STRIP (Exact Mafia 4-Feature Bar) */}
+      <div id="capabilities" className="w-full bg-[#0A0A0A] text-white border-t border-black">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+          
+          {/* Column 01: Go */}
+          <div className="p-7 sm:p-8 space-y-3 hover:bg-[#121212] transition-colors group">
+            <div className="flex items-center gap-2.5 text-[#00ADD8]">
+              <i className="fa-brands fa-golang text-xl"></i>
+              <span className="font-mono text-[10px] tracking-widest text-slate-400 uppercase">
+                ENGINE 01
               </span>
             </div>
-          </div>
-        </div>
-
-      </div>
-
-      {/* 3. EDITORIAL NARRATIVE & ACTION STRIP */}
-      <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pt-8 border-t border-white/[0.08]">
-        
-        {/* Core Bio Statement (100% Preserved Essence) */}
-        <div className="lg:col-span-6 space-y-3">
-          <p className="font-mono text-[11px] text-[#A476FF] uppercase tracking-wider">
-            Statement of Intent
-          </p>
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
-            Building resilient web platforms and real-time APIs with{" "}
-            <span className="text-white font-semibold underline decoration-[#A476FF]/60 underline-offset-4">Go</span>,{" "}
-            <span className="text-white font-semibold underline decoration-red-500/60 underline-offset-4">Laravel</span>, and{" "}
-            <span className="text-white font-semibold underline decoration-[#00ADD8]/60 underline-offset-4">React</span>. Focused on clean code, database optimization, and scalable production systems.
-          </p>
-        </div>
-
-        {/* CTA Buttons & Social Handles */}
-        <div className="lg:col-span-6 flex flex-col sm:flex-row sm:items-center justify-start lg:justify-end gap-4">
-          <button
-            onClick={() => handleScrollTo("projects")}
-            className="px-7 py-3.5 bg-white text-black font-bold font-mono text-xs uppercase tracking-wider rounded-xl hover:bg-slate-200 transition-all duration-300 shadow-[0_10px_25px_rgba(255,255,255,0.15)] flex items-center justify-center gap-2 cursor-pointer hover:scale-105 active:scale-95"
-          >
-            <span>Explore Selected Work</span>
-            <i className="fa-solid fa-arrow-down text-[10px]"></i>
-          </button>
-
-          <a
-            href="mailto:rey7dan7@gmail.com"
-            className="px-6 py-3.5 bg-[#141414] border border-white/20 text-white font-mono text-xs uppercase tracking-wider rounded-xl hover:border-[#a476ff] hover:bg-[#1a1a1a] transition-all duration-300 flex items-center justify-center gap-2"
-          >
-            <i className="fa-regular fa-envelope text-xs text-[#a476ff]"></i>
-            <span>Get in Touch</span>
-          </a>
-
-          {/* Social Quick Launch */}
-          <div className="flex items-center gap-2 pt-2 sm:pt-0">
+            <h3 className="font-sans font-bold text-sm tracking-wider uppercase text-white group-hover:text-[#00ADD8] transition-colors">
+              GOLANG CONCURRENCY
+            </h3>
+            <p className="text-xs text-slate-400 leading-relaxed font-normal">
+              High-throughput microservices, Gin router, native WebSockets, and clean 3-tier architecture.
+            </p>
             <a
-              href="https://github.com/reyhanhmdani"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub Profile"
-              className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 hover:border-white text-slate-300 hover:text-white flex items-center justify-center transition-all"
+              href="#projects"
+              className="font-mono text-[10px] tracking-widest text-slate-300 group-hover:text-white uppercase flex items-center gap-1.5 pt-2"
             >
-              <i className="fa-brands fa-github text-base"></i>
-            </a>
-            <a
-              href="https://linkedin.com/in/raihan-hamdani"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn Profile"
-              className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 hover:border-white text-[#0A66C2] flex items-center justify-center transition-all"
-            >
-              <i className="fa-brands fa-linkedin text-base"></i>
+              <span>EXPLORE STACK</span>
+              <span>→</span>
             </a>
           </div>
-        </div>
 
-      </div>
+          {/* Column 02: React */}
+          <div className="p-7 sm:p-8 space-y-3 hover:bg-[#121212] transition-colors group">
+            <div className="flex items-center gap-2.5 text-[#A476FF]">
+              <i className="fa-brands fa-react text-xl"></i>
+              <span className="font-mono text-[10px] tracking-widest text-slate-400 uppercase">
+                ENGINE 02
+              </span>
+            </div>
+            <h3 className="font-sans font-bold text-sm tracking-wider uppercase text-white group-hover:text-[#A476FF] transition-colors">
+              REACT 19 INTERFACES
+            </h3>
+            <p className="text-xs text-slate-400 leading-relaxed font-normal">
+              Single-page applications, Tailwind CSS, real-time client state feeds, and zero layout shift.
+            </p>
+            <a
+              href="#projects"
+              className="font-mono text-[10px] tracking-widest text-slate-300 group-hover:text-white uppercase flex items-center gap-1.5 pt-2"
+            >
+              <span>EXPLORE STACK</span>
+              <span>→</span>
+            </a>
+          </div>
 
-      {/* 4. EXECUTIVE STATS METRICS TICKER */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 mt-8 border-t border-white/[0.04] font-mono">
-        <div className="space-y-1">
-          <span className="text-2xl sm:text-3xl font-black text-white font-sans">03+</span>
-          <p className="text-[11px] text-slate-500 uppercase tracking-wider">Years Dev Experience</p>
-        </div>
-        <div className="space-y-1">
-          <span className="text-2xl sm:text-3xl font-black text-white font-sans">04+</span>
-          <p className="text-[11px] text-slate-500 uppercase tracking-wider">Production Systems</p>
-        </div>
-        <div className="space-y-1">
-          <span className="text-2xl sm:text-3xl font-black text-[#A476FF] font-sans">&lt; 15ms</span>
-          <p className="text-[11px] text-slate-500 uppercase tracking-wider">Fast API Latency</p>
-        </div>
-        <div className="space-y-1">
-          <span className="text-2xl sm:text-3xl font-black text-emerald-400 font-sans">100%</span>
-          <p className="text-[11px] text-slate-500 uppercase tracking-wider">Clean Architecture</p>
+          {/* Column 03: Laravel */}
+          <div className="p-7 sm:p-8 space-y-3 hover:bg-[#121212] transition-colors group">
+            <div className="flex items-center gap-2.5 text-[#FF2D20]">
+              <i className="fa-brands fa-laravel text-xl"></i>
+              <span className="font-mono text-[10px] tracking-widest text-slate-400 uppercase">
+                ENGINE 03
+              </span>
+            </div>
+            <h3 className="font-sans font-bold text-sm tracking-wider uppercase text-white group-hover:text-[#FF2D20] transition-colors">
+              LARAVEL ENTERPRISE
+            </h3>
+            <p className="text-xs text-slate-400 leading-relaxed font-normal">
+              Queue background workers, Midtrans payment gateway, robust RESTful APIs &amp; Swagger docs.
+            </p>
+            <a
+              href="#projects"
+              className="font-mono text-[10px] tracking-widest text-slate-300 group-hover:text-white uppercase flex items-center gap-1.5 pt-2"
+            >
+              <span>EXPLORE STACK</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          {/* Column 04: Postgres & Docker */}
+          <div className="p-7 sm:p-8 space-y-3 hover:bg-[#121212] transition-colors group">
+            <div className="flex items-center gap-2.5 text-emerald-400">
+              <i className="fa-solid fa-database text-lg"></i>
+              <span className="font-mono text-[10px] tracking-widest text-slate-400 uppercase">
+                ENGINE 04
+              </span>
+            </div>
+            <h3 className="font-sans font-bold text-sm tracking-wider uppercase text-white group-hover:text-emerald-400 transition-colors">
+              DATABASE &amp; DEVOPS
+            </h3>
+            <p className="text-xs text-slate-400 leading-relaxed font-normal">
+              PostgreSQL &amp; MySQL indexing, Docker Alpine containerization, and WhatsApp API automation.
+            </p>
+            <a
+              href="#projects"
+              className="font-mono text-[10px] tracking-widest text-slate-300 group-hover:text-white uppercase flex items-center gap-1.5 pt-2"
+            >
+              <span>EXPLORE STACK</span>
+              <span>→</span>
+            </a>
+          </div>
+
         </div>
       </div>
 
