@@ -45,9 +45,9 @@ export default function StoryManifesto() {
           </div>
         </div>
 
-        {/* Right Column: Cinematic Editorial Portrait (Exact Mafia Protagonist Photo Frame) */}
-        <div className="lg:col-span-6">
-          <div className="relative bg-[#0A0A0A] p-2.5 sm:p-3 rounded-sm border border-black/20 shadow-2xl overflow-hidden group">
+        {/* Right Column: Cinematic Editorial Portrait (Using User's Real Photo with Noir Grade) */}
+        <div className="lg:col-span-6 flex justify-center lg:justify-end">
+          <div className="relative w-full max-w-[440px] bg-[#0A0A0A] p-2.5 sm:p-3 rounded-sm border border-black/20 shadow-2xl overflow-hidden group">
             {/* Top Dossier Meta Bar */}
             <div className="flex items-center justify-between pb-2.5 px-2 border-b border-white/10 text-neutral-400 font-mono text-[10px]">
               <div className="flex items-center gap-2">
@@ -58,21 +58,22 @@ export default function StoryManifesto() {
             </div>
 
             {/* Cinematic Portrait Frame */}
-            <div className="relative aspect-[3/2] overflow-hidden rounded-sm mt-2 bg-neutral-900 border border-white/10">
+            <div className="relative aspect-[4/5] sm:aspect-[3/4] overflow-hidden rounded-sm mt-2 bg-[#0A0A0A] border border-white/10">
               <img
-                src="/images/engineer-portrait.jpg"
-                alt="Raihan Hamdani - Software Engineer"
-                className="w-full h-full object-cover object-center grayscale contrast-110 group-hover:scale-[1.02] transition-all duration-700"
+                src="/images/raihan-profile.jpg"
+                alt="Raihan Hamdani - Full-Stack Software Engineer"
+                className="w-full h-full object-cover object-[center_18%] filter grayscale contrast-125 brightness-[0.80] group-hover:brightness-95 group-hover:contrast-115 group-hover:scale-[1.02] transition-all duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
+              {/* Cinematic Noir Vignette & Bottom Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-black/20 pointer-events-none" />
               
               {/* Bottom Editorial Badge Overlay */}
-              <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between font-mono text-white">
+              <div className="absolute bottom-3.5 left-4 right-4 flex items-end justify-between font-mono text-white z-10">
                 <div>
                   <p className="text-[10px] uppercase tracking-widest text-neutral-400">Full-Stack Software Engineer</p>
                   <h4 className="font-syne font-black text-sm sm:text-base text-white uppercase tracking-tight">Raihan Hamdani</h4>
                 </div>
-                <span className="text-[10px] px-2 py-0.5 rounded-sm bg-white/15 backdrop-blur-md border border-white/20 text-neutral-200 uppercase tracking-wider">
+                <span className="text-[10px] px-2 py-0.5 rounded-sm bg-white/15 backdrop-blur-md border border-white/20 text-neutral-200 uppercase tracking-wider font-semibold">
                   Go • Laravel • React
                 </span>
               </div>
