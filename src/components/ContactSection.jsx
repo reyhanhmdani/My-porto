@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { EMAIL_URL } from "../constants/links";
 
 export default function ContactSection() {
   const [copied, setCopied] = useState(false);
@@ -29,7 +30,9 @@ export default function ContactSection() {
 
           <div className="lg:col-span-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <a
-              href="mailto:rey7dan7@gmail.com"
+              href={EMAIL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-3.5 bg-white text-black font-bold font-mono text-xs uppercase tracking-wider rounded-sm hover:bg-neutral-200 transition-all text-center flex items-center justify-center gap-2"
             >
               <span>SEND EMAIL</span>
@@ -81,7 +84,9 @@ export default function ContactSection() {
                 <i className="fa-brands fa-linkedin text-sm"></i>
               </a>
               <a
-                href="mailto:rey7dan7@gmail.com"
+                href={EMAIL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Send Email"
                 className="w-8 h-8 rounded border border-white/15 hover:border-white text-[#A476FF] flex items-center justify-center transition-colors"
               >

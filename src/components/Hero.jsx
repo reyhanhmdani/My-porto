@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { CV_URL, GITHUB_URL, LINKEDIN_URL } from "../constants/links";
+import { CV_URL, EMAIL_URL, GITHUB_URL, LINKEDIN_URL } from "../constants/links";
 
 export default function Hero() {
   const heroRef = useRef(null);
@@ -188,7 +188,9 @@ export default function Hero() {
               EXPLORE WORKS
             </a>
             <a
-              href="mailto:rey7dan7@gmail.com"
+              href={EMAIL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-4 py-3 font-mono text-xs uppercase tracking-widest font-bold text-[#0A0A0A] hover:opacity-70 transition-opacity flex items-center gap-2 group"
             >
               <span>GET IN TOUCH</span>
