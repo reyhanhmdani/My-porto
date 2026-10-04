@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { LINKEDIN_URL } from "../constants/links";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -129,9 +130,9 @@ export default function StoryManifesto() {
               EXPLORE WORKS
             </a>
             <a
-              href="https://linkedin.com/in/raihan-hamdani"
+              href={LINKEDIN_URL}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3.5 bg-transparent border border-black/30 text-[#0A0A0A] font-mono text-xs uppercase tracking-widest font-bold rounded-sm hover:bg-black/5 transition-all active:scale-95"
             >
               <i className="fa-brands fa-linkedin text-sm"></i>

@@ -1,14 +1,16 @@
-import React, { useState } from "react";
-import { EMAIL_URL } from "../constants/links";
+import { EMAIL_ADDRESS, EMAIL_URL, GITHUB_URL, LINKEDIN_URL } from "../constants/links";
+import { useCopyToClipboard } from "../hooks/useCopyToClipboard";
+
+const COPY_LABEL = { idle: "COPY EMAIL", copied: "COPIED", error: "COPY FAILED" };
+const COPY_ICON = {
+  idle: "fa-copy text-slate-400",
+  copied: "fa-check text-emerald-400",
+  error: "fa-xmark text-red-400",
+};
 
 export default function ContactSection() {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText("rey7dan7@gmail.com");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
-  };
+  const { status: copyStatus, copy } = useCopyToClipboard();
+  const handleCopyEmail = () => copy(EMAIL_ADDRESS);
 
   return (
     <footer id="contact" className="w-full bg-[#0A0A0A] text-white pt-16 pb-12 border-t border-white/10 select-none">
@@ -42,8 +44,8 @@ export default function ContactSection() {
               onClick={handleCopyEmail}
               className="px-5 py-3.5 bg-neutral-900 border border-white/15 hover:border-white text-white font-mono text-xs uppercase tracking-wider rounded-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
-              <i className={`fa-solid ${copied ? "fa-check text-emerald-400" : "fa-copy text-slate-400"} text-xs`}></i>
-              <span>{copied ? "COPIED" : "COPY EMAIL"}</span>
+              <i className={`fa-solid ${COPY_ICON[copyStatus]} text-xs`}></i>
+              <span aria-live="polite">{COPY_LABEL[copyStatus]}</span>
             </button>
           </div>
         </div>
@@ -66,7 +68,7 @@ export default function ContactSection() {
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a
-                href="https://github.com/reyhanhmdani"
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub Profile"
@@ -75,7 +77,7 @@ export default function ContactSection() {
                 <i className="fa-brands fa-github text-sm"></i>
               </a>
               <a
-                href="https://linkedin.com/in/raihan-hamdani"
+                href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn Profile"
@@ -146,15 +148,17 @@ export default function ContactSection() {
               <input
                 type="text"
                 readOnly
-                value="rey7dan7@gmail.com"
+                value={EMAIL_ADDRESS}
+                aria-label="Email address"
                 className="w-full bg-neutral-900 border border-white/15 px-2.5 py-1.5 text-[10px] text-slate-300 rounded-l-sm font-mono truncate"
               />
               <button
                 onClick={handleCopyEmail}
                 className="bg-white text-black px-2.5 py-1.5 rounded-r-sm hover:bg-neutral-300 transition-colors font-bold text-xs"
                 title="Copy Email"
+                aria-label="Copy email address"
               >
-                <i className="fa-regular fa-paper-plane text-[10px]"></i>
+                <i className={`fa-solid ${copyStatus === "idle" ? "fa-copy" : copyStatus === "copied" ? "fa-check" : "fa-xmark"} text-[10px]`}></i>
               </button>
             </div>
           </div>

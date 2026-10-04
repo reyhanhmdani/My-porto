@@ -141,6 +141,19 @@ export default function Navbar() {
               </li>
             );
           })}
+          {/* Icon-only to keep the 7-item dock within ~320px viewports */}
+          <li className="pl-1 ml-0.5 border-l border-white/15">
+            <a
+              href={CV_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download CV"
+              title="Download CV"
+              className="px-2 py-1 rounded-full text-neutral-300 hover:text-white transition-colors flex items-center"
+            >
+              <i className="fa-solid fa-file-arrow-down text-[11px]"></i>
+            </a>
+          </li>
         </ul>
       </nav>
     </>
