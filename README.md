@@ -12,7 +12,7 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon_Cloud-4169E1?style=flat-square&logo=postgresql&logoColor=white)](https://neon.tech/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
-[Live Demo](https://clinic-app-bootcamps.vercel.app) • [GitHub Profile](https://github.com/reyhanhmdani) • [LinkedIn](https://linkedin.com/in/raihan-hamdani)
+[Live Demo](https://reyclinic.vercel.app) • [GitHub Profile](https://github.com/reyhanhmdani) • [LinkedIn](https://linkedin.com/in/raihan-hamdani)
 
 </div>
 
@@ -43,36 +43,40 @@ A sleek, performance-focused personal web portfolio designed with an **Obsidian 
 
 ## 🛠️ Tech Stack & Ecosystem
 
-| Layer | Technologies |
-| :--- | :--- |
-| **Frontend Framework** | [React 19.2](https://react.dev/) + [Vite 8](https://vite.dev/) |
-| **Styling & Design** | [Tailwind CSS v4](https://tailwindcss.com/) + CSS Grid animations + Glassmorphism |
-| **Backend Expertise** | Go (Gin, GORM, Goroutines, WebSockets), Laravel 11 (Modular API, Queue Workers, Blade) |
-| **Databases & Cloud** | PostgreSQL (Neon Cloud Serverless), MySQL, Redis |
-| **Infrastructure & DevOps** | Docker Multi-Stage (Alpine Linux ~10MB binaries), Vercel |
-| **Payment & Integrations** | Midtrans Snap API (QRIS, VA, E-Wallet), Fonnte WhatsApp API |
+| Layer                       | Technologies                                                                           |
+| :-------------------------- | :------------------------------------------------------------------------------------- |
+| **Frontend Framework**      | [React 19.2](https://react.dev/) + [Vite 8](https://vite.dev/)                         |
+| **Styling & Design**        | [Tailwind CSS v4](https://tailwindcss.com/) + CSS Grid animations + Glassmorphism      |
+| **Backend Expertise**       | Go (Gin, GORM, Goroutines, WebSockets), Laravel 11 (Modular API, Queue Workers, Blade) |
+| **Databases & Cloud**       | PostgreSQL (Neon Cloud Serverless), MySQL, Redis                                       |
+| **Infrastructure & DevOps** | Docker Multi-Stage (Alpine Linux ~10MB binaries), Vercel                               |
+| **Payment & Integrations**  | Midtrans Snap API (QRIS, VA, E-Wallet), Fonnte WhatsApp API                            |
 
 ---
 
 ## 📂 Featured Case Studies
 
-### 1. [ReyClinic](https://clinic-app-bootcamps.vercel.app) — Full-Stack Healthcare Management System
-* **Stack:** Golang 1.24 (Gin), React 19, TypeScript, Goroutines WebSocket, PostgreSQL (Neon Cloud), Midtrans QRIS, Docker Alpine.
-* **Key Metric:** Single static binary with verified **10.29 MB RAM idle footprint**.
-* **Highlights:** End-to-end digital clinic system: real-time patient queue without refresh via native WebSockets, Electronic Medical Records (EMR), automated pharmacy inventory deduction, and Midtrans Snap QRIS cashier.
+### 1. [ReyClinic](https://reyclinic.vercel.app) — Full-Stack Healthcare Management System
+
+- **Stack:** Golang 1.24 (Gin), React 19, TypeScript, Goroutines WebSocket, PostgreSQL (Neon Cloud), Midtrans QRIS, Docker Alpine.
+- **Key Metric:** Single static binary with verified **10.29 MB RAM idle footprint**.
+- **Highlights:** End-to-end digital clinic system: real-time patient queue without refresh via native WebSockets, Electronic Medical Records (EMR), automated pharmacy inventory deduction, and Midtrans Snap QRIS cashier.
 
 ### 2. [ayobuatbaik.com](https://ayobuatbaik.com) — Crowdfunding & Social Impact Platform
-* **Stack:** Laravel 11, PHP 8.2+, MySQL, Blade Engine, Tailwind CSS, Midtrans, WhatsApp Fonnte API.
-* **Key Metric:** **Rp 95Jt+ Distributed** across 500+ verified donor transactions.
-* **Highlights:** Dual-surface application with comprehensive Admin CMS for campaign & financial governance plus a responsive mobile-first donation experience with automated WhatsApp notifications.
+
+- **Stack:** Laravel 11, PHP 8.2+, MySQL, Blade Engine, Tailwind CSS, Midtrans, WhatsApp Fonnte API.
+- **Key Metric:** **Rp 95Jt+ Distributed** across 500+ verified donor transactions.
+- **Highlights:** Dual-surface application with comprehensive Admin CMS for campaign & financial governance plus a responsive mobile-first donation experience with automated WhatsApp notifications.
 
 ### 3. [andreraditya.guru](https://andreraditya.guru) — Personal & Educational Media Portal
-* **Stack:** Laravel, Blade Engine, MySQL, SEO Architecture, RESTful API.
-* **Highlights:** Structured educational platform for Ust. Andre Raditya with optimized Server-Side Rendering (SSR) and search engine indexing.
+
+- **Stack:** Laravel, Blade Engine, MySQL, SEO Architecture, RESTful API.
+- **Highlights:** Structured educational platform for Ust. Andre Raditya with optimized Server-Side Rendering (SSR) and search engine indexing.
 
 ### 4. [selfa.sch.id](https://selfa.sch.id) — Institutional & School Portal
-* **Stack:** React SPA, Vite, Tailwind CSS.
-* **Highlights:** Lightweight and fast-loading portal for Sekolah Islam Selfa Klaten with digital student admission (PPDB online) workflows.
+
+- **Stack:** React SPA, Vite, Tailwind CSS.
+- **Highlights:** Lightweight and fast-loading portal for Sekolah Islam Selfa Klaten with digital student admission (PPDB online) workflows.
 
 ---
 
@@ -104,26 +108,31 @@ react_portofolio2/
 ## 💻 Local Development
 
 ### Prerequisites
+
 - [Node.js](https://nodejs.org/) (v18.0.0 or higher recommended)
 - `npm` or `pnpm`
 
 ### Installation & Run
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/reyhanhmdani/react_portofolio2.git
    cd react_portofolio2
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 3. **Start the local development server:**
+
    ```bash
    npm run dev
    ```
+
    Open `http://localhost:5173/` in your browser.
 
 4. **Build for production:**
@@ -137,6 +146,7 @@ react_portofolio2/
 ## 👤 Author
 
 **Raihan Hamdani**
+
 - **GitHub:** [@reyhanhmdani](https://github.com/reyhanhmdani)
 - **LinkedIn:** [raihan-hamdani](https://linkedin.com/in/raihan-hamdani)
 - **Email:** [rey7dan7@gmail.com](mailto:rey7dan7@gmail.com)
