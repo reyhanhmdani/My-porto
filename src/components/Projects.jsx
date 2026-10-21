@@ -131,7 +131,7 @@ export default function Projects() {
       title: "ReyClinic",
       stack: "golang",
       category: "Full-Stack Healthcare Management System",
-      url: "https://clinic-app-bootcamps.vercel.app",
+      url: "https://reyclinic.vercel.app",
       githubUrl: "https://github.com/reyhanhmdani/Clinic_APP_BOOTCAMPS",
       images: [
         "/image/clinic_admin_1.png",
