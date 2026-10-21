@@ -62,19 +62,6 @@ export default function Hero() {
         },
         "-=0.7"
       );
-
-      // 5. 4-Column Noir Capabilities Strip Stagger
-      tl.from(
-        ".capability-card",
-        {
-          y: 35,
-          opacity: 0,
-          stagger: 0.1,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        "-=0.5"
-      );
     },
     { scope: heroRef }
   );
@@ -90,8 +77,8 @@ export default function Hero() {
         {/* Left Nav Anchors */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8 font-mono text-[11px] font-bold tracking-widest uppercase text-neutral-800">
           <a href="#home" className="hover:text-black transition-colors">HOME</a>
-          <a href="#manifesto" className="hover:text-black transition-colors">PROFILE</a>
-          <a href="#capabilities" className="hover:text-black transition-colors">STACK</a>
+          <a href="#profile" className="hover:text-black transition-colors">PROFILE</a>
+          <a href="#stack" className="hover:text-black transition-colors">STACK</a>
           <a href="#projects" className="hover:text-black transition-colors">WORKS</a>
           <a href="#experience" className="hover:text-black transition-colors">CAREER</a>
         </nav>
@@ -211,105 +198,6 @@ export default function Hero() {
 
         </div>
 
-      </div>
-
-      {/* 3. NOIR TRANSITION: 4-COLUMN CAPABILITY STRIP (Exact Mafia 4-Feature Bar) */}
-      <div id="capabilities" className="w-full bg-[#0A0A0A] text-white border-t border-black">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
-          
-          {/* Column 01: Go */}
-          <div className="capability-card p-7 sm:p-8 space-y-3 hover:bg-[#121212] transition-colors group">
-            <div className="flex items-center gap-2.5 text-[#00ADD8]">
-              <i className="fa-brands fa-golang text-xl"></i>
-              <span className="font-mono text-[10px] tracking-widest text-slate-400 uppercase">
-                ENGINE 01
-              </span>
-            </div>
-            <h3 className="font-sans font-bold text-sm tracking-wider uppercase text-white group-hover:text-[#00ADD8] transition-colors">
-              GOLANG CONCURRENCY
-            </h3>
-            <p className="text-xs text-slate-400 leading-relaxed font-normal">
-              High-throughput microservices, Gin router, native WebSockets, and clean 3-tier architecture.
-            </p>
-            <a
-              href="#projects"
-              className="font-mono text-[10px] tracking-widest text-slate-300 group-hover:text-white uppercase flex items-center gap-1.5 pt-2"
-            >
-              <span>EXPLORE STACK</span>
-              <span>→</span>
-            </a>
-          </div>
-
-          {/* Column 02: React */}
-          <div className="capability-card p-7 sm:p-8 space-y-3 hover:bg-[#121212] transition-colors group">
-            <div className="flex items-center gap-2.5 text-white">
-              <i className="fa-brands fa-react text-xl"></i>
-              <span className="font-mono text-[10px] tracking-widest text-slate-400 uppercase">
-                ENGINE 02
-              </span>
-            </div>
-            <h3 className="font-sans font-bold text-sm tracking-wider uppercase text-white group-hover:text-neutral-300 transition-colors">
-              REACT 19 INTERFACES
-            </h3>
-            <p className="text-xs text-slate-400 leading-relaxed font-normal">
-              Single-page applications, Tailwind CSS, real-time client state feeds, and zero layout shift.
-            </p>
-            <a
-              href="#projects"
-              className="font-mono text-[10px] tracking-widest text-slate-300 group-hover:text-white uppercase flex items-center gap-1.5 pt-2"
-            >
-              <span>EXPLORE STACK</span>
-              <span>→</span>
-            </a>
-          </div>
-
-          {/* Column 03: Laravel */}
-          <div className="capability-card p-7 sm:p-8 space-y-3 hover:bg-[#121212] transition-colors group">
-            <div className="flex items-center gap-2.5 text-[#FF2D20]">
-              <i className="fa-brands fa-laravel text-xl"></i>
-              <span className="font-mono text-[10px] tracking-widest text-slate-400 uppercase">
-                ENGINE 03
-              </span>
-            </div>
-            <h3 className="font-sans font-bold text-sm tracking-wider uppercase text-white group-hover:text-[#FF2D20] transition-colors">
-              LARAVEL ENTERPRISE
-            </h3>
-            <p className="text-xs text-slate-400 leading-relaxed font-normal">
-              Queue background workers, Midtrans payment gateway, robust RESTful APIs &amp; Swagger docs.
-            </p>
-            <a
-              href="#projects"
-              className="font-mono text-[10px] tracking-widest text-slate-300 group-hover:text-white uppercase flex items-center gap-1.5 pt-2"
-            >
-              <span>EXPLORE STACK</span>
-              <span>→</span>
-            </a>
-          </div>
-
-          {/* Column 04: Postgres & Docker */}
-          <div className="capability-card p-7 sm:p-8 space-y-3 hover:bg-[#121212] transition-colors group">
-            <div className="flex items-center gap-2.5 text-emerald-400">
-              <i className="fa-solid fa-database text-lg"></i>
-              <span className="font-mono text-[10px] tracking-widest text-slate-400 uppercase">
-                ENGINE 04
-              </span>
-            </div>
-            <h3 className="font-sans font-bold text-sm tracking-wider uppercase text-white group-hover:text-emerald-400 transition-colors">
-              DATABASE &amp; DEVOPS
-            </h3>
-            <p className="text-xs text-slate-400 leading-relaxed font-normal">
-              PostgreSQL &amp; MySQL indexing, Docker Alpine containerization, and WhatsApp API automation.
-            </p>
-            <a
-              href="#projects"
-              className="font-mono text-[10px] tracking-widest text-slate-300 group-hover:text-white uppercase flex items-center gap-1.5 pt-2"
-            >
-              <span>EXPLORE STACK</span>
-              <span>→</span>
-            </a>
-          </div>
-
-        </div>
       </div>
 
     </section>

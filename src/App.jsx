@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import StoryManifesto from "./components/StoryManifesto";
+import CapabilitiesStrip from "./components/CapabilitiesStrip";
 import TechnicalStandards from "./components/TechnicalStandards";
 import LogoWall from "./components/LogoWall";
 import Projects from "./components/Projects";
@@ -41,16 +42,19 @@ export default function App() {
       <Navbar />
 
       {/* 2. MONUMENTAL HERO SECTION (Exact Mafia 1:1 Layout & Colors) */}
-      {/* Contains Ivory Stage + Flush Editorial Top Bar + Wide Typography + Standing Cutout + 4-Column Noir Capabilities Strip */}
+      {/* Contains Ivory Stage + Flush Editorial Top Bar + Wide Typography + Standing Cutout */}
       <Hero />
 
-      {/* 3. THE MANIFESTO SECTION (Exact Mafia "THE STORY" 1:1 Layout) */}
+      {/* 3. THE PROFILE & MANIFESTO SECTION (Exact Mafia "THE STORY" 1:1 Layout - Ivory) */}
       <StoryManifesto />
 
-      {/* 4. TECHNICAL ASSURANCE STRIP (Exact Mafia 5-Item Horizontal Utility Bar) */}
+      {/* 4. TECHNICAL ASSURANCE STRIP (5-Item Horizontal Utility Bar - Ivory Footer for Profile) */}
       <TechnicalStandards />
 
-      {/* 5. DEEP NOIR TECHNICAL PORTFOLIO STAGE */}
+      {/* 5. NOIR 4-COLUMN CAPABILITIES STRIP (Go, React, Laravel, Postgres & DevOps - Entrance to Noir Stage) */}
+      <CapabilitiesStrip />
+
+      {/* 6. DEEP NOIR TECHNICAL PORTFOLIO STAGE */}
       <main className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex flex-col gap-24 sm:gap-32 pt-16 pb-12">
         
         {/* Continuous Tech Stack Marquee Ticker */}

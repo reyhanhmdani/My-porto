@@ -20,7 +20,7 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end border-b border-white/10 pb-12">
           <div className="lg:col-span-8 space-y-3">
             <span className="font-mono text-xs text-[#A476FF] uppercase tracking-[0.25em]">
-              [05] INITIATE CONTACT
+              [06] INITIATE CONTACT
             </span>
             <h2 className="font-sans font-black text-3xl sm:text-5xl lg:text-6xl tracking-tighter uppercase text-white leading-none">
               LET'S BUILD SOMETHING EXTRAORDINARY.
@@ -116,10 +116,10 @@ export default function ContactSection() {
               DISCIPLINES
             </h4>
             <ul className="space-y-2 text-neutral-400 text-[11px]">
-              <li><a href="#capabilities" className="hover:text-white transition-colors">Go &amp; Gin Engine</a></li>
-              <li><a href="#capabilities" className="hover:text-white transition-colors">React 19 SPAs</a></li>
-              <li><a href="#capabilities" className="hover:text-white transition-colors">Laravel 11 APIs</a></li>
-              <li><a href="#capabilities" className="hover:text-white transition-colors">Postgres &amp; Docker</a></li>
+              <li><a href="#stack" className="hover:text-white transition-colors">Go &amp; Gin Engine</a></li>
+              <li><a href="#stack" className="hover:text-white transition-colors">React 19 SPAs</a></li>
+              <li><a href="#stack" className="hover:text-white transition-colors">Laravel 11 APIs</a></li>
+              <li><a href="#stack" className="hover:text-white transition-colors">Postgres &amp; Docker</a></li>
             </ul>
           </div>
 

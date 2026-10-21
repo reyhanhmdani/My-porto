@@ -7,8 +7,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const NAV_ITEMS = [
   { label: "Home", shortLabel: "Home", href: "#home", id: "home" },
-  { label: "Profile", shortLabel: "About", href: "#manifesto", id: "manifesto" },
-  { label: "Stack", shortLabel: "Stack", href: "#capabilities", id: "capabilities" },
+  { label: "Profile", shortLabel: "Profile", href: "#profile", id: "profile" },
+  { label: "Stack", shortLabel: "Stack", href: "#stack", id: "stack" },
   { label: "Works", shortLabel: "Works", href: "#projects", id: "projects" },
   { label: "Career", shortLabel: "Career", href: "#experience", id: "experience" },
   { label: "Contact", shortLabel: "Contact", href: "#contact", id: "contact" },
@@ -20,17 +20,35 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Only show floating navbar when scrolled past the initial hero viewport
-      setShowFloatingNav(window.scrollY > 380);
+      // Show floating navbar when scrolled past the top hero banner
+      setShowFloatingNav(window.scrollY > 320);
 
-      const scrollPosition = window.scrollY + 280;
-      const sections = ["contact", "experience", "projects", "capabilities", "manifesto", "home"];
+      // Top of page boundary
+      if (window.scrollY < 120) {
+        setActiveSection("home");
+        return;
+      }
+
+      // Bottom of page boundary: force contact
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+      if (windowHeight + window.scrollY >= docHeight - 60) {
+        setActiveSection("contact");
+        return;
+      }
+
+      // Accurate viewport bounding rect scroll spy
+      const triggerY = windowHeight * 0.38;
+      const sections = ["contact", "experience", "projects", "stack", "profile", "home"];
 
       for (const sec of sections) {
         const el = document.getElementById(sec);
-        if (el && scrollPosition >= el.offsetTop) {
-          setActiveSection(sec);
-          break;
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= triggerY) {
+            setActiveSection(sec);
+            break;
+          }
         }
       }
     };
@@ -46,13 +64,19 @@ export default function Navbar() {
     const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      if (targetId === "home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        // Consistent scroll offset buffer
+        window.scrollTo({ top: elementPosition - 20, behavior: "smooth" });
+      }
       setTimeout(() => {
         ScrollTrigger.refresh();
-      }, 100);
+      }, 150);
       setTimeout(() => {
         ScrollTrigger.refresh();
-      }, 400);
+      }, 500);
     }
   };
 
@@ -120,13 +144,13 @@ export default function Navbar() {
           showFloatingNav
             ? "translate-y-0 opacity-100 pointer-events-auto"
             : "translate-y-12 opacity-0 pointer-events-none"
-        } bg-[#0c0c0cf2] backdrop-blur-2xl border border-white/15 py-1.5 px-2 rounded-full shadow-[0_12px_32px_rgba(0,0,0,0.95)] max-w-[94vw] w-fit`}
+        } bg-[#0c0c0cf2] backdrop-blur-2xl border border-white/15 py-1 px-1.5 rounded-full shadow-[0_12px_32px_rgba(0,0,0,0.95)] max-w-[96vw] w-fit`}
       >
-        <ul className="flex items-center gap-0.5 sm:gap-1 font-mono text-[9px] sm:text-[10px]">
+        <ul className="flex items-center gap-0.5 font-mono text-[9px] sm:text-[10px] overflow-x-auto no-scrollbar whitespace-nowrap px-0.5">
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.id;
             return (
-              <li key={item.id}>
+              <li key={item.id} className="shrink-0">
                 <a
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
@@ -141,15 +165,15 @@ export default function Navbar() {
               </li>
             );
           })}
-          {/* Icon-only to keep the 7-item dock within ~320px viewports */}
-          <li className="pl-1 ml-0.5 border-l border-white/15">
+          {/* Icon-only CV button to keep compact */}
+          <li className="pl-1 ml-0.5 border-l border-white/15 shrink-0">
             <a
               href={CV_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Download CV"
               title="Download CV"
-              className="px-2 py-1 rounded-full text-neutral-300 hover:text-white transition-colors flex items-center"
+              className="px-1.5 py-1 rounded-full text-neutral-300 hover:text-white transition-colors flex items-center"
             >
               <i className="fa-solid fa-file-arrow-down text-[11px]"></i>
             </a>

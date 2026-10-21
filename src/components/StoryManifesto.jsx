@@ -90,7 +90,7 @@ export default function StoryManifesto() {
   return (
     <section
       ref={sectionRef}
-      id="manifesto"
+      id="profile"
       className="w-full bg-[#EAE7E1] text-[#0A0A0A] py-16 sm:py-24 border-b border-black/10 select-none overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
